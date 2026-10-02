@@ -41,7 +41,7 @@ const y = document.getElementById("year"); if (y) y.textContent = new Date().get
   const msgs = [
     "Salam! Got a product link from China? Send it here and you'll have a delivered price in rupees within 24 hours.",
     "Customs, taxes and shipping are all inside the price we send. Nothing extra to pay at your door.",
-    "We open and test every item in China and send you photos before it ships. Wrong item? It goes back, not to you.",
+    "We only buy from rated sellers on Alibaba, 1688 and Taobao, and you never deal with Chinese payments yourself.",
     "Urdu ya English, jo aasan ho. One item per order, delivered anywhere in Pakistan in 7–15 days."
   ];
 
