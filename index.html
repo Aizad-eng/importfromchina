@@ -201,6 +201,30 @@
   .proj p{font-size:14px;color:var(--ink-2);margin-top:8px}
   .proj .meta{display:flex;gap:14px;margin-top:14px;font-size:12.5px;color:var(--ink-3);font-weight:500}
 
+  /* Real order */
+  .real{background:var(--bg-2)}
+  .realgrid{display:grid;grid-template-columns:repeat(3,1fr) 1.15fr;gap:16px;margin-top:44px;align-items:stretch}
+  .shot{margin:0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .2s}
+  .shot:hover{transform:translateY(-4px)}
+  .shot a{display:block;aspect-ratio:3/4;overflow:hidden;background:#eee}
+  .shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+  .shot:hover img{transform:scale(1.03)}
+  .shot figcaption{padding:12px 14px 14px;font-size:13.5px;color:var(--ink-2);line-height:1.4}
+  .shot figcaption b{display:block;font-family:Sora,sans-serif;font-size:13px;color:var(--green);margin-bottom:2px}
+  .realinfo{background:var(--ink);color:#fff;border-radius:var(--radius);padding:26px 24px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
+  .realinfo::before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(15,107,58,.6),transparent 65%);bottom:-120px;right:-80px}
+  .realinfo>*{position:relative}
+  .realinfo .tag{background:rgba(255,255,255,.12);color:var(--gold);align-self:flex-start}
+  .realinfo h3{font-size:20px;line-height:1.2}
+  .realinfo p{font-size:14px;color:rgba(255,255,255,.78)}
+  .realinfo ul{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:8px}
+  .realinfo li{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:8px}
+  .realinfo li span{color:rgba(255,255,255,.6)}.realinfo li b{text-align:right}
+  .realinfo li b.no{color:#ff8da1}
+  .realinfo .btn{margin-top:auto;justify-content:center}
+  @media (max-width:1000px){.realgrid{grid-template-columns:repeat(3,1fr)}.realinfo{grid-column:1/-1}}
+  @media (max-width:700px){.realgrid{grid-template-columns:1fr 1fr}.shot:last-of-type{grid-column:1/-1}.shot:last-of-type a{aspect-ratio:4/3}}
+
   /* Why */
   .why{background:var(--ink);color:#fff;position:relative;overflow:hidden}
   .why::before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(200,16,46,.45),transparent 65%);top:-250px;right:-150px}
@@ -426,18 +450,30 @@
     </div>
   </section>
 
-  <!-- RECENT -->
-  <section id="projects" class="fit">
+  <!-- REAL ORDER -->
+  <section id="projects" class="real">
     <div class="wrap">
       <div class="head reveal">
-        <span class="eyebrow green">Recent Orders</span>
-        <h2>One item each. Delivered.</h2>
-        <p class="sub">A few recent single-item orders, exactly as they happened.</p>
+        <span class="eyebrow green">Real Order, Real Photos</span>
+        <h2>This is what "checked before it ships" looks like</h2>
+        <p class="sub">A recent single-item order, photographed by us at each step. No stock images.</p>
       </div>
-      <div class="grid3">
-        <article class="proj reveal"><div class="cover p1"><span class="one">1 item</span>🎧</div><div class="body"><span class="tag">Electronics</span><h3>Wireless earbuds</h3><p>One pair from a Shenzhen seller. Tested before shipping, delivered to Lahore in 12 days.</p><div class="meta"><span>📍 Lahore</span><span>⏱ 12 days</span></div></div></article>
-        <article class="proj reveal"><div class="cover p2"><span class="one">1 item</span>🧴</div><div class="body"><span class="tag">Beauty</span><h3>Facial massager kit</h3><p>One kit for a buyer in Islamabad. Photos sent for approval before it left China.</p><div class="meta"><span>📍 Islamabad</span><span>⏱ 10 days</span></div></div></article>
-        <article class="proj reveal"><div class="cover p3"><span class="one">1 item</span>🔩</div><div class="body"><span class="tag">Parts</span><h3>Replacement machine part</h3><p>One hard-to-find CNC part for a Karachi workshop when no local supplier had it.</p><div class="meta"><span>📍 Karachi</span><span>⏱ 14 days</span></div></div></article>
+      <div class="realgrid">
+        <figure class="shot reveal"><a href="/assets/orders/headset-1-packed.jpg" target="_blank" rel="noopener"><img src="/assets/orders/headset-1-packed-640.jpg" srcset="/assets/orders/headset-1-packed-640.jpg 640w, /assets/orders/headset-1-packed.jpg 1200w" sizes="(max-width:700px) 90vw, 30vw" alt="Audiometric headset bubble-wrapped inside its shipping box" loading="lazy" width="900" height="1200"></a><figcaption><b>1 · Arrived</b>Bubble-wrapped, boxed, nothing loose.</figcaption></figure>
+        <figure class="shot reveal"><a href="/assets/orders/headset-2-unboxed.jpg" target="_blank" rel="noopener"><img src="/assets/orders/headset-2-unboxed-640.jpg" srcset="/assets/orders/headset-2-unboxed-640.jpg 640w, /assets/orders/headset-2-unboxed.jpg 1200w" sizes="(max-width:700px) 90vw, 30vw" alt="Audiometric headset unboxed with red and blue plugs and cable" loading="lazy" width="900" height="1200"></a><figcaption><b>2 · Opened</b>Right model, both plugs, full cable.</figcaption></figure>
+        <figure class="shot reveal"><a href="/assets/orders/headset-3-tested.jpg" target="_blank" rel="noopener"><img src="/assets/orders/headset-3-tested-640.jpg" srcset="/assets/orders/headset-3-tested-640.jpg 640w, /assets/orders/headset-3-tested.jpg 1200w" sizes="(max-width:700px) 90vw, 30vw" alt="Audiometric headset held in hand after inspection" loading="lazy" width="900" height="1200"></a><figcaption><b>3 · Checked</b>Handled, inspected, ready to go.</figcaption></figure>
+        <div class="realinfo reveal">
+          <span class="tag">Medical / Audiology</span>
+          <h3>Audiometric headset, TDH39 / DD45 type</h3>
+          <p>A specialist hearing-test headset that no shop in Pakistan stocks. Found on Alibaba from a verified supplier with 6 years on the platform and a 5 out of 5 store rating, bought as a single piece, and checked by hand before delivery.</p>
+          <ul>
+            <li><span>Quantity</span><b>1 piece</b></li>
+            <li><span>Source</span><b>Alibaba, verified supplier</b></li>
+            <li><span>Condition on arrival</span><b>Complete, undamaged</b></li>
+            <li><span>Bulk?</span><b class="no">No. One item.</b></li>
+          </ul>
+          <a class="btn btn-wa wa-link" href="#" target="_blank" rel="noopener">Get yours priced</a>
+        </div>
       </div>
     </div>
   </section>
