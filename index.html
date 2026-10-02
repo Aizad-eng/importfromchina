@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"importfromchina.shop","url":"https://importfromchina.shop/","logo":"https://importfromchina.shop/assets/logo-mark-512.png","image":"https://importfromchina.shop/assets/og-image.png","description":"Single-item sourcing and delivery from China to Pakistan. We buy one item from Alibaba, 1688 or Taobao, ship it, clear customs and deliver it to your door. No bulk, no minimum order.","areaServed":{"@type":"Country","name":"Pakistan"},"knowsLanguage":["en","ur"],"contactPoint":{"@type":"ContactPoint","contactType":"sales","availableLanguage":["English","Urdu"]}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Single-item import from China to Pakistan","provider":{"@type":"Organization","name":"importfromchina.shop","url":"https://importfromchina.shop/"},"areaServed":{"@type":"Country","name":"Pakistan"},"serviceType":"Personal shopper and door-to-door import from China","description":"Send one product link. We buy it, ship it by air, clear Pakistan customs and deliver to your address in 7 to 15 days. Single items only, no bulk or wholesale."}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I order just one item?","acceptedAnswer":{"@type":"Answer","text":"Yes. One item is all we do. There is no minimum quantity. Send one product link and we bring that one item to your door."}},{"@type":"Question","name":"Do you do bulk or wholesale orders?","acceptedAnswer":{"@type":"Answer","text":"No. We do not handle bulk, wholesale or resale stock. We are a single-item service for people who want one specific product from China."}},{"@type":"Question","name":"Do I need an Alibaba account?","acceptedAnswer":{"@type":"Answer","text":"No. You never deal with the Chinese platform or the seller. Send the link, a photo or a description on WhatsApp and we handle everything."}},{"@type":"Question","name":"How long does delivery take?","acceptedAnswer":{"@type":"Answer","text":"7 to 15 days by air, door to door, including customs clearance. Supplier dispatch time in China is extra and we tell you upfront."}},{"@type":"Question","name":"Is customs duty included in the price?","acceptedAnswer":{"@type":"Answer","text":"Yes. We quote one landed price that includes the item, shipping, Pakistan customs duty and taxes, and our fee. You pay nothing on delivery."}},{"@type":"Question","name":"Which cities do you deliver to?","acceptedAnswer":{"@type":"Answer","text":"Anywhere in Pakistan, including Lahore, Karachi, Islamabad, Rawalpindi, Peshawar, Faisalabad, Multan, Quetta and smaller towns."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I order just one item?","acceptedAnswer":{"@type":"Answer","text":"Yes. One item is all we do. There is no minimum quantity. Send one product link and we bring that one item to your door."}},{"@type":"Question","name":"Do you do bulk or wholesale orders?","acceptedAnswer":{"@type":"Answer","text":"No. We do not handle bulk, wholesale or resale stock. We are a single-item service for people who want one specific product from China."}},{"@type":"Question","name":"Do I need an Alibaba account?","acceptedAnswer":{"@type":"Answer","text":"No. You never deal with the Chinese platform or the seller. Send the link, a photo or a description on WhatsApp and we handle everything."}},{"@type":"Question","name":"How long does delivery take?","acceptedAnswer":{"@type":"Answer","text":"7 to 15 days by air, door to door, including customs clearance. Supplier dispatch time in China is extra and we tell you upfront."}},{"@type":"Question","name":"Is customs duty included in the price?","acceptedAnswer":{"@type":"Answer","text":"Yes. You get one price in rupees that covers the item, shipping, Pakistan customs and our fee, which we state upfront. You pay it once before the item ships and nothing on delivery."}},{"@type":"Question","name":"Which cities do you deliver to?","acceptedAnswer":{"@type":"Answer","text":"Anywhere in Pakistan, including Lahore, Karachi, Islamabad, Rawalpindi, Peshawar, Faisalabad, Multan, Quetta and smaller towns."}}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@500&display=swap" rel="stylesheet">
@@ -111,7 +111,9 @@
   .msg.quote{background:#fff;border:1px solid #d6efdc;min-width:78%}
   .msg.quote .row{display:flex;justify-content:space-between;gap:12px;padding:4px 0;border-bottom:1px dashed #e3e6ea;font-size:13px}
   .msg.quote .row b{color:var(--green);font-family:Sora,sans-serif}
-  .msg.quote .total{display:flex;justify-content:space-between;margin-top:6px;padding-top:8px;border-top:2px solid var(--green);font-family:Sora,sans-serif;font-weight:800;font-size:15px;color:var(--ink)}
+  .msg.quote .total{display:flex;justify-content:space-between;gap:10px;align-items:baseline;font-family:Sora,sans-serif;font-weight:800;font-size:15px;color:var(--ink)}
+  .msg.quote .total span:last-child{font-size:20px;color:var(--green);white-space:nowrap}
+  .msg.quote .note{margin-top:6px;font-size:12.5px;color:var(--ink-2);border-top:1px dashed #e3e6ea;padding-top:6px}
   .msg .photo{display:flex;gap:6px;margin-top:6px}
   .msg .photo span{flex:1;aspect-ratio:1;border-radius:8px;background:linear-gradient(135deg,#d7dde8,#f0f2f6);display:grid;place-items:center;font-size:20px}
   .phone .float{position:absolute;right:-14px;bottom:64px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 14px;box-shadow:var(--shadow);font-size:13px;display:flex;gap:10px;align-items:center;animation:bob 6s ease-in-out infinite}
@@ -328,9 +330,9 @@
           <a class="btn btn-ghost" href="#how">How it works ↓</a>
         </div>
         <div class="stats">
-          <div class="stat"><b>1</b><small>Item per order. That's it.</small></div>
+          <div class="stat"><b>1</b><small>Item per order</small></div>
           <div class="stat"><b>7–15</b><small>Days to your door</small></div>
-          <div class="stat"><b>24h</b><small>To get your price</small></div>
+          <div class="stat"><b>1</b><small>Price. Paid once. Nothing after.</small></div>
         </div>
       </div>
 
@@ -341,11 +343,8 @@
             <div class="msg me">Bhai, can you get me this?<br><span class="link">1688.com/offer/7129…html</span><span class="t">10:42</span></div>
             <div class="msg them">Yes, we can. One piece, black, 2 USB-C ports? Give me a few hours for the full price.<span class="t">10:44</span></div>
             <div class="msg them quote">
-              <div class="row"><span>Item</span><b>Rs 2,900</b></div>
-              <div class="row"><span>Air shipping</span><b>Rs 1,450</b></div>
-              <div class="row"><span>Customs &amp; taxes</span><b>Rs 980</b></div>
-              <div class="row"><span>Our fee</span><b>Rs 520</b></div>
-              <div class="total"><span>Delivered, Lahore</span><span>Rs 5,850</span></div>
+              <div class="total"><span>Your price, delivered to Lahore</span><span>Rs 5,850</span></div>
+              <div class="note">That's the whole thing, our fee included. You pay this once, before it ships. Nothing at the door.</div>
               <span class="t">14:10</span>
             </div>
             <div class="msg me">Done, go ahead 👍<span class="t">14:12</span></div>
@@ -367,8 +366,8 @@
       </div>
       <div class="steps">
         <div class="step reveal"><span class="n">1</span><div class="ic">💬</div><h3>Send us the item</h3><p>Paste the product link from Alibaba, 1688, Taobao, AliExpress or any Chinese site. Add the colour or size if it has options. Urdu or English, whatever you like.</p></div>
-        <div class="step reveal"><span class="n">2</span><div class="ic">🧾</div><h3>Get one landed price</h3><p>Within 24 hours you get the full cost: item, shipping, Pakistan customs and our fee, in rupees. Say yes or no.</p></div>
-        <div class="step reveal"><span class="n">3</span><div class="ic">🛒</div><h3>We buy it and ship it</h3><p>We pay the seller, so you never deal with Chinese platforms or payments. Then it's booked on air freight to Pakistan and we keep you posted on WhatsApp.</p></div>
+        <div class="step reveal"><span class="n">2</span><div class="ic">🧾</div><h3>Get one price</h3><p>Within 24 hours you get one number in rupees. That is the whole price, our fee included and told to you upfront. Say yes or no.</p></div>
+        <div class="step reveal"><span class="n">3</span><div class="ic">🛒</div><h3>Pay once, we buy and ship</h3><p>You pay that one amount before it ships. We pay the seller, book air freight to Pakistan and keep you posted on WhatsApp. No second payment, ever.</p></div>
         <div class="step reveal"><span class="n">4</span><div class="ic">🏠</div><h3>It lands at your door</h3><p>Air freight, customs cleared, delivered to any address in Pakistan in 7–15 days. Nothing more to pay.</p></div>
       </div>
     </div>
@@ -381,7 +380,7 @@
         <div class="side reveal">
           <span class="eyebrow green">Get a Price</span>
           <h2>Tell us what you want. We'll price it.</h2>
-          <p class="sub">Fill this in and we'll message you on WhatsApp within 24 hours with one delivered price in rupees. No account, no commitment.</p>
+          <p class="sub">Fill this in and we'll message you on WhatsApp within 24 hours with one price in rupees. Our fee is in it and stated upfront. No account, no commitment.</p>
           <ul>
             <li><span class="ic">🔗</span><span><b>Paste the product link.</b> Alibaba, 1688, Taobao, AliExpress, Temu, any Chinese site. The link is the one thing we need.</span></li>
             <li><span class="ic">📸</span><span>Attach a screenshot or photo if you have one.</span></li>
@@ -487,7 +486,7 @@
         <p class="sub">Big forwarders want containers. We want the person who just needs one thing done properly.</p>
       </div>
       <div class="whys">
-        <div class="w reveal"><div class="ic">🧾</div><h3>One price, nothing hidden</h3><p>The rupee figure we send is what you pay. Item, shipping, duty, taxes and our fee are all inside it. No "customs charges" on delivery.</p></div>
+        <div class="w reveal"><div class="ic">🧾</div><h3>One price. No breakdown games.</h3><p>We don't send you a product price, then a shipping price, then a customs price. You get one number, paid once before shipping. Our fee is in it and you know it before you say yes.</p></div>
         <div class="w reveal"><div class="ic">🛡️</div><h3>Rated sellers only</h3><p>We buy from suppliers with real trade history and ratings on Alibaba, 1688 or Taobao, not random shops. You get the exact listing you sent.</p></div>
         <div class="w reveal"><div class="ic">🗣️</div><h3>Urdu + English, on WhatsApp</h3><p>No forms, no portals, no email tickets. One chat from first message to delivery, in the language you're comfortable in.</p></div>
         <div class="w reveal"><div class="ic">🚚</div><h3>Door-to-door, anywhere in Pakistan</h3><p>Lahore, Karachi, Islamabad, Peshawar, Quetta, Multan, or a small town. If a courier reaches it, so do we.</p></div>
@@ -505,9 +504,9 @@
       <div class="list reveal">
         <details class="red"><summary>Do you do bulk or wholesale orders?</summary><p>No. We don't handle bulk, wholesale, OEM or resale stock of any size. We are a single-item service for people who want one specific product from China. If you need quantity, a trading company or freight forwarder is the right fit.</p></details>
         <details><summary>Can I really order just one item?</summary><p>Yes, that's the whole point. One item is the normal order. If you want two or three different single items, that's fine too; they ship together.</p></details>
-        <details><summary>How much does it cost?</summary><p>It depends on the item's price, weight and customs rate. You get one landed price in rupees within 24 hours before you commit to anything. If it's not worth it, just say no. No charge for a quote.</p></details>
+        <details><summary>How much does it cost?</summary><p>Depends on the item. You get one number in rupees within 24 hours. That number is everything: the item, shipping, customs and our fee. We tell you our fee upfront. If the price isn't worth it, just say no. Quotes are free.</p></details>
         <details><summary>How long does it take?</summary><p>7 to 15 days by air from the day the seller hands it over, including Pakistan customs. If the seller needs a few days to dispatch, we tell you before you pay.</p></details>
-        <details><summary>How do I pay?</summary><p>Bank transfer, Raast, JazzCash or Easypaisa, in rupees, after you approve the price. You never pay the Chinese seller or any Chinese platform.</p></details>
+        <details><summary>When and how do I pay?</summary><p>Once, before the item ships, by bank transfer, Raast, JazzCash or Easypaisa in rupees. That single payment is the full price. There is nothing to pay on delivery and nothing added later.</p></details>
         <details><summary>What can't you bring?</summary><p>Anything illegal or restricted in Pakistan, counterfeit branded goods, weapons, most liquids and aerosols, and some lithium-battery items by air. If you're not sure, send the link and we'll tell you straight.</p></details>
         <details><summary>What if the item arrives faulty or wrong?</summary><p>Message us the same day with a photo of what you received. We take it up with the seller on your behalf and work out a replacement or refund with you.</p></details>
       </div>
@@ -520,12 +519,12 @@
       <div class="box reveal">
         <h2>Got the link? Send it.</h2>
         <p class="urdu">واٹس ایپ پر لنک بھیجیں، 24 گھنٹوں میں قیمت پائیں</p>
-        <p class="sub">Paste the product link or a photo on WhatsApp. You'll have the full delivered price in rupees within 24 hours.</p>
+        <p class="sub">Paste the product link on WhatsApp. Within 24 hours you'll have one price in rupees. Pay it once before shipping and that's it.</p>
         <a class="btn btn-wa wa-link" href="#" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2z"/></svg>
           WhatsApp us the link
         </a>
-        <div class="trust"><span class="no">No bulk orders</span><span>One item per order</span><span>Price in 24 hours</span><span>Pay only after you approve</span></div>
+        <div class="trust"><span class="no">No bulk orders</span><span>One item per order</span><span>One price in 24 hours</span><span>Pay once, before shipping</span></div>
       </div>
     </div>
   </section>
