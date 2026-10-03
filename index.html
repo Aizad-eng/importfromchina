@@ -128,6 +128,50 @@
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
   @media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero{padding:48px 0 56px}.phone{margin-top:8px}.phone .float{right:6px}}
 
+  /* Marquee */
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff;overflow:hidden;padding:16px 0;position:relative}
+  .marquee::before,.marquee::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+  .marquee::before{left:0;background:linear-gradient(90deg,#fff,transparent)}.marquee::after{right:0;background:linear-gradient(-90deg,#fff,transparent)}
+  .marquee .track{display:flex;gap:48px;width:max-content;animation:mq 38s linear infinite}
+  .marquee:hover .track{animation-play-state:paused}
+  .marquee span{display:flex;align-items:center;gap:48px;font-family:Sora,sans-serif;font-weight:700;font-size:15px;letter-spacing:.02em;color:var(--ink-3);white-space:nowrap}
+  .marquee span i{width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block}
+  .marquee b{color:var(--ink)}
+  @keyframes mq{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.marquee .track{animation:none}}
+
+  /* Pinned how-it-works */
+  .how .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+  .how .pin{position:sticky;top:110px}
+  .how .count{font-family:Sora,sans-serif;font-weight:800;font-size:96px;line-height:1;letter-spacing:-.04em;color:var(--line);margin-top:26px;transition:color .3s}
+  .how .count b{color:var(--ink)}
+  .how .count small{font-size:28px;color:var(--ink-3);letter-spacing:0}
+  .how .steps{display:grid;grid-template-columns:1fr;gap:18px;margin-top:0}
+  .how .step{min-height:0;padding:30px 28px;opacity:.38;transform:scale(.97);transition:opacity .5s,transform .5s,box-shadow .3s}
+  .how .step.active{opacity:1;transform:none;box-shadow:var(--shadow-lg)}
+  .how .step h3{font-size:22px}.how .step p{font-size:15.5px}
+  .how .step .n{top:-14px}
+  @media (max-width:900px){.how .wrap{grid-template-columns:1fr;gap:28px}.how .pin{position:static}.how .count{display:none}.how .step{opacity:1;transform:none}}
+
+  /* Bento why */
+  .bento{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+  .bento .w{margin:0;position:relative;overflow:hidden}
+  .bento .w.big{grid-column:span 2}
+  .bento .w .idx{position:absolute;right:18px;top:12px;font-family:Sora,sans-serif;font-weight:800;font-size:56px;line-height:1;color:rgba(255,255,255,.06);letter-spacing:-.04em}
+  .bento .w.stat{display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(160deg,rgba(200,16,46,.35),rgba(255,255,255,.04))}
+  .bento .w.stat.g{background:linear-gradient(160deg,rgba(15,107,58,.5),rgba(255,255,255,.04))}
+  .bento .w.stat b{font-family:Sora,sans-serif;font-size:48px;font-weight:800;letter-spacing:-.04em;line-height:1}
+  .bento .w.stat small{color:rgba(255,255,255,.7);font-size:14px;margin-top:8px}
+  @media (max-width:900px){.bento{grid-template-columns:1fr 1fr}.bento .w.big{grid-column:span 2}}
+  @media (max-width:560px){.bento{grid-template-columns:1fr}.bento .w.big{grid-column:auto}}
+
+  /* Footer */
+  footer{padding:56px 0 28px;border-top:0;background:var(--ink);color:rgba(255,255,255,.6);position:relative;overflow:hidden}
+  footer .brand{color:#fff}
+  footer .links{color:rgba(255,255,255,.7)}footer .links a:hover{color:#fff}
+  footer .copy{margin-top:22px;font-size:13px}
+  footer .giant{font-family:Sora,sans-serif;font-weight:800;font-size:clamp(48px,11vw,150px);letter-spacing:-.05em;line-height:.9;color:rgba(255,255,255,.05);margin:36px 0 -10px;white-space:nowrap;pointer-events:none;user-select:none}
+
   /* Route globe */
   .route{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding:0}
   .route .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:32px;align-items:center;min-height:560px}
@@ -412,6 +456,14 @@
     </div>
   </section>
 
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span><b>Alibaba</b><i></i>1688<i></i><b>Taobao</b><i></i>AliExpress<i></i><b>Temu</b><i></i>Shein<i></i><b>One item</b><i></i>No bulk<i></i><b>One price</b><i></i>Pay once<i></i><b>7–15 days</b><i></i>Door to door<i></i></span>
+      <span><b>Alibaba</b><i></i>1688<i></i><b>Taobao</b><i></i>AliExpress<i></i><b>Temu</b><i></i>Shein<i></i><b>One item</b><i></i>No bulk<i></i><b>One price</b><i></i>Pay once<i></i><b>7–15 days</b><i></i>Door to door<i></i></span>
+    </div>
+  </div>
+
   <!-- ROUTE (3D globe) -->
   <section id="route" class="route" aria-label="Route from China to Pakistan">
     <div class="wrap">
@@ -433,18 +485,19 @@
   </section>
 
   <!-- HOW IT WORKS -->
-  <section id="how">
+  <section id="how" class="how">
     <div class="wrap">
-      <div class="head center reveal">
+      <div class="pin reveal">
         <span class="eyebrow">How It Works</span>
         <h2>Four messages. One parcel.</h2>
         <p class="sub">No Alibaba account. No talking to sellers. No customs forms. No surprise charges at the door. You send a link, we do the rest.</p>
+        <div class="count"><b id="stepNow">01</b><small> / 04</small></div>
       </div>
       <div class="steps">
-        <div class="step reveal tilt"><span class="n">1</span><div class="ic"><svg aria-hidden="true"><use href="#i-chat"/></svg></div><h3>Send us the item</h3><p>Paste the product link from Alibaba, 1688, Taobao, AliExpress or any Chinese site. Add the colour or size if it has options. Urdu or English, whatever you like.</p></div>
-        <div class="step reveal tilt"><span class="n">2</span><div class="ic"><svg aria-hidden="true"><use href="#i-receipt"/></svg></div><h3>Get one price</h3><p>Within 24 hours you get one number in rupees. That is the whole price, our fee included and told to you upfront. Say yes or no.</p></div>
-        <div class="step reveal tilt"><span class="n">3</span><div class="ic"><svg aria-hidden="true"><use href="#i-cart"/></svg></div><h3>Pay once, we buy and ship</h3><p>You pay that one amount before it ships. We pay the seller, book air freight to Pakistan and keep you posted on WhatsApp. No second payment, ever.</p></div>
-        <div class="step reveal tilt"><span class="n">4</span><div class="ic"><svg aria-hidden="true"><use href="#i-home"/></svg></div><h3>It lands at your door</h3><p>Air freight, customs cleared, delivered to any address in Pakistan in 7–15 days. Nothing more to pay.</p></div>
+        <div class="step tilt" data-step="01"><span class="n">1</span><div class="ic"><svg aria-hidden="true"><use href="#i-chat"/></svg></div><h3>Send us the item</h3><p>Paste the product link from Alibaba, 1688, Taobao, AliExpress or any Chinese site. Add the colour or size if it has options. Urdu or English, whatever you like.</p></div>
+        <div class="step tilt" data-step="02"><span class="n">2</span><div class="ic"><svg aria-hidden="true"><use href="#i-receipt"/></svg></div><h3>Get one price</h3><p>Within 24 hours you get one number in rupees. That is the whole price, our fee included and told to you upfront. Say yes or no.</p></div>
+        <div class="step tilt" data-step="03"><span class="n">3</span><div class="ic"><svg aria-hidden="true"><use href="#i-cart"/></svg></div><h3>Pay once, we buy and ship</h3><p>You pay that one amount before it ships. We pay the seller, book air freight to Pakistan and keep you posted on WhatsApp. No second payment, ever.</p></div>
+        <div class="step tilt" data-step="04"><span class="n">4</span><div class="ic"><svg aria-hidden="true"><use href="#i-home"/></svg></div><h3>It lands at your door</h3><p>Air freight, customs cleared, delivered to any address in Pakistan in 7–15 days. Nothing more to pay.</p></div>
       </div>
     </div>
   </section>
@@ -561,11 +614,13 @@
         <h2>Built for one buyer at a time</h2>
         <p class="sub">Big forwarders want containers. We want the person who just needs one thing done properly.</p>
       </div>
-      <div class="whys">
-        <div class="w reveal"><div class="ic"><svg aria-hidden="true"><use href="#i-receipt"/></svg></div><h3>One price. No breakdown games.</h3><p>We don't send you a product price, then a shipping price, then a customs price. You get one number, paid once before shipping. Our fee is in it and you know it before you say yes.</p></div>
-        <div class="w reveal"><div class="ic"><svg aria-hidden="true"><use href="#i-shield"/></svg></div><h3>Rated sellers only</h3><p>We buy from suppliers with real trade history and ratings on Alibaba, 1688 or Taobao, not random shops. You get the exact listing you sent.</p></div>
-        <div class="w reveal"><div class="ic"><svg aria-hidden="true"><use href="#i-bubble"/></svg></div><h3>Urdu + English, on WhatsApp</h3><p>No forms, no portals, no email tickets. One chat from first message to delivery, in the language you're comfortable in.</p></div>
-        <div class="w reveal"><div class="ic"><svg aria-hidden="true"><use href="#i-truck"/></svg></div><h3>Door-to-door, anywhere in Pakistan</h3><p>Lahore, Karachi, Islamabad, Peshawar, Quetta, Multan, or a small town. If a courier reaches it, so do we.</p></div>
+      <div class="bento">
+        <div class="w big reveal"><span class="idx">01</span><div class="ic"><svg aria-hidden="true"><use href="#i-receipt"/></svg></div><h3>One price. No breakdown games.</h3><p>We don't send you a product price, then a shipping price, then a customs price. You get one number, paid once before shipping. Our fee is in it and you know it before you say yes.</p></div>
+        <div class="w stat reveal"><b>7–15</b><small>days, door to door, customs included</small></div>
+        <div class="w stat g reveal"><b>1</b><small>item per order. Never bulk.</small></div>
+        <div class="w reveal"><span class="idx">02</span><div class="ic"><svg aria-hidden="true"><use href="#i-shield"/></svg></div><h3>Rated sellers only</h3><p>We buy from suppliers with real trade history on Alibaba, 1688 or Taobao, not random shops.</p></div>
+        <div class="w reveal"><span class="idx">03</span><div class="ic"><svg aria-hidden="true"><use href="#i-bubble"/></svg></div><h3>Urdu + English</h3><p>One WhatsApp chat from first message to delivery. No forms, no portals, no tickets.</p></div>
+        <div class="w big reveal"><span class="idx">04</span><div class="ic"><svg aria-hidden="true"><use href="#i-truck"/></svg></div><h3>Door-to-door, anywhere in Pakistan</h3><p>Lahore, Karachi, Islamabad, Peshawar, Quetta, Multan, or a small town. If a courier reaches it, so do we.</p></div>
       </div>
     </div>
   </section>
@@ -619,6 +674,7 @@
       </nav>
     </div>
     <p class="copy">© <span id="year">2026</span> importfromchina.shop — Single-item import from China to Pakistan. No bulk.</p>
+    <div class="giant" aria-hidden="true">importfromchina</div>
   </div>
 </footer>
 
@@ -692,7 +748,7 @@
     })(last);
   });
 </script>
-<script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc})};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var sc=d.createElement("script");sc.src=w;sc.onload=v;sc.onerror=v;d.body.appendChild(sc)}</script>
+<script>(function(){var doc=document,src="https://tally.so/widgets/embed.js",load=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():doc.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc})};if("undefined"!=typeof Tally)load();else if(doc.querySelector('script[src="'+src+'"]')==null){var sc=doc.createElement("script");sc.src=src;sc.onload=load;sc.onerror=load;doc.body.appendChild(sc)}})();</script>
 <script>
   // Smooth inertia scrolling (skipped when the user prefers reduced motion)
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -718,6 +774,12 @@
   }
   if (lenis) lenis.on("scroll", e => onScroll(e.scroll)); else addEventListener("scroll", () => onScroll(scrollY), { passive: true });
   onScroll(scrollY);
+  // Pinned steps: highlight the card nearest the viewport centre
+  const steps = [...document.querySelectorAll(".how .step")], stepNow = document.getElementById("stepNow");
+  if (steps.length) {
+    const sio = new IntersectionObserver(en => { en.forEach(e => { if (e.isIntersecting) { steps.forEach(x => x.classList.remove("active")); e.target.classList.add("active"); if (stepNow) stepNow.textContent = e.target.dataset.step; } }); }, { rootMargin: "-40% 0px -45% 0px", threshold: 0 });
+    steps.forEach(x => sio.observe(x)); steps[0].classList.add("active");
+  }
 </script>
 </body>
 </html>
