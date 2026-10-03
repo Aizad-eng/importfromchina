@@ -125,6 +125,32 @@
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
   @media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero{padding:48px 0 56px}.phone{margin-top:8px}.phone .float{right:6px}}
 
+  /* Route globe */
+  .route{background:#0b0d12;color:#fff;position:relative;overflow:hidden;padding:0}
+  .route .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:32px;align-items:center;min-height:560px}
+  .route .txt{padding:72px 0;position:relative;z-index:2}
+  .route .eyebrow{color:var(--gold)}.route .eyebrow::before{background:var(--gold)}
+  .route h2{font-size:clamp(28px,3.6vw,44px)}
+  .route .sub{color:rgba(255,255,255,.72)}
+  .route .legs{display:grid;gap:12px;margin-top:30px}
+  .route .leg{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:12px 14px;backdrop-filter:blur(6px)}
+  .route .leg .d{width:12px;height:12px;border-radius:50%;flex:none;box-shadow:0 0 0 4px rgba(255,255,255,.08)}
+  .route .leg b{font-family:Sora,sans-serif;font-size:14.5px;display:block}
+  .route .leg small{color:rgba(255,255,255,.6);font-size:12.5px}
+  .route .leg .t{margin-left:auto;font-family:Sora,sans-serif;font-weight:700;color:var(--gold);font-size:14px;white-space:nowrap}
+  .globe{position:relative;height:560px;min-height:420px}
+  .globe canvas{position:absolute;inset:0;width:100%!important;height:100%!important;display:block}
+  .globe .lbl{position:absolute;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.7);pointer-events:none;display:flex;align-items:center;gap:6px}
+  .globe .lbl i{width:8px;height:8px;border-radius:50%}
+  .globe .l1{right:14%;top:30%}.globe .l2{left:12%;top:38%}
+  .globe::after{content:"";position:absolute;inset:auto 0 0 0;height:120px;background:linear-gradient(transparent,#0b0d12);pointer-events:none}
+  @media (max-width:900px){.route .wrap{grid-template-columns:1fr}.route .txt{padding:56px 0 8px}.globe{height:380px}.globe .l1{right:8%;top:26%}.globe .l2{left:6%;top:36%}}
+
+  /* 3D tilt */
+  .tilt{transform-style:preserve-3d;will-change:transform;transition:transform .25s ease,box-shadow .25s ease}
+  .tilt>*{transform:translateZ(0)}
+  .phone.tilt{transition:transform .35s ease}
+
   /* Sections */
   section{padding:88px 0}
   .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
@@ -339,7 +365,7 @@
         </div>
       </div>
 
-      <div class="phone" aria-label="Example WhatsApp conversation">
+      <div class="phone tilt" aria-label="Example WhatsApp conversation">
         <div class="inner">
           <div class="top"><div class="av"><img src="/assets/logo-mark.svg?v=2" alt=""></div><div><b>importfromchina.shop</b><small>online · Urdu / English</small></div></div>
           <div class="chat">
@@ -359,6 +385,26 @@
     </div>
   </section>
 
+  <!-- ROUTE (3D globe) -->
+  <section id="route" class="route" aria-label="Route from China to Pakistan">
+    <div class="wrap">
+      <div class="txt reveal">
+        <span class="eyebrow">The Route</span>
+        <h2>From a seller in China to your street in Pakistan</h2>
+        <p class="sub">One parcel, one price, one chat. We handle every leg in between so you only see the start and the finish.</p>
+        <div class="legs">
+          <div class="leg"><span class="d" style="background:#e63950"></span><div><b>Bought in China</b><small>Alibaba, 1688, Taobao or AliExpress, paid by us</small></div><span class="t">Day 0</span></div>
+          <div class="leg"><span class="d" style="background:#f5c542"></span><div><b>Air freight to Pakistan</b><small>Customs cleared, duty already in your price</small></div><span class="t">Day 3–10</span></div>
+          <div class="leg"><span class="d" style="background:#2fb86a"></span><div><b>At your door</b><small>Lahore, Karachi, Islamabad or anywhere else</small></div><span class="t">Day 7–15</span></div>
+        </div>
+      </div>
+      <div class="globe" id="globe">
+        <span class="lbl l1"><i style="background:#e63950"></i>China</span>
+        <span class="lbl l2"><i style="background:#2fb86a"></i>Pakistan</span>
+      </div>
+    </div>
+  </section>
+
   <!-- HOW IT WORKS -->
   <section id="how">
     <div class="wrap">
@@ -368,10 +414,10 @@
         <p class="sub">No Alibaba account. No talking to sellers. No customs forms. No surprise charges at the door. You send a link, we do the rest.</p>
       </div>
       <div class="steps">
-        <div class="step reveal"><span class="n">1</span><div class="ic">💬</div><h3>Send us the item</h3><p>Paste the product link from Alibaba, 1688, Taobao, AliExpress or any Chinese site. Add the colour or size if it has options. Urdu or English, whatever you like.</p></div>
-        <div class="step reveal"><span class="n">2</span><div class="ic">🧾</div><h3>Get one price</h3><p>Within 24 hours you get one number in rupees. That is the whole price, our fee included and told to you upfront. Say yes or no.</p></div>
-        <div class="step reveal"><span class="n">3</span><div class="ic">🛒</div><h3>Pay once, we buy and ship</h3><p>You pay that one amount before it ships. We pay the seller, book air freight to Pakistan and keep you posted on WhatsApp. No second payment, ever.</p></div>
-        <div class="step reveal"><span class="n">4</span><div class="ic">🏠</div><h3>It lands at your door</h3><p>Air freight, customs cleared, delivered to any address in Pakistan in 7–15 days. Nothing more to pay.</p></div>
+        <div class="step reveal tilt"><span class="n">1</span><div class="ic">💬</div><h3>Send us the item</h3><p>Paste the product link from Alibaba, 1688, Taobao, AliExpress or any Chinese site. Add the colour or size if it has options. Urdu or English, whatever you like.</p></div>
+        <div class="step reveal tilt"><span class="n">2</span><div class="ic">🧾</div><h3>Get one price</h3><p>Within 24 hours you get one number in rupees. That is the whole price, our fee included and told to you upfront. Say yes or no.</p></div>
+        <div class="step reveal tilt"><span class="n">3</span><div class="ic">🛒</div><h3>Pay once, we buy and ship</h3><p>You pay that one amount before it ships. We pay the seller, book air freight to Pakistan and keep you posted on WhatsApp. No second payment, ever.</p></div>
+        <div class="step reveal tilt"><span class="n">4</span><div class="ic">🏠</div><h3>It lands at your door</h3><p>Air freight, customs cleared, delivered to any address in Pakistan in 7–15 days. Nothing more to pay.</p></div>
       </div>
     </div>
   </section>
@@ -442,12 +488,12 @@
         <p class="sub">These are the things people ask us for most. If yours isn't here, send the link anyway.</p>
       </div>
       <div class="grid3">
-        <div class="cat reveal"><div class="ic c1">📱</div><div><h3>Gadgets &amp; electronics</h3><p>Earbuds, mini projectors, smart watches, keyboards, phone accessories, cameras, drones.</p></div></div>
-        <div class="cat reveal"><div class="ic c5">🔧</div><div><h3>Parts &amp; tools</h3><p>That one spare part for a machine, bike or appliance. Specialist hand tools and testers.</p></div></div>
-        <div class="cat reveal"><div class="ic c4">💄</div><div><h3>Beauty &amp; personal care</h3><p>Facial devices, hair tools, massagers, grooming kits, dental and health gadgets.</p></div></div>
-        <div class="cat reveal"><div class="ic c3">🏠</div><div><h3>Home &amp; kitchen</h3><p>Smart home devices, kitchen gadgets, organisers, lamps, decor you saw in a video.</p></div></div>
-        <div class="cat reveal"><div class="ic c6">🎮</div><div><h3>Hobby &amp; collectibles</h3><p>Figures, model kits, gaming gear, camera accessories, cycling and fitness gear.</p></div></div>
-        <div class="cat reveal"><div class="ic c2">👗</div><div><h3>Fashion &amp; accessories</h3><p>A jacket, bag, watch, shoes or sunglasses from a specific seller, in your size.</p></div></div>
+        <div class="cat reveal tilt"><div class="ic c1">📱</div><div><h3>Gadgets &amp; electronics</h3><p>Earbuds, mini projectors, smart watches, keyboards, phone accessories, cameras, drones.</p></div></div>
+        <div class="cat reveal tilt"><div class="ic c5">🔧</div><div><h3>Parts &amp; tools</h3><p>That one spare part for a machine, bike or appliance. Specialist hand tools and testers.</p></div></div>
+        <div class="cat reveal tilt"><div class="ic c4">💄</div><div><h3>Beauty &amp; personal care</h3><p>Facial devices, hair tools, massagers, grooming kits, dental and health gadgets.</p></div></div>
+        <div class="cat reveal tilt"><div class="ic c3">🏠</div><div><h3>Home &amp; kitchen</h3><p>Smart home devices, kitchen gadgets, organisers, lamps, decor you saw in a video.</p></div></div>
+        <div class="cat reveal tilt"><div class="ic c6">🎮</div><div><h3>Hobby &amp; collectibles</h3><p>Figures, model kits, gaming gear, camera accessories, cycling and fitness gear.</p></div></div>
+        <div class="cat reveal tilt"><div class="ic c2">👗</div><div><h3>Fashion &amp; accessories</h3><p>A jacket, bag, watch, shoes or sunglasses from a specific seller, in your size.</p></div></div>
       </div>
     </div>
   </section>
@@ -554,6 +600,70 @@
 </a>
 
 <script src="/site.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script>
+  // 3D tilt on cards (pointer-driven, skipped for touch and reduced motion)
+  (function(){
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || matchMedia('(hover: none)').matches) return;
+    document.querySelectorAll('.tilt').forEach(el => {
+      const max = el.classList.contains('phone') ? 6 : 8;
+      el.addEventListener('pointermove', e => {
+        const r = el.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        el.style.transform = `perspective(900px) rotateX(${(-y*max).toFixed(2)}deg) rotateY(${(x*max).toFixed(2)}deg) translateY(-4px)`;
+      });
+      el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+    });
+  })();
+
+  // Globe with China -> Pakistan arc
+  window.addEventListener('load', function(){
+    const host = document.getElementById('globe'); if (!host || !window.THREE) return;
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const W = () => host.clientWidth, H = () => host.clientHeight;
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); renderer.setSize(W(), H()); host.appendChild(renderer.domElement);
+    const scene = new THREE.Scene();
+    const cam = new THREE.PerspectiveCamera(38, W()/H(), .1, 100); cam.position.set(0, .35, 4.4);
+    const R = 1.5, g = new THREE.Group(); scene.add(g);
+
+    // dotted sphere
+    const N = 2600, pos = new Float32Array(N*3);
+    for (let i=0;i<N;i++){ const y = 1 - (i/(N-1))*2, r = Math.sqrt(1-y*y), th = i*2.39996; pos[i*3]=Math.cos(th)*r*R; pos[i*3+1]=y*R; pos[i*3+2]=Math.sin(th)*r*R; }
+    const pg = new THREE.BufferGeometry(); pg.setAttribute('position', new THREE.BufferAttribute(pos,3));
+    g.add(new THREE.Points(pg, new THREE.PointsMaterial({ color: 0xc7cfdd, size: .03, transparent: true, opacity: .85 })));
+    g.add(new THREE.Mesh(new THREE.SphereGeometry(R*.985, 48, 48), new THREE.MeshBasicMaterial({ color: 0x10131b, transparent: true, opacity: .96 })));
+    g.add(new THREE.Mesh(new THREE.SphereGeometry(R*1.01, 48, 48), new THREE.MeshBasicMaterial({ color: 0x3b82f6, transparent: true, opacity: .12, side: THREE.BackSide })));
+
+    const ll = (lat, lon, r=R) => { const p=(90-lat)*Math.PI/180, t=(lon+180)*Math.PI/180; return new THREE.Vector3(-r*Math.sin(p)*Math.cos(t), r*Math.cos(p), r*Math.sin(p)*Math.sin(t)); };
+    const A = ll(22.5, 114.1), B = ll(24.9, 67.0); // Shenzhen -> Karachi
+    const mid = A.clone().add(B).multiplyScalar(.5).normalize().multiplyScalar(R*1.42);
+    const curve = new THREE.QuadraticBezierCurve3(A, mid, B);
+    g.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 64, .016, 8, false), new THREE.MeshBasicMaterial({ color: 0xf5c542 })));
+    const pin = (p, c) => { const m = new THREE.Mesh(new THREE.SphereGeometry(.045, 16, 16), new THREE.MeshBasicMaterial({ color: c })); m.position.copy(p); g.add(m);
+      const halo = new THREE.Mesh(new THREE.SphereGeometry(.11, 16, 16), new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: .25 })); halo.position.copy(p); g.add(halo); return halo; };
+    const hA = pin(A, 0xe63950), hB = pin(B, 0x2fb86a);
+    const parcel = new THREE.Mesh(new THREE.BoxGeometry(.09,.09,.09), new THREE.MeshBasicMaterial({ color: 0xffffff })); g.add(parcel);
+    const trail = new THREE.Mesh(new THREE.SphereGeometry(.05, 12, 12), new THREE.MeshBasicMaterial({ color: 0xf5c542, transparent: true, opacity: .5 })); g.add(trail);
+
+    // face the route to the camera, slow drift
+    g.rotation.y = Math.PI; g.rotation.x = .18;
+    let t = 0, drag = 0, down = null, visible = true, last = performance.now();
+    host.addEventListener('pointerdown', e => down = e.clientX); window.addEventListener('pointerup', () => down = null);
+    host.addEventListener('pointermove', e => { if (down !== null) { drag += (e.clientX - down) * .005; down = e.clientX; } });
+    host.style.cursor = 'grab';
+    new IntersectionObserver(en => visible = en[0].isIntersecting, { threshold: .05 }).observe(host);
+    addEventListener('resize', () => { renderer.setSize(W(), H()); cam.aspect = W()/H(); cam.updateProjectionMatrix(); });
+    (function loop(now){
+      requestAnimationFrame(loop); if (!visible) return;
+      const dt = Math.min((now - last)/1000, .05); last = now;
+      if (!reduced) { t = (t + dt*.18) % 1; g.rotation.y = Math.PI + Math.sin(now/6000)*.35 + drag; }
+      const p = curve.getPoint(t); parcel.position.copy(p); parcel.rotation.x += dt*2; parcel.rotation.y += dt*1.5;
+      trail.position.copy(curve.getPoint(Math.max(0, t-.03)));
+      const s = 1 + Math.sin(now/400)*.25; hA.scale.setScalar(s); hB.scale.setScalar(2-s);
+      renderer.render(scene, cam);
+    })(last);
+  });
+</script>
 <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc})};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var sc=d.createElement("script");sc.src=w;sc.onload=v;sc.onerror=v;d.body.appendChild(sc)}</script>
 <script>
   const io = new IntersectionObserver((entries) => {
