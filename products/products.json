@@ -1,0 +1,392 @@
+[
+ {
+  "name": "Moondrop Aria 2",
+  "brand": "Moondrop",
+  "niche": "Audio",
+  "what": "Single dynamic driver wired in-ear monitor with a metal shell, for listeners who want a known, balanced-sounding IEM.",
+  "why_here": "Daraz search shows no Aria 2 listings, only other Moondrop models from one seller.",
+  "size": "pocket",
+  "battery": "none",
+  "specs": [
+   "Impedance 33Ω ±15% @1kHz",
+   "Sensitivity 122dB/Vrms @1kHz",
+   "Zinc alloy cavity, brass nozzle",
+   "0.78mm 2-pin detachable cable"
+  ]
+ },
+ {
+  "name": "Truthear Hexa",
+  "brand": "Truthear",
+  "niche": "Audio",
+  "what": "Hybrid wired IEM with one dynamic and three balanced armature drivers, for listeners stepping up from single-driver sets.",
+  "why_here": "No Truthear Hexa listings on Daraz, so buyers must import it.",
+  "size": "pocket",
+  "battery": "none",
+  "specs": [
+   "1 dynamic + 3 balanced armature drivers",
+   "Impedance 20.5Ω ±15% @1kHz",
+   "Sensitivity 120dB/Vrms @1kHz",
+   "0.78mm 2-pin connector"
+  ]
+ },
+ {
+  "name": "Simgot EW200",
+  "brand": "Simgot",
+  "niche": "Audio",
+  "what": "Single dynamic driver wired IEM in a mirror-finish metal body, for people who want a well-reviewed entry Simgot set.",
+  "why_here": "Daraz returns no EW200 listings; Simgot is mostly absent from Pakistani stores.",
+  "size": "pocket",
+  "battery": "none",
+  "specs": [
+   "10mm dual-magnet, dual-cavity dynamic driver",
+   "Impedance 16Ω ±15% @1kHz",
+   "Sensitivity 126dB/Vrms @1kHz",
+   "0.78mm 2-pin connector"
+  ]
+ },
+ {
+  "name": "Kiwi Ears Cadenza",
+  "brand": "Kiwi Ears",
+  "niche": "Audio",
+  "what": "Wired IEM with a single 10mm beryllium dynamic driver in a resin shell, for listeners who want a well-reviewed model.",
+  "why_here": "Daraz search shows no Cadenza listings, only unrelated earbuds.",
+  "size": "pocket",
+  "battery": "none",
+  "specs": [
+   "10mm beryllium dynamic driver",
+   "Impedance 32Ω",
+   "Sensitivity 110dB SPL/mW",
+   "0.78mm 2-pin cable, 3.5mm plug"
+  ]
+ },
+ {
+  "name": "FiiO KA17",
+  "brand": "FiiO",
+  "niche": "Audio",
+  "what": "USB-C DAC and headphone amp dongle with a desktop power mode, for IEM and headphone owners using a phone or laptop.",
+  "why_here": "Daraz search for KA17 returns zero results.",
+  "size": "pocket",
+  "battery": "none",
+  "specs": [
+   "Dual ESS ES9069Q DAC chips",
+   "XMOS XU316 USB processor",
+   "Up to 650mW balanced in desktop mode",
+   "THX AAA 78+ amplification"
+  ]
+ },
+ {
+  "name": "Moondrop Dawn Pro",
+  "brand": "Moondrop",
+  "niche": "Audio",
+  "what": "Small USB-C DAC/amp dongle with 3.5mm and 4.4mm balanced outputs, for phone users driving wired IEMs.",
+  "why_here": "No Dawn Pro listings on Daraz; results were unrelated earbuds.",
+  "size": "pocket",
+  "battery": "none",
+  "specs": [
+   "3.5mm and 4.4mm balanced outputs",
+   "4Vrms output on 4.4mm",
+   "SNR 131dB on 4.4mm",
+   "Weighs 13g"
+  ]
+ },
+ {
+  "name": "Truthear Shio",
+  "brand": "Truthear",
+  "niche": "Audio",
+  "what": "USB-C DAC/amp dongle with dual DAC chips and two gain modes, for IEM owners wanting a balanced output.",
+  "why_here": "Daraz returns zero results for Truthear Shio.",
+  "size": "pocket",
+  "battery": "none",
+  "specs": [
+   "Dual CS43198 DAC chips",
+   "3.5mm and 4.4mm balanced outputs",
+   "150mW x2 @32Ω",
+   "PCM up to 768kHz, DSD256"
+  ]
+ },
+ {
+  "name": "Tanchjim Space II",
+  "brand": "Tanchjim",
+  "niche": "Audio",
+  "what": "Compact USB-C DAC/amp dongle with single-ended and balanced outputs, for people pairing wired IEMs with a phone.",
+  "why_here": "Daraz search for Tanchjim Space returns zero results.",
+  "size": "pocket",
+  "battery": "none",
+  "specs": [
+   "3.5mm and 4.4mm balanced outputs",
+   "Up to 235mW @32Ω",
+   "PCM up to 32-bit/384kHz",
+   "Weighs about 15.1g"
+  ]
+ },
+ {
+  "name": "AYN Thor",
+  "brand": "AYN",
+  "niche": "Gaming",
+  "what": "A clamshell Android handheld gaming device with two touch screens, for enthusiasts who want a dual-screen player.",
+  "why_here": "Daraz showed no AYN Thor listings, so buyers who want this model must import it.",
+  "size": "backpack",
+  "battery": "built-in",
+  "specs": [
+   "6-inch AMOLED main touch screen",
+   "3.92-inch AMOLED second touch screen",
+   "Snapdragon 8 Gen 2 (non-Lite models)",
+   "6000mAh battery"
+  ]
+ },
+ {
+  "name": "Anbernic RG 477M",
+  "brand": "Anbernic",
+  "niche": "Gaming",
+  "what": "A compact Android handheld gaming device with a CNC aluminium body and 4.7-inch 120Hz screen, for buyers wanting a premium pocket model.",
+  "why_here": "Daraz search returned no RG 477M listings; Anbernic on Daraz is mostly older RG35XX-era stock.",
+  "size": "pocket",
+  "battery": "built-in",
+  "specs": [
+   "4.7-inch 1280x960 120Hz touch screen",
+   "Dimensity 8300 processor",
+   "Aluminium alloy CNC body",
+   "5300mAh battery"
+  ]
+ },
+ {
+  "name": "Anbernic RG 476H",
+  "brand": "Anbernic",
+  "niche": "Gaming",
+  "what": "A horizontal Android handheld gaming device with a 4.7-inch 120Hz screen and Hall sticks, for buyers wanting a mid-range pocket model.",
+  "why_here": "No RG 476H listings found on Daraz; Pakistani searches surface only older Anbernic models.",
+  "size": "pocket",
+  "battery": "built-in",
+  "specs": [
+   "4.7-inch 1280x960 120Hz touch screen",
+   "Unisoc T820 processor",
+   "8GB RAM, 128GB storage",
+   "Weighs 290 grams"
+  ]
+ },
+ {
+  "name": "Flydigi Apex 5",
+  "brand": "Flydigi",
+  "niche": "Gaming",
+  "what": "A premium wireless controller with a small customisable display and adaptive triggers, for PC and Switch players wanting a flagship pad.",
+  "why_here": "Daraz shows only older Flydigi models (Vader 3 Pro, Apex 4); Apex 5 appears only via import resellers.",
+  "size": "backpack",
+  "battery": "built-in",
+  "specs": [
+   "Hall Effect joysticks, adjustable tension",
+   "Customisable built-in display",
+   "1000Hz wired and 2.4G polling",
+   "1500mAh battery"
+  ]
+ },
+ {
+  "name": "Pine64 Pinecil V2",
+  "brand": "Pine64",
+  "niche": "Tools",
+  "what": "A pocket USB-C smart soldering iron for hobbyists and repairers who want a portable, open-firmware iron.",
+  "why_here": "Daraz search returns only pencils and a carry case, no Pinecil iron listed.",
+  "size": "pocket",
+  "battery": "none",
+  "specs": [
+   "USB-C PD/QC 12-20V input",
+   "Bouffalo BL706 RISC-V MCU",
+   "100-400°C, OLED display",
+   "Reaches working temperature in 6 seconds"
+  ]
+ },
+ {
+  "name": "Sequre S60 Nano Electric Soldering Iron",
+  "brand": "Sequre",
+  "niche": "Tools",
+  "what": "A compact USB-powered soldering pen using C210 tips, aimed at phone and board repair technicians.",
+  "why_here": "No Sequre products of any kind show up on Daraz Pakistan.",
+  "size": "pocket",
+  "battery": "none",
+  "specs": [
+   "Compatible with C210 tips",
+   "50-500°C range",
+   "PD/QC power, DC max 12V",
+   "0.91 inch OLED display"
+  ]
+ },
+ {
+  "name": "HOTO Electric Precision Screwdriver Kit Pro",
+  "brand": "HOTO",
+  "niche": "Tools",
+  "what": "A slim electric precision screwdriver in a clamshell bit case, for people who open laptops, phones and gadgets.",
+  "why_here": "No HOTO-branded screwdrivers found on Daraz, only generic sets.",
+  "size": "backpack",
+  "battery": "built-in",
+  "specs": [
+   "48 accessories included",
+   "20 short and 6 long S2 bits",
+   "Dual torque settings, LED light",
+   "Case is 2.6 cm thin"
+  ]
+ },
+ {
+  "name": "ZOYI ZT-MD1 Smart Tweezers LCR Tester",
+  "brand": "ZOYI",
+  "niche": "Tools",
+  "what": "Tweezer-style LCR and ESR meter for testing tiny SMD parts, used by electronics repairers and hobbyists.",
+  "why_here": "Daraz carries a couple of ZOYI meters but not the ZT-MD1 tweezers.",
+  "size": "pocket",
+  "battery": "built-in",
+  "specs": [
+   "0.5% basic accuracy",
+   "Test at 100Hz, 1kHz, 10kHz",
+   "Reversible OLED for either hand",
+   "400mAh battery, USB-C charging"
+  ]
+ },
+ {
+  "name": "Sipeed NanoKVM (Cube, Full version)",
+  "brand": "Sipeed",
+  "niche": "Tools",
+  "what": "A tiny RISC-V IP-KVM that lets homelab users and admins control a PC remotely through the browser, BIOS included.",
+  "why_here": "No NanoKVM listings found on Daraz; it is usually only bought abroad.",
+  "size": "pocket",
+  "battery": "none",
+  "specs": [
+   "1080P at 60fps capture",
+   "LicheeRV Nano RISC-V core",
+   "40x36x36mm body",
+   "0.96 inch OLED, 10/100 Ethernet"
+  ]
+ },
+ {
+  "name": "Espressif ESP32-S3-BOX-3",
+  "brand": "Espressif",
+  "niche": "Tools",
+  "what": "A boxed ESP32-S3 dev kit with touchscreen and microphones, for makers building voice and smart-home projects.",
+  "why_here": "Daraz sells bare ESP32-S3 boards, but no BOX-3 kit listing turned up.",
+  "size": "backpack",
+  "battery": "none",
+  "specs": [
+   "2.4 inch 320x240 touch screen",
+   "Two digital microphones and speaker",
+   "16 MB flash, 16 MB PSRAM",
+   "ESP32-S3-WROOM-1, Wi-Fi + BLE 5"
+  ]
+ },
+ {
+  "name": "Bambu Lab Hotend Heating Assembly - A1 Series",
+  "brand": "Bambu Lab",
+  "niche": "Tools",
+  "what": "Genuine replacement hotend heater and thermistor for Bambu Lab A1 and A1 mini owners fixing a failed hotend.",
+  "why_here": "Daraz sells A1 printers but no genuine spare hotend heating assembly turned up.",
+  "size": "pocket",
+  "battery": "none",
+  "specs": [
+   "Fits Bambu Lab A1 and A1 mini",
+   "Heats hotend up to 300°C",
+   "Includes thermistor, gasket, 3 screws",
+   "Packaging weight 40 g"
+  ]
+ },
+ {
+  "name": "Viltrox AF 28mm F4.5 FE",
+  "brand": "Viltrox",
+  "niche": "Creator",
+  "what": "A very thin full-frame autofocus pancake lens for Sony E-mount, for street and travel shooters who want a pocketable camera.",
+  "why_here": "Daraz search returned no Viltrox 28mm listings, so Sony shooters cannot buy it locally.",
+  "size": "pocket",
+  "battery": "none",
+  "specs": [
+   "About 60g bare lens",
+   "15.3mm thick",
+   "Fixed F4.5 aperture",
+   "6 elements in 6 groups"
+  ]
+ },
+ {
+  "name": "Hohem iSteady M7",
+  "brand": "Hohem",
+  "niche": "Creator",
+  "what": "A 3-axis phone gimbal with a magnetic AI tracker and detachable touchscreen remote, for creators filming with heavy flagship or foldable phones.",
+  "why_here": "Daraz search for the model returned only unrelated items, no iSteady M7 listings.",
+  "size": "backpack",
+  "battery": "built-in",
+  "specs": [
+   "Supports up to 500g payload",
+   "Fits phones 58mm to 90mm wide",
+   "About 12 hours runtime",
+   "Detachable 1.4-inch touchscreen remote"
+  ]
+ },
+ {
+  "name": "Hollyland LARK MAX 2",
+  "brand": "Hollyland",
+  "niche": "Creator",
+  "what": "A wireless lavalier mic system with 32-bit float onboard recording and timecode, for videographers and interviewers who need backup audio.",
+  "why_here": "Daraz carries cheaper Lark M2 models, but no LARK MAX 2 listings turned up.",
+  "size": "pocket",
+  "battery": "built-in",
+  "specs": [
+   "32-bit float internal recording",
+   "8GB built-in storage",
+   "340m line-of-sight range",
+   "Built-in frame-level timecode"
+  ]
+ },
+ {
+  "name": "Topdon TopScan Lite",
+  "brand": "Topdon",
+  "niche": "Car",
+  "what": "A Bluetooth OBD2 dongle that turns a phone into a full-system car scanner, for DIY owners who do their own resets.",
+  "why_here": "Daraz shows generic ELM327 readers only, no Topdon TopScan listings.",
+  "size": "pocket",
+  "battery": "none",
+  "specs": [
+   "Bluetooth 5.0, 10m range",
+   "Android 7.0 / iOS 10.0 or above",
+   "8 reset functions",
+   "Covers more than 60 vehicle brands"
+  ]
+ },
+ {
+  "name": "Ottocast U2Air Edge",
+  "brand": "Ottocast",
+  "niche": "Car",
+  "what": "A small dongle that turns factory wired CarPlay or Android Auto into wireless, for owners of 2016 or newer cars.",
+  "why_here": "No Ottocast listings found on Daraz; local shelves carry mostly unbranded CarPlay boxes.",
+  "size": "pocket",
+  "battery": "none",
+  "specs": [
+   "Needs factory wired CarPlay/Android Auto",
+   "Bluetooth 5.4",
+   "USB-A and USB-C supported",
+   "Weighs 25.7g"
+  ]
+ },
+ {
+  "name": "70mai Dash Cam 4K A810S",
+  "brand": "70mai",
+  "niche": "Car",
+  "what": "A 4K front dash cam with a supercapacitor and rear camera option, for drivers wanting clear plate detail in recordings.",
+  "why_here": "Daraz sells older 70mai models like A800S and A500S, but no A810S listings appeared.",
+  "size": "pocket",
+  "battery": "none",
+  "specs": [
+   "Sony STARVIS 2 IMX678 sensor",
+   "4K front recording",
+   "Supercapacitor, no battery",
+   "Buffered emergency recording"
+  ]
+ },
+ {
+  "name": "THINKCAR ThinkDiag 2",
+  "brand": "THINKCAR",
+  "niche": "Car",
+  "what": "A Bluetooth OBD2 interface with CAN-FD support, ECU coding and bidirectional tests, for mechanics and enthusiasts using a phone app.",
+  "why_here": "Only two Daraz listings from unclear sellers, one bundled with third-party DiagZone software.",
+  "size": "pocket",
+  "battery": "none",
+  "specs": [
+   "Supports CAN-FD protocol",
+   "15+ maintenance functions",
+   "Bluetooth 5.0",
+   "One year software included"
+  ]
+ }
+]
