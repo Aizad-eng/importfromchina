@@ -28,11 +28,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --red:#c8102e; --red-dark:#9c0c23; --red-soft:#fdeaee; --green:#0f6b3a; --green-dark:#0a4d2a; --green-soft:#e6f3ec;
-    --gold:#f5c542; --wa:#25D366; --wa-dark:#1da851;
+    /* Palette: ink, paper, red, green, gold. Nothing else. */
+    --red:#c8102e; --red-dark:#9c0c23; --red-soft:#fbe9ec;
+    --green:#0f6b3a; --green-dark:#0a4d2a; --green-soft:#e7f2ec; --green-bright:#22a35f;
+    --gold:#f5c542; --gold-soft:#fdf3d6;
     --ink:#121418; --ink-2:#3a3f48; --ink-3:#6b7280;
-    --bg:#ffffff; --bg-2:#f7f7f9; --bg-3:#fbf6ea;
+    --bg:#ffffff; --bg-2:#f6f6f8; --bg-3:#f6f6f8;
     --line:#e6e7ea; --card:#ffffff;
+    --wa:var(--green); --wa-dark:var(--green-dark);
     --shadow:0 1px 2px rgba(18,20,24,.05),0 10px 30px -12px rgba(18,20,24,.18);
     --shadow-lg:0 2px 4px rgba(18,20,24,.05),0 30px 60px -20px rgba(18,20,24,.3);
     --radius:18px;
@@ -51,10 +54,10 @@
   .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:600;font-size:15px;border:1px solid transparent;transition:transform .15s ease,box-shadow .15s ease,background .15s ease;cursor:pointer;white-space:nowrap}
   .btn:hover{transform:translateY(-1px)}
   .btn:active{transform:translateY(0)}
-  .btn-wa{background:var(--wa);color:#fff;box-shadow:0 8px 24px -8px rgba(37,211,102,.7)}
-  .btn-wa:hover{background:var(--wa-dark)}
+  .btn-wa{background:var(--green);color:#fff;box-shadow:0 8px 24px -8px rgba(15,107,58,.6)}
+  .btn-wa:hover{background:var(--green-dark)}
   .btn-ghost{background:#fff;border-color:var(--line);color:var(--ink)}
-  .btn-ghost:hover{border-color:#cfd2d8;box-shadow:var(--shadow)}
+  .btn-ghost:hover{border-color:var(--ink-3);box-shadow:var(--shadow)}
   .btn svg{width:20px;height:20px;flex:none}
 
   /* Nav */
@@ -75,9 +78,10 @@
   @media (max-width:860px){.links,.nav .btn-wa{display:none}.burger{display:block}}
 
   /* Hero */
-  .hero{position:relative;overflow:hidden;padding:72px 0 64px;background:
-    radial-gradient(900px 500px at 8% -10%, rgba(200,16,46,.10), transparent 60%),
-    radial-gradient(800px 480px at 100% 0%, rgba(15,107,58,.12), transparent 60%)}
+  .hero{position:relative;overflow:hidden;padding:72px 0 64px}
+  .hero .orb{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none;will-change:transform}
+  .hero .o1{width:640px;height:640px;left:-200px;top:-260px;background:rgba(200,16,46,.14)}
+  .hero .o2{width:560px;height:560px;right:-160px;top:-120px;background:rgba(15,107,58,.16)}
   .hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(18,20,24,.07) 1px,transparent 1px);background-size:26px 26px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.6),transparent 85%);pointer-events:none}
   .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
   .pill{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 14px 6px 8px;font-size:13.5px;font-weight:600;color:var(--ink-2);box-shadow:var(--shadow)}
@@ -94,39 +98,38 @@
   .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
   .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:36px;max-width:540px}
   .stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
-  .stat b{font-family:Sora,sans-serif;font-size:26px;font-weight:800;display:block;letter-spacing:-.03em;color:var(--red)}
+  .stat b{font-family:Sora,sans-serif;font-size:26px;font-weight:800;display:block;letter-spacing:-.03em;color:var(--ink)}
   .stat small{font-size:12.5px;color:var(--ink-3);font-weight:500}
 
   /* Hero visual: WhatsApp conversation */
-  .phone{position:relative;max-width:400px;margin-inline:auto;background:#efeae2;border-radius:30px;border:1px solid #ddd6cc;box-shadow:var(--shadow-lg);overflow:visible}
+  .phone{position:relative;max-width:400px;margin-inline:auto;background:var(--bg-2);border-radius:30px;border:1px solid var(--line);box-shadow:var(--shadow-lg);overflow:visible}
   .phone .inner{border-radius:30px;overflow:hidden}
-  .phone .top{display:flex;align-items:center;gap:12px;padding:14px 16px;background:#075e54;color:#fff}
-  .phone .top .av{width:38px;height:38px;border-radius:50%;background:#121418;display:grid;place-items:center;flex:none}
+  .phone .top{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--ink);color:#fff}
+  .phone .top .av{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;flex:none}
   .phone .top .av img{width:26px;height:26px}
   .phone .top b{font-family:Sora,sans-serif;font-size:14.5px;display:block}
   .phone .top small{font-size:12px;opacity:.85}
   .chat{padding:16px 14px 18px;display:flex;flex-direction:column;gap:10px;background-image:radial-gradient(rgba(0,0,0,.035) 1px,transparent 1px);background-size:14px 14px}
   .msg{max-width:84%;padding:9px 12px;border-radius:14px;font-size:13.5px;line-height:1.45;box-shadow:0 1px 1px rgba(0,0,0,.08);position:relative}
-  .msg.me{align-self:flex-end;background:#dcf8c6;border-bottom-right-radius:4px}
+  .msg.me{align-self:flex-end;background:var(--green-soft);border-bottom-right-radius:4px}
   .msg.them{align-self:flex-start;background:#fff;border-bottom-left-radius:4px}
-  .msg .t{display:block;font-size:10.5px;color:#8a8f98;text-align:right;margin-top:4px}
-  .msg .link{color:#1a73e8;text-decoration:underline;word-break:break-all;font-size:12.5px}
-  .msg.quote{background:#fff;border:1px solid #d6efdc;min-width:78%}
-  .msg.quote .row{display:flex;justify-content:space-between;gap:12px;padding:4px 0;border-bottom:1px dashed #e3e6ea;font-size:13px}
+  .msg .t{display:block;font-size:10.5px;color:var(--ink-3);text-align:right;margin-top:4px}
+  .msg .link{color:var(--green);text-decoration:underline;word-break:break-all;font-size:12.5px}
+  .msg.quote{background:#fff;border:1px solid var(--line);min-width:78%}
+  .msg.quote .row{display:flex;justify-content:space-between;gap:12px;padding:4px 0;border-bottom:1px dashed var(--line);font-size:13px}
   .msg.quote .row b{color:var(--green);font-family:Sora,sans-serif}
   .msg.quote .total{display:flex;justify-content:space-between;gap:10px;align-items:baseline;font-family:Sora,sans-serif;font-weight:800;font-size:15px;color:var(--ink)}
   .msg.quote .total span:last-child{font-size:20px;color:var(--green);white-space:nowrap}
-  .msg.quote .note{margin-top:6px;font-size:12.5px;color:var(--ink-2);border-top:1px dashed #e3e6ea;padding-top:6px}
-  .msg .photo{display:flex;gap:6px;margin-top:6px}
-  .msg .photo span{flex:1;aspect-ratio:1;border-radius:8px;background:linear-gradient(135deg,#d7dde8,#f0f2f6);display:grid;place-items:center;font-size:20px}
+  .msg.quote .note{margin-top:6px;font-size:12.5px;color:var(--ink-2);border-top:1px dashed var(--line);padding-top:6px}
   .phone .float{position:absolute;right:-14px;bottom:64px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 14px;box-shadow:var(--shadow);font-size:13px;display:flex;gap:10px;align-items:center;animation:bob 6s ease-in-out infinite}
-  .phone .float .ic{width:34px;height:34px;border-radius:10px;background:var(--green-soft);display:grid;place-items:center;font-size:18px}
+  .phone .float .ic{width:34px;height:34px;border-radius:10px;background:var(--green-soft);color:var(--green);display:grid;place-items:center}
+  .phone .float .ic svg{width:18px;height:18px}
   .phone .float b{display:block;font-size:13px}.phone .float small{color:var(--ink-3);font-size:11.5px}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
   @media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero{padding:48px 0 56px}.phone{margin-top:8px}.phone .float{right:6px}}
 
   /* Route globe */
-  .route{background:#0b0d12;color:#fff;position:relative;overflow:hidden;padding:0}
+  .route{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding:0}
   .route .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:32px;align-items:center;min-height:560px}
   .route .txt{padding:72px 0;position:relative;z-index:2}
   .route .eyebrow{color:var(--gold)}.route .eyebrow::before{background:var(--gold)}
@@ -143,7 +146,7 @@
   .globe .lbl{position:absolute;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.7);pointer-events:none;display:flex;align-items:center;gap:6px}
   .globe .lbl i{width:8px;height:8px;border-radius:50%}
   .globe .l1{right:14%;top:30%}.globe .l2{left:12%;top:38%}
-  .globe::after{content:"";position:absolute;inset:auto 0 0 0;height:120px;background:linear-gradient(transparent,#0b0d12);pointer-events:none}
+  .globe::after{content:"";position:absolute;inset:auto 0 0 0;height:120px;background:linear-gradient(transparent,var(--ink));pointer-events:none}
   @media (max-width:900px){.route .wrap{grid-template-columns:1fr}.route .txt{padding:56px 0 8px}.globe{height:380px}.globe .l1{right:8%;top:26%}.globe .l2{left:6%;top:36%}}
 
   /* 3D tilt */
@@ -167,7 +170,8 @@
   .step{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px 24px;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s}
   .step:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
   .step .n{position:absolute;top:-14px;left:22px;width:30px;height:30px;border-radius:999px;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:Sora,sans-serif;font-weight:700;font-size:13px}
-  .step .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:26px;background:var(--bg-3)}
+  .step .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--red-soft);color:var(--red)}
+  .step .ic svg{width:24px;height:24px}
   .step h3{font-size:18px;margin-top:18px}
   .step p{font-size:14.5px;color:var(--ink-2);margin-top:8px}
   @media (max-width:980px){.steps{grid-template-columns:repeat(2,1fr)}}
@@ -179,9 +183,10 @@
   .quote .side{position:sticky;top:96px}
   .quote .side ul{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px}
   .quote .side li{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--ink-2)}
-  .quote .side li .ic{width:30px;height:30px;border-radius:9px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;flex:none;font-size:15px}
+  .quote .side li .ic{width:30px;height:30px;border-radius:9px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;flex:none;color:var(--red)}
+  .quote .side li .ic svg{width:15px;height:15px}
   .quote .side .alt{margin-top:26px;padding-top:22px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-3)}
-  .quote .side .alt a{color:var(--wa-dark);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+  .quote .side .alt a{color:var(--green);font-weight:600;text-decoration:underline;text-underline-offset:3px}
   .formcard{background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px 28px 8px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
   .formcard::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:linear-gradient(90deg,var(--red),var(--gold),var(--green))}
   .formcard .nb{display:inline-flex;align-items:center;gap:8px;background:var(--red-soft);color:var(--red);font-weight:700;font-size:13px;border-radius:999px;padding:6px 12px 6px 8px;margin-bottom:12px}
@@ -210,11 +215,12 @@
   /* Categories */
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
   .cat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;gap:18px;transition:transform .2s,box-shadow .2s,border-color .2s}
-  .cat:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#d9dbe0}
-  .cat .ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-size:28px;flex:none}
+  .cat:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--ink-3)}
+  .cat .ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;flex:none;background:var(--bg-2);border:1px solid var(--line);color:var(--ink)}
+  .cat .ic svg{width:26px;height:26px}
+  .cat:hover .ic{background:var(--red-soft);border-color:transparent;color:var(--red)}
   .cat h3{font-size:17px}
   .cat p{font-size:14px;color:var(--ink-2);margin-top:6px}
-  .c1{background:#e8f1ff}.c2{background:#fde8ee}.c3{background:#e9f7ef}.c4{background:#fff0f5}.c5{background:#fff4e0}.c6{background:#f1ecff}
   @media (max-width:900px){.grid3{grid-template-columns:repeat(2,1fr)}}
   @media (max-width:560px){.grid3{grid-template-columns:1fr}}
 
@@ -223,11 +229,8 @@
   .proj:hover{transform:translateY(-4px)}
   .proj .cover{height:150px;display:grid;place-items:center;font-size:64px;position:relative}
   .proj .cover .one{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.92);color:var(--ink);font-family:Sora,sans-serif;font-weight:700;font-size:12px;padding:5px 10px;border-radius:999px}
-  .p1{background:linear-gradient(135deg,#0f172a,#1e3a8a)}
-  .p2{background:linear-gradient(135deg,#9d174d,#f472b6)}
-  .p3{background:linear-gradient(135deg,#374151,#9ca3af)}
   .proj .body{padding:20px 22px 22px}
-  .tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--bg-3);color:#8a6a0c}
+  .tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--gold-soft);color:var(--ink)}
   .proj h3{font-size:17px;margin-top:10px}
   .proj p{font-size:14px;color:var(--ink-2);margin-top:8px}
   .proj .meta{display:flex;gap:14px;margin-top:14px;font-size:12.5px;color:var(--ink-3);font-weight:500}
@@ -237,7 +240,7 @@
   .realgrid{display:grid;grid-template-columns:repeat(3,1fr) 1.15fr;gap:16px;margin-top:44px;align-items:stretch}
   .shot{margin:0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .2s}
   .shot:hover{transform:translateY(-4px)}
-  .shot a{display:block;aspect-ratio:3/4;overflow:hidden;background:#eee}
+  .shot a{display:block;aspect-ratio:3/4;overflow:hidden;background:var(--bg-2)}
   .shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
   .shot:hover img{transform:scale(1.03)}
   .shot figcaption{padding:12px 14px 14px;font-size:13.5px;color:var(--ink-2);line-height:1.4}
@@ -245,13 +248,13 @@
   .realinfo{background:var(--ink);color:#fff;border-radius:var(--radius);padding:26px 24px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
   .realinfo::before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(15,107,58,.6),transparent 65%);bottom:-120px;right:-80px}
   .realinfo>*{position:relative}
-  .realinfo .tag{background:rgba(255,255,255,.12);color:var(--gold);align-self:flex-start}
+  .realinfo .tag{background:rgba(255,255,255,.1);color:var(--gold);align-self:flex-start}
   .realinfo h3{font-size:20px;line-height:1.2}
   .realinfo p{font-size:14px;color:rgba(255,255,255,.78)}
   .realinfo ul{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:8px}
   .realinfo li{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:8px}
   .realinfo li span{color:rgba(255,255,255,.6)}.realinfo li b{text-align:right}
-  .realinfo li b.no{color:#ff8da1}
+  .realinfo li b.no{color:var(--gold)}
   .realinfo .btn{margin-top:auto;justify-content:center}
   @media (max-width:1000px){.realgrid{grid-template-columns:repeat(3,1fr)}.realinfo{grid-column:1/-1}}
   @media (max-width:700px){.realgrid{grid-template-columns:1fr 1fr}.shot:last-of-type{grid-column:1/-1}.shot:last-of-type a{aspect-ratio:4/3}}
@@ -265,7 +268,8 @@
   .why .sub{color:rgba(255,255,255,.75)}
   .whys{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:48px}
   .w{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:26px;backdrop-filter:blur(6px)}
-  .w .ic{font-size:28px}
+  .w .ic{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.08);display:grid;place-items:center;color:var(--gold)}
+  .w .ic svg{width:22px;height:22px}
   .w h3{font-size:19px;margin-top:14px}
   .w p{font-size:14.5px;color:rgba(255,255,255,.75);margin-top:8px}
   @media (max-width:700px){.whys{grid-template-columns:1fr}}
@@ -283,7 +287,7 @@
 
   /* Final CTA */
   .final{background:var(--bg-3)}
-  .final .box{background:#fff;border:1px solid #efe4c4;border-radius:28px;padding:56px 32px;text-align:center;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .final .box{background:#fff;border:1px solid var(--line);border-radius:28px;padding:56px 32px;text-align:center;box-shadow:var(--shadow);position:relative;overflow:hidden}
   .final .box::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--red),var(--gold),var(--green));height:5px}
   .final h2{font-size:clamp(28px,4vw,44px)}
   .final .sub{margin-inline:auto}
@@ -301,19 +305,41 @@
   footer .copy{margin-top:18px}
 
   /* Floating WhatsApp */
-  .fab{position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 30px -6px rgba(37,211,102,.8);transition:transform .15s}
+  .fab{position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--green);display:grid;place-items:center;box-shadow:0 10px 30px -6px rgba(15,107,58,.7);transition:transform .15s}
   .fab:hover{transform:scale(1.06)}
   .fab svg{width:30px;height:30px}
-  .fab::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--wa);opacity:.5;animation:pulse 2s ease-out infinite}
+  .fab::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--green);opacity:.5;animation:pulse 2s ease-out infinite}
   @keyframes pulse{0%{transform:scale(.9);opacity:.6}100%{transform:scale(1.4);opacity:0}}
 
   /* Reveal */
-  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
-  .reveal.in{opacity:1;transform:none}
-  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.phone .float,.fab::after{animation:none}}
+  .reveal{opacity:0;transform:translateY(22px);filter:blur(6px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1),filter .7s ease}
+  .reveal.in{opacity:1;transform:none;filter:none}
+  .progress{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--red),var(--gold),var(--green));z-index:70;pointer-events:none}
+  header{transition:box-shadow .3s}
+  header.compact{box-shadow:0 10px 30px -18px rgba(18,20,24,.35)}
+  html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;filter:none;transition:none}.phone .float,.fab::after{animation:none}}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.3A8 8 0 1 1 21 12z"/></symbol>
+  <symbol id="i-receipt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h2l2.4 12.4a1 1 0 0 0 1 .8H18a1 1 0 0 0 1-.8L21 7H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M11 18h2"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7a5 5 0 0 1-6.6 4.7L6 20a2 2 0 0 1-3-3l8.3-8.4A5 5 0 0 1 17 2l-3 3 1 3 3 1 3-2z"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 17l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z"/></symbol>
+  <symbol id="i-game" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12a4 4 0 0 1 4 4v3a3 3 0 0 1-5.3 1.9L15 15H9l-1.7 1.9A3 3 0 0 1 2 15v-3a4 4 0 0 1 4-4z"/><path d="M7 12h3M8.5 10.5v3M16 11h.01M18 13h.01"/></symbol>
+  <symbol id="i-shirt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3l4 2 4-2 5 4-3 3-1-1v12H7V9L6 10 3 7z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-bubble" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v11H8l-4 4z"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 7h12v9H1z"/><path d="M13 10h5l3 3v3h-8z"/><circle cx="5" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13.5" r="3.5"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.2"/></symbol>
+</svg>
+<span class="progress" aria-hidden="true"></span>
 
 <header>
   <div class="wrap nav">
@@ -334,16 +360,17 @@
     <a href="#products" onclick="document.body.classList.remove('menu-open')">What We Get</a>
     <a href="#faq" onclick="document.body.classList.remove('menu-open')">FAQ</a>
     <a href="/blog/">Blog</a>
-    <a href="#quote" onclick="document.body.classList.remove('menu-open')" style="color:var(--wa-dark);font-weight:700">Get a Quote →</a>
+    <a href="#quote" onclick="document.body.classList.remove('menu-open')" style="color:var(--green);font-weight:700">Get a Quote →</a>
   </div>
 </header>
 
 <main id="top">
   <!-- HERO -->
   <section class="hero">
+    <span class="orb o1" data-parallax="-.12"></span><span class="orb o2" data-parallax=".08"></span>
     <div class="wrap">
       <div>
-        <div class="pill"><span class="f">🇨🇳</span>→<span class="f">🇵🇰</span> Single-item import service</div>
+        <div class="pill"><span class="f" style="width:8px;height:8px;border-radius:50%;background:var(--red);display:inline-block"></span>China<span style="color:var(--ink-3)">→</span>Pakistan<span class="f" style="width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block"></span><span style="color:var(--ink-3)">·</span>Single-item import service</div>
         <h1>Want <span class="a">one thing</span> from China?<br>We bring it to <span class="b">your door</span> in Pakistan.</h1>
         <p class="urdu">چین سے صرف ایک چیز منگوانی ہے؟ ہم لے آئیں گے</p>
         <p class="lead">Send us the link, a photo or just a description on WhatsApp. We buy it, ship it, clear customs and hand it to you. One price, nothing to figure out.</p>
@@ -376,11 +403,11 @@
               <div class="note">That's the whole thing, our fee included. You pay this once, before it ships. Nothing at the door.</div>
               <span class="t">14:10</span>
             </div>
-            <div class="msg me">Done, go ahead 👍<span class="t">14:12</span></div>
-            <div class="msg them">Ordered and paid. Seller has dispatched it, now on its way to Pakistan. I'll update you when it clears customs. ✈️<span class="t">2 days later</span></div>
+            <div class="msg me">Done, go ahead.<span class="t">14:12</span></div>
+            <div class="msg them">Ordered and paid. Seller has dispatched it, now on its way to Pakistan. I'll update you when it clears customs.<span class="t">2 days later</span></div>
           </div>
         </div>
-        <div class="float"><div class="ic">🚚</div><div><b>Out for delivery</b><small>Lahore · day 11</small></div></div>
+        <div class="float"><div class="ic"><svg aria-hidden="true"><use href="#i-truck"/></svg></div><div><b>Out for delivery</b><small>Lahore · day 11</small></div></div>
       </div>
     </div>
   </section>
@@ -393,14 +420,14 @@
         <h2>From a seller in China to your street in Pakistan</h2>
         <p class="sub">One parcel, one price, one chat. We handle every leg in between so you only see the start and the finish.</p>
         <div class="legs">
-          <div class="leg"><span class="d" style="background:#e63950"></span><div><b>Bought in China</b><small>Alibaba, 1688, Taobao or AliExpress, paid by us</small></div><span class="t">Day 0</span></div>
-          <div class="leg"><span class="d" style="background:#f5c542"></span><div><b>Air freight to Pakistan</b><small>Customs cleared, duty already in your price</small></div><span class="t">Day 3–10</span></div>
-          <div class="leg"><span class="d" style="background:#2fb86a"></span><div><b>At your door</b><small>Lahore, Karachi, Islamabad or anywhere else</small></div><span class="t">Day 7–15</span></div>
+          <div class="leg"><span class="d" style="background:var(--red)"></span><div><b>Bought in China</b><small>Alibaba, 1688, Taobao or AliExpress, paid by us</small></div><span class="t">Day 0</span></div>
+          <div class="leg"><span class="d" style="background:var(--gold)"></span><div><b>Air freight to Pakistan</b><small>Customs cleared, duty already in your price</small></div><span class="t">Day 3–10</span></div>
+          <div class="leg"><span class="d" style="background:var(--green-bright)"></span><div><b>At your door</b><small>Lahore, Karachi, Islamabad or anywhere else</small></div><span class="t">Day 7–15</span></div>
         </div>
       </div>
       <div class="globe" id="globe">
-        <span class="lbl l1"><i style="background:#e63950"></i>China</span>
-        <span class="lbl l2"><i style="background:#2fb86a"></i>Pakistan</span>
+        <span class="lbl l1"><i style="background:var(--red)"></i>China</span>
+        <span class="lbl l2"><i style="background:var(--green-bright)"></i>Pakistan</span>
       </div>
     </div>
   </section>
@@ -414,10 +441,10 @@
         <p class="sub">No Alibaba account. No talking to sellers. No customs forms. No surprise charges at the door. You send a link, we do the rest.</p>
       </div>
       <div class="steps">
-        <div class="step reveal tilt"><span class="n">1</span><div class="ic">💬</div><h3>Send us the item</h3><p>Paste the product link from Alibaba, 1688, Taobao, AliExpress or any Chinese site. Add the colour or size if it has options. Urdu or English, whatever you like.</p></div>
-        <div class="step reveal tilt"><span class="n">2</span><div class="ic">🧾</div><h3>Get one price</h3><p>Within 24 hours you get one number in rupees. That is the whole price, our fee included and told to you upfront. Say yes or no.</p></div>
-        <div class="step reveal tilt"><span class="n">3</span><div class="ic">🛒</div><h3>Pay once, we buy and ship</h3><p>You pay that one amount before it ships. We pay the seller, book air freight to Pakistan and keep you posted on WhatsApp. No second payment, ever.</p></div>
-        <div class="step reveal tilt"><span class="n">4</span><div class="ic">🏠</div><h3>It lands at your door</h3><p>Air freight, customs cleared, delivered to any address in Pakistan in 7–15 days. Nothing more to pay.</p></div>
+        <div class="step reveal tilt"><span class="n">1</span><div class="ic"><svg aria-hidden="true"><use href="#i-chat"/></svg></div><h3>Send us the item</h3><p>Paste the product link from Alibaba, 1688, Taobao, AliExpress or any Chinese site. Add the colour or size if it has options. Urdu or English, whatever you like.</p></div>
+        <div class="step reveal tilt"><span class="n">2</span><div class="ic"><svg aria-hidden="true"><use href="#i-receipt"/></svg></div><h3>Get one price</h3><p>Within 24 hours you get one number in rupees. That is the whole price, our fee included and told to you upfront. Say yes or no.</p></div>
+        <div class="step reveal tilt"><span class="n">3</span><div class="ic"><svg aria-hidden="true"><use href="#i-cart"/></svg></div><h3>Pay once, we buy and ship</h3><p>You pay that one amount before it ships. We pay the seller, book air freight to Pakistan and keep you posted on WhatsApp. No second payment, ever.</p></div>
+        <div class="step reveal tilt"><span class="n">4</span><div class="ic"><svg aria-hidden="true"><use href="#i-home"/></svg></div><h3>It lands at your door</h3><p>Air freight, customs cleared, delivered to any address in Pakistan in 7–15 days. Nothing more to pay.</p></div>
       </div>
     </div>
   </section>
@@ -431,9 +458,9 @@
           <h2>Tell us what you want. We'll price it.</h2>
           <p class="sub">Fill this in and we'll message you on WhatsApp within 24 hours with one price in rupees. Our fee is in it and stated upfront. No account, no commitment.</p>
           <ul>
-            <li><span class="ic">🔗</span><span><b>Paste the product link.</b> Alibaba, 1688, Taobao, AliExpress, Temu, any Chinese site. The link is the one thing we need.</span></li>
-            <li><span class="ic">📸</span><span>Attach a screenshot or photo if you have one.</span></li>
-            <li><span class="ic">📱</span><span>Give us your WhatsApp number and city. That's all we need.</span></li>
+            <li><span class="ic"><svg aria-hidden="true"><use href="#i-link"/></svg></span><span><b>Paste the product link.</b> Alibaba, 1688, Taobao, AliExpress, Temu, any Chinese site. The link is the one thing we need.</span></li>
+            <li><span class="ic"><svg aria-hidden="true"><use href="#i-camera"/></svg></span><span>Attach a screenshot or photo if you have one.</span></li>
+            <li><span class="ic"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><span>Give us your WhatsApp number and city. That's all we need.</span></li>
           </ul>
           <p class="alt">Prefer to chat? <a href="#" class="wa-link" target="_blank" rel="noopener">Send the link on WhatsApp instead</a>.</p>
         </div>
@@ -488,12 +515,12 @@
         <p class="sub">These are the things people ask us for most. If yours isn't here, send the link anyway.</p>
       </div>
       <div class="grid3">
-        <div class="cat reveal tilt"><div class="ic c1">📱</div><div><h3>Gadgets &amp; electronics</h3><p>Earbuds, mini projectors, smart watches, keyboards, phone accessories, cameras, drones.</p></div></div>
-        <div class="cat reveal tilt"><div class="ic c5">🔧</div><div><h3>Parts &amp; tools</h3><p>That one spare part for a machine, bike or appliance. Specialist hand tools and testers.</p></div></div>
-        <div class="cat reveal tilt"><div class="ic c4">💄</div><div><h3>Beauty &amp; personal care</h3><p>Facial devices, hair tools, massagers, grooming kits, dental and health gadgets.</p></div></div>
-        <div class="cat reveal tilt"><div class="ic c3">🏠</div><div><h3>Home &amp; kitchen</h3><p>Smart home devices, kitchen gadgets, organisers, lamps, decor you saw in a video.</p></div></div>
-        <div class="cat reveal tilt"><div class="ic c6">🎮</div><div><h3>Hobby &amp; collectibles</h3><p>Figures, model kits, gaming gear, camera accessories, cycling and fitness gear.</p></div></div>
-        <div class="cat reveal tilt"><div class="ic c2">👗</div><div><h3>Fashion &amp; accessories</h3><p>A jacket, bag, watch, shoes or sunglasses from a specific seller, in your size.</p></div></div>
+        <div class="cat reveal tilt"><div class="ic"><svg aria-hidden="true"><use href="#i-phone"/></svg></div><div><h3>Gadgets &amp; electronics</h3><p>Earbuds, mini projectors, smart watches, keyboards, phone accessories, cameras, drones.</p></div></div>
+        <div class="cat reveal tilt"><div class="ic"><svg aria-hidden="true"><use href="#i-wrench"/></svg></div><div><h3>Parts &amp; tools</h3><p>That one spare part for a machine, bike or appliance. Specialist hand tools and testers.</p></div></div>
+        <div class="cat reveal tilt"><div class="ic"><svg aria-hidden="true"><use href="#i-sparkle"/></svg></div><div><h3>Beauty &amp; personal care</h3><p>Facial devices, hair tools, massagers, grooming kits, dental and health gadgets.</p></div></div>
+        <div class="cat reveal tilt"><div class="ic"><svg aria-hidden="true"><use href="#i-home"/></svg></div><div><h3>Home &amp; kitchen</h3><p>Smart home devices, kitchen gadgets, organisers, lamps, decor you saw in a video.</p></div></div>
+        <div class="cat reveal tilt"><div class="ic"><svg aria-hidden="true"><use href="#i-game"/></svg></div><div><h3>Hobby &amp; collectibles</h3><p>Figures, model kits, gaming gear, camera accessories, cycling and fitness gear.</p></div></div>
+        <div class="cat reveal tilt"><div class="ic"><svg aria-hidden="true"><use href="#i-shirt"/></svg></div><div><h3>Fashion &amp; accessories</h3><p>A jacket, bag, watch, shoes or sunglasses from a specific seller, in your size.</p></div></div>
       </div>
     </div>
   </section>
@@ -535,10 +562,10 @@
         <p class="sub">Big forwarders want containers. We want the person who just needs one thing done properly.</p>
       </div>
       <div class="whys">
-        <div class="w reveal"><div class="ic">🧾</div><h3>One price. No breakdown games.</h3><p>We don't send you a product price, then a shipping price, then a customs price. You get one number, paid once before shipping. Our fee is in it and you know it before you say yes.</p></div>
-        <div class="w reveal"><div class="ic">🛡️</div><h3>Rated sellers only</h3><p>We buy from suppliers with real trade history and ratings on Alibaba, 1688 or Taobao, not random shops. You get the exact listing you sent.</p></div>
-        <div class="w reveal"><div class="ic">🗣️</div><h3>Urdu + English, on WhatsApp</h3><p>No forms, no portals, no email tickets. One chat from first message to delivery, in the language you're comfortable in.</p></div>
-        <div class="w reveal"><div class="ic">🚚</div><h3>Door-to-door, anywhere in Pakistan</h3><p>Lahore, Karachi, Islamabad, Peshawar, Quetta, Multan, or a small town. If a courier reaches it, so do we.</p></div>
+        <div class="w reveal"><div class="ic"><svg aria-hidden="true"><use href="#i-receipt"/></svg></div><h3>One price. No breakdown games.</h3><p>We don't send you a product price, then a shipping price, then a customs price. You get one number, paid once before shipping. Our fee is in it and you know it before you say yes.</p></div>
+        <div class="w reveal"><div class="ic"><svg aria-hidden="true"><use href="#i-shield"/></svg></div><h3>Rated sellers only</h3><p>We buy from suppliers with real trade history and ratings on Alibaba, 1688 or Taobao, not random shops. You get the exact listing you sent.</p></div>
+        <div class="w reveal"><div class="ic"><svg aria-hidden="true"><use href="#i-bubble"/></svg></div><h3>Urdu + English, on WhatsApp</h3><p>No forms, no portals, no email tickets. One chat from first message to delivery, in the language you're comfortable in.</p></div>
+        <div class="w reveal"><div class="ic"><svg aria-hidden="true"><use href="#i-truck"/></svg></div><h3>Door-to-door, anywhere in Pakistan</h3><p>Lahore, Karachi, Islamabad, Peshawar, Quetta, Multan, or a small town. If a courier reaches it, so do we.</p></div>
       </div>
     </div>
   </section>
@@ -599,8 +626,9 @@
   <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2z"/></svg>
 </a>
 
-<script src="/site.js"></script>
+<script src="/site.js?v=3"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 <script>
   // 3D tilt on cards (pointer-driven, skipped for touch and reduced motion)
   (function(){
@@ -632,7 +660,7 @@
     const pg = new THREE.BufferGeometry(); pg.setAttribute('position', new THREE.BufferAttribute(pos,3));
     g.add(new THREE.Points(pg, new THREE.PointsMaterial({ color: 0xc7cfdd, size: .03, transparent: true, opacity: .85 })));
     g.add(new THREE.Mesh(new THREE.SphereGeometry(R*.985, 48, 48), new THREE.MeshBasicMaterial({ color: 0x10131b, transparent: true, opacity: .96 })));
-    g.add(new THREE.Mesh(new THREE.SphereGeometry(R*1.01, 48, 48), new THREE.MeshBasicMaterial({ color: 0x3b82f6, transparent: true, opacity: .12, side: THREE.BackSide })));
+    g.add(new THREE.Mesh(new THREE.SphereGeometry(R*1.01, 48, 48), new THREE.MeshBasicMaterial({ color: 0x0f6b3a, transparent: true, opacity: .14, side: THREE.BackSide })));
 
     const ll = (lat, lon, r=R) => { const p=(90-lat)*Math.PI/180, t=(lon+180)*Math.PI/180; return new THREE.Vector3(-r*Math.sin(p)*Math.cos(t), r*Math.cos(p), r*Math.sin(p)*Math.sin(t)); };
     const A = ll(22.5, 114.1), B = ll(24.9, 67.0); // Shenzhen -> Karachi
@@ -641,7 +669,7 @@
     g.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 64, .016, 8, false), new THREE.MeshBasicMaterial({ color: 0xf5c542 })));
     const pin = (p, c) => { const m = new THREE.Mesh(new THREE.SphereGeometry(.045, 16, 16), new THREE.MeshBasicMaterial({ color: c })); m.position.copy(p); g.add(m);
       const halo = new THREE.Mesh(new THREE.SphereGeometry(.11, 16, 16), new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: .25 })); halo.position.copy(p); g.add(halo); return halo; };
-    const hA = pin(A, 0xe63950), hB = pin(B, 0x2fb86a);
+    const hA = pin(A, 0xc8102e), hB = pin(B, 0x22a35f);
     const parcel = new THREE.Mesh(new THREE.BoxGeometry(.09,.09,.09), new THREE.MeshBasicMaterial({ color: 0xffffff })); g.add(parcel);
     const trail = new THREE.Mesh(new THREE.SphereGeometry(.05, 12, 12), new THREE.MeshBasicMaterial({ color: 0xf5c542, transparent: true, opacity: .5 })); g.add(trail);
 
@@ -666,10 +694,30 @@
 </script>
 <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc})};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var sc=d.createElement("script");sc.src=w;sc.onload=v;sc.onerror=v;d.body.appendChild(sc)}</script>
 <script>
+  // Smooth inertia scrolling (skipped when the user prefers reduced motion)
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let lenis = null;
+  if (window.Lenis && !reducedMotion) {
+    lenis = new Lenis({ lerp: .09, wheelMultiplier: 1, smoothWheel: true, anchors: { offset: -80 } });
+    (function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(performance.now());
+  }
+  // Reveal with per-section stagger
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll(".reveal").forEach((el, i) => { el.style.transitionDelay = (i % 4) * 60 + "ms"; io.observe(el); });
+  }, { threshold: 0.06 });
+  document.querySelectorAll("section").forEach(sec => sec.querySelectorAll(".reveal").forEach((el, i) => { el.style.transitionDelay = Math.min(i, 5) * 80 + "ms"; io.observe(el); }));
+  // safety net: never leave something hidden if the observer misses it
+  setTimeout(() => document.querySelectorAll(".reveal:not(.in)").forEach(el => { const r = el.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0) el.classList.add("in"); }), 1500);
+  // Scroll progress, compact header, hero parallax
+  const bar = document.querySelector(".progress"), hdr = document.querySelector("header"), orbs = [...document.querySelectorAll("[data-parallax]")];
+  function onScroll(y){
+    const max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = "scaleX(" + (max > 0 ? y / max : 0) + ")";
+    hdr.classList.toggle("compact", y > 24);
+    if (!reducedMotion) orbs.forEach(o => o.style.transform = "translateY(" + (y * parseFloat(o.dataset.parallax)).toFixed(1) + "px)");
+  }
+  if (lenis) lenis.on("scroll", e => onScroll(e.scroll)); else addEventListener("scroll", () => onScroll(scrollY), { passive: true });
+  onScroll(scrollY);
 </script>
 </body>
 </html>
