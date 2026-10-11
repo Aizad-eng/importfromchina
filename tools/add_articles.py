@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Add guides to the blog using an existing published guide as the page template.
 
-Usage: python3 tools/add_articles.py batch1.py [batch2.py ...]
+Usage: python3 tools/add_articles.py [--replace] batch1.py [batch2.py ...]
+  --replace  re-render guides whose slug already exists (same URL) and refresh their index card
 Each batch file contains article(...) calls and a SEO_EXTRA dict:
   article(slug, title, description, minutes, answer, body_html, faqs, category, emoji)
   SEO_EXTRA = {slug: (google_title, meta_description)}
@@ -95,12 +96,13 @@ def render(a, seo, related, tpl):
     s = re.sub(r'(<nav class="toc">).*?(</nav>)', lambda m: m.group(1) + toc_html + m.group(2), s, count=1, flags=re.S)
     return s
 
-def main(paths):
+def main(paths, replace=False):
     tpl = open(TEMPLATE).read()
     arts, seo = load(paths)
     have = {f[:-5] for f in os.listdir(BLOG) if f.endswith(".html") and f != "index.html"}
     new = [a for a in arts if a["slug"] not in have]
-    skipped = [a["slug"] for a in arts if a["slug"] in have]
+    upd = [a for a in arts if a["slug"] in have] if replace else []
+    skipped = [] if replace else [a["slug"] for a in arts if a["slug"] in have]
     old = existing_posts()
     old_meta = {sl: (html.unescape(t), int(mi)) for sl, cat, t, mi in old}
     # related: same category among new + old, else anything
@@ -108,7 +110,7 @@ def main(paths):
     idx = open(os.path.join(BLOG, "index.html")).read()
     old_emoji = dict(re.findall(r'<a class="post" href="/blog/([a-z0-9-]+)"[^>]*><span class="e">(.*?)</span>', idx))
     pool_old = [(sl, html.unescape(t), int(mi), old_emoji.get(sl, "📦"), cat) for sl, cat, t, mi in old]
-    for a in new:
+    for a in new + upd:
         same = [p for p in pool_new + pool_old if p[4] == a["category"] and p[0] != a["slug"]]
         rest = [p for p in pool_new + pool_old if p[0] != a["slug"] and p not in same]
         rel = [(p[0], p[1], p[2], p[3]) for p in (same + rest)[:3]]
@@ -118,6 +120,10 @@ def main(paths):
         f'<a class="post" href="/blog/{a["slug"]}" data-cat="{html.escape(a["category"])}" data-text="{html.escape((a["title"] + " " + a["description"]).lower())}"><span class="e">{a["emoji"]}</span><h2>{html.escape(a["title"])}</h2><p>{html.escape(a["description"])}</p><small>{html.escape(a["category"])} · {a["minutes"]} min read</small></a>'
         for a in new)
     idx = re.sub(r'(<div class="list">.*?)(</div>\s*<p class="empty")', lambda m: m.group(1) + cards + m.group(2), idx, count=1, flags=re.S)
+    for a in upd:
+        card = f'<a class="post" href="/blog/{a["slug"]}" data-cat="{html.escape(a["category"])}" data-text="{html.escape((a["title"] + " " + a["description"]).lower())}"><span class="e">{a["emoji"]}</span><h2>{html.escape(a["title"])}</h2><p>{html.escape(a["description"])}</p><small>{html.escape(a["category"])} · {a["minutes"]} min read</small></a>'
+        idx, n = re.subn(r'<a class="post" href="/blog/' + re.escape(a["slug"]) + r'".*?</a>', lambda m: card, idx, count=1, flags=re.S)
+        if n != 1: raise SystemExit("index card not found for " + a["slug"])
     cats_all = re.findall(r'<a class="post" href="/blog/[a-z0-9-]+" data-cat="([^"]*)"', idx)
     order = []
     for c in cats_all:
@@ -130,9 +136,12 @@ def main(paths):
     sm_path = os.path.join(ROOT, "sitemap.xml"); sm = open(sm_path).read()
     add = "".join(f"  <url><loc>{SITE}/blog/{a['slug']}</loc><lastmod>{TODAY.isoformat()}</lastmod><priority>0.9</priority></url>\n" for a in new if f"/blog/{a['slug']}<" not in sm)
     sm = sm.replace("</urlset>", add + "</urlset>")
+    for a in upd:
+        sm = re.sub(r"(<loc>" + re.escape(f"{SITE}/blog/{a['slug']}") + r"</loc><lastmod>)[^<]*", lambda m: m.group(1) + TODAY.isoformat(), sm)
     open(sm_path, "w").write(sm)
-    print(f"added {len(new)} guides; skipped existing: {skipped}; blog total {len(cats_all)}; sitemap urls {sm.count('<loc>')}")
+    print(f"added {len(new)} guides; replaced {len(upd)}; skipped existing: {skipped}; blog total {len(cats_all)}; sitemap urls {sm.count('<loc>')}")
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2: raise SystemExit(__doc__)
-    main(sys.argv[1:])
+    args = [a for a in sys.argv[1:] if a != "--replace"]
+    if not args: raise SystemExit(__doc__)
+    main(args, replace="--replace" in sys.argv)

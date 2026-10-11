@@ -1,0 +1,142 @@
+# Batch 5a: upgraded replacement for the Temu guide. Category "Platforms".
+# Status verified 11 October 2026: Temu runs a Pakistan site (temu.com/pk-en) with rupee prices.
+
+# 1 ---------------------------------------------------------------------------
+article(
+"does-temu-deliver-to-pakistan",
+"Does Temu Deliver to Pakistan? What Works in 2026",
+"Yes, Temu delivers to Pakistan. Verified shipping times, payment options, customs rules, why the app may not show Pakistan, and how to spot fake Temu sellers.",
+9,
+"Yes. At the time of writing (October 2026), Temu delivers to Pakistan through its own Pakistan site and app, with prices in rupees. Temu's Pakistan shipping page lists free standard shipping on all orders, typically 5 to 13 business days after a 1 to 3 day processing time. The site shows JazzCash, Easypaisa and card logos for payment. If the app shows another country, change the region in settings rather than using a VPN, and buy only through the official app or temu.com.",
+"""
+<h2>Does Temu deliver to Pakistan in October 2026?</h2>
+<p>Yes. At the time of writing (October 2026), Temu runs a Pakistan version of its site at temu.com/pk-en, with the region shown as Pakistan and prices in rupees. When we opened it from Pakistan on 11 October 2026, it showed products priced in Rs, a Pakistan shipping page, a Pakistan return policy and Pakistan terms of use.</p>
+<p>Older guides, including an earlier version of this one, said Temu did not list Pakistan. That is out of date. ProPakistani reported on 30 September 2024 that Temu had officially started operating in Pakistan, and Temu's Pakistan Terms of Use were last updated on 19 September 2024.</p>
+<p>So if you are asking "can Temu deliver in Pakistan" or "is Temu deliver in Pakistan", the short answer is yes, for most items, to most normal addresses. The useful questions now are how long it takes, how you pay, what customs means for your parcel and how to avoid fake "Temu Pakistan" sellers.</p>
+
+<h2>How long does Temu delivery to Pakistan take, and what does it cost?</h2>
+<p>Temu's Pakistan shipping page says free standard shipping applies to all orders, with a delivery window of 5 to 13 business days. Processing takes 1 to 3 days before that, so count from the day the order ships, not the day you pay.</p>
+<p>A few details from the same page are worth knowing:</p>
+<ul>
+  <li>The delivery estimate for each package appears after payment, on the order confirmation page and in your order history.</li>
+  <li>The final leg is handed to local carriers, so tracking may not update at every step. A gap of a few days with no scan is common and not a sign the parcel is lost.</li>
+  <li>Some items need a physical address and cannot go to a P.O. box. Large items, valuables and items shipped by private carriers are examples Temu gives.</li>
+  <li>Temu says items cannot be delivered to security-restricted areas such as military bases. If you live inside a cantonment or a gated official colony, use an address outside it.</li>
+  <li>If the parcel has not arrived, or tracking shows delivered but you have nothing, contact Temu customer service within 90 days of the order date.</li>
+</ul>
+<p>For tracking numbers that change hands between carriers, see our guide on <a href="/blog/how-to-track-a-parcel-from-china-to-pakistan">how to track a parcel from China to Pakistan</a>.</p>
+
+<h2>How do you pay Temu from Pakistan?</h2>
+<p>The footer of Temu's Pakistan site shows these payment logos: JazzCash, Easypaisa, Visa, Mastercard, American Express, Discover, Maestro, Diners Club, JCB, UnionPay, Apple Pay and Google Pay. Cash on delivery was not among the logos when we checked.</p>
+<p>In practice, most people in Pakistan will use JazzCash, Easypaisa or a debit card. If you use a bank card, make sure international or online transactions are switched on in your banking app first, because many Pakistani cards ship with them off. Your bank's exchange rate and any card charges are set by your bank, not Temu.</p>
+<p>Refunds go back to the original payment method or to Temu credit, your choice. Temu's Pakistan return policy says refunds to the original method can take 5 to 14 business days, and up to 30 days, depending on your bank or wallet.</p>
+
+<h2>Why does the Temu app not show Pakistan for some people?</h2>
+<p>Temu is one app with many country sites. The country you see depends on the region set in the app or site, not only on where you are. Common reasons you might see the US, UAE or another country instead of Pakistan:</p>
+<ul>
+  <li>A VPN or a company network routes your connection through another country.</li>
+  <li>You created your account earlier while abroad, or while a VPN was on, and it kept that region.</li>
+  <li>You followed a link shared from someone else's country site, so the URL points to their region.</li>
+</ul>
+<p>The fix is simple. Turn off any VPN, then change the region to Pakistan in the app's settings or in the country and language selector on temu.com, where the option reads "Pakistan English". Prices should switch to rupees. If they do not, sign out, close the app and open it again.</p>
+
+<h2>Can a VPN or a foreign forwarding address get you a cheaper Temu deal?</h2>
+<p>People ask this because they see a lower price or an item on the US or UAE site that is not on the Pakistan site. It rarely works out, and checkout commonly fails for reasons that have nothing to do with the VPN itself:</p>
+<ul>
+  <li><strong>Address mismatch.</strong> Each Temu country site is set up to deliver inside that country, with its own carriers, taxes and return pickups. A Pakistani address on another country's site does not fit that setup.</li>
+  <li><strong>Payment mismatch.</strong> JazzCash and Easypaisa appear on the Pakistan site. Other country sites typically show their own local methods, and a Pakistani card on a foreign storefront is more likely to be flagged by fraud checks.</li>
+  <li><strong>Double cost.</strong> If you ship to a friend or a forwarder abroad, you pay a second international shipment and still face Pakistan customs on arrival. You also lose Temu's delivery promise and easy returns once the parcel leaves the address you ordered to.</li>
+</ul>
+<p>We will not give steps for getting around Temu's region rules. If an item is only on another country's site, the better route is to find the same item from the Chinese factory that supplies it, which we cover below.</p>
+
+<h2>Do you pay customs duty on a Temu parcel in Pakistan?</h2>
+<p>Sometimes. Two rules matter here.</p>
+<p><strong>Temu's own terms.</strong> Temu's Pakistan Terms of Use say that, where applicable, you act as the importer, and you authorise Temu to appoint a freight forwarding agent to pay sales tax and customs duties on your behalf. The terms also say any duties collected at checkout are estimates, and if customs assesses more, you are responsible for the difference. Temu's return policy adds that import tax is not refundable if a return is not Temu's fault.</p>
+<p><strong>Pakistan's small parcel rule.</strong> Section 19C of the Customs Act, as amended by the Finance Act 2025, says that where the value of goods imported through post or courier does not exceed Rs 1,000, no duties and taxes shall be demanded, subject to conditions set by the FBR. As we read it, once a parcel is worth more than Rs 1,000, duty and taxes can apply to its whole value, not only the part above Rs 1,000. Check the current FBR rule if your order is close to that line, because thresholds change with budgets.</p>
+<p>What this means for one Temu parcel:</p>
+<ul>
+  <li>Small orders under Rs 1,000 sent by post or courier should not attract duty under section 19C.</li>
+  <li>For larger orders, look at the checkout total. If Temu shows an import tax line, that is its estimate.</li>
+  <li>If a courier asks for extra duty at the door, ask for the customs assessment document before paying anything.</li>
+  <li>Mobile phones are a separate case. They need PTA registration, and the tax depends on the model, whatever the parcel value.</li>
+</ul>
+<p>For how duty is worked out on bigger items, see <a href="/blog/customs-duty-china-to-pakistan">customs duty on imports from China to Pakistan</a>.</p>
+
+<h2>Which Chinese shopping apps deliver to Pakistan?</h2>
+<p>We checked each of these from Pakistan in October 2026. Availability changes, so confirm on the site before you plan around it.</p>
+<table>
+  <thead><tr><th>Site or app</th><th>Delivers to Pakistan?</th><th>What we saw</th></tr></thead>
+  <tbody>
+    <tr><td>Temu</td><td>Yes</td><td>Pakistan site, rupee prices, free standard shipping, 5 to 13 business days, JazzCash and Easypaisa logos</td></tr>
+    <tr><td>Shein</td><td>Yes</td><td>Shipping page set to Pakistan listed standard shipping of 7 to 11 business days and Pakistan-specific on-time delivery terms</td></tr>
+    <tr><td>AliExpress</td><td>Yes, most listings</td><td>Region set to Pakistan, prices in rupees, each listing shows its own shipping fee and delivery date</td></tr>
+    <tr><td>Alibaba.com</td><td>Yes, seller-arranged</td><td>Built for business buyers, single pieces possible on Ready to Ship listings, courier cost for one piece is often high</td></tr>
+    <tr><td>Taobao</td><td>Not directly</td><td>Chinese consumer site, Chinese payment methods, built for delivery inside China</td></tr>
+    <tr><td>1688</td><td>Not directly</td><td>Chinese wholesale site, Chinese payment methods, ships within China</td></tr>
+  </tbody>
+</table>
+<p>For a step-by-step on the AliExpress route, see <a href="/blog/how-to-buy-from-aliexpress-in-pakistan">how to buy from AliExpress in Pakistan</a>.</p>
+
+<h2>What if the Temu item you want will not ship to Pakistan?</h2>
+<p>Temu delivering to Pakistan does not mean every listing does. Some items are not offered on the Pakistan site, some cannot go to your address, and some are restricted by air, such as loose lithium batteries, aerosols and flammable liquids. You might also want something Temu does not stock, or pay by bank transfer or Raast, which Temu's site does not list.</p>
+<p>Most Temu products come from the same Chinese factories and traders who sell on 1688 and Taobao. That means the same item can usually be found there, often in more colours or sizes. The route for one item:</p>
+<ol>
+  <li>Copy the Temu link, or take a clear screenshot of the item and its key details (size, colour, model).</li>
+  <li>Search for it on 1688 or Taobao by image. Our guide on <a href="/blog/how-to-search-taobao-and-1688-by-image">searching Taobao and 1688 by image</a> shows how.</li>
+  <li>Because 1688 and Taobao only deliver inside China and take Chinese payment, use a single-item service to buy, ship and clear customs for you.</li>
+  <li>Get one delivered price in rupees before paying, so customs and shipping are already inside the number.</li>
+</ol>
+<p>This is what we do. Send us the product link on WhatsApp and within 24 hours we send one price in rupees, with our fee included and stated upfront. You pay once, before it ships, by bank transfer, Raast, JazzCash or Easypaisa. It typically reaches any address in Pakistan 7 to 15 days after the seller dispatches, with nothing to pay on delivery. We handle single items only, not bulk or resale stock. If Temu itself ships your item to Pakistan, ordering directly from Temu is usually the simpler choice.</p>
+
+<h2>Is a "Temu Pakistan" WhatsApp seller or Facebook page really Temu?</h2>
+<p>Treat it as a reseller, not Temu. The official way to buy is the Temu app or temu.com with the region set to Pakistan. Temu's own home page carries a security reminder that it will not ask for extra fees by SMS or email, and its Pakistan footer has a "Report suspicious activity" page.</p>
+<p>Red flags to watch for:</p>
+<ul>
+  <li>A WhatsApp number or Facebook page calling itself "Temu Pakistan" or "Temu official" that takes orders by chat.</li>
+  <li>Requests to send money to a personal JazzCash, Easypaisa or bank account instead of paying inside the Temu app.</li>
+  <li>A message saying your Temu parcel is held and you must pay a "customs fee" or "release fee" through a link. Check the order in the app, and ask the courier for the customs assessment.</li>
+  <li>Links to look-alike domains that are not temu.com.</li>
+  <li>Prices well below the same item on the official Pakistan site, often with a small advance payment asked first.</li>
+  <li>Shops selling "Temu products" with their own delivery and refund terms. Some are genuine third-party stores, but they are not Temu, so Temu's 90-day return policy does not cover you.</li>
+</ul>
+<p>Our guide on <a href="/blog/is-it-safe-to-order-from-china-to-pakistan">whether it is safe to order from China to Pakistan</a> covers payment safety in more detail.</p>
+
+<h2>Common mistakes Pakistani buyers make with Temu orders</h2>
+<ul>
+  <li><strong>Shopping on the wrong country site.</strong> Check that prices show in Rs before you build a cart.</li>
+  <li><strong>Writing a vague address.</strong> Local couriers handle the last leg. Add a landmark, the correct city and a phone number you will answer.</li>
+  <li><strong>Ignoring the import tax line.</strong> On bigger orders, read the checkout total, and remember customs can assess more.</li>
+  <li><strong>Buying to resell.</strong> Temu's terms grant use of its services for personal, non-commercial purposes. For stock, buy from wholesale suppliers instead.</li>
+  <li><strong>Missing the return window.</strong> Temu's Pakistan policy allows returns within 90 days of purchase, and you must send the package back within 14 days of requesting the return. Worn or washed clothing and some personal care items cannot be returned.</li>
+  <li><strong>Ordering items that air rules restrict.</strong> Perfumes, aerosols and loose batteries often cannot fly. Check before you pay.</li>
+</ul>
+
+<h2>Sources</h2>
+<ul>
+  <li><a href="https://www.temu.com/pk-en/shipping-info.html">Temu Pakistan: Shipping info</a></li>
+  <li><a href="https://www.temu.com/pk-en/terms-of-use.html">Temu Pakistan: Terms of Use</a></li>
+  <li><a href="https://www.temu.com/pk-en/return-and-refund-policy.html">Temu Pakistan: Return and Refund Policy</a></li>
+  <li><a href="https://www.shein.com/Shipping-Info-a-280.html">Shein: Shipping Info</a></li>
+  <li><a href="https://propakistani.pk/2024/09/30/aliexpress-rival-temu-arrives-in-pakistan/">ProPakistani: Temu arrives in Pakistan (September 2024)</a></li>
+  <li><a href="https://download1.fbr.gov.pk/Docs/20258121285942396CustomsAct1969(June2025)-(12.8.25).pdf">FBR: Customs Act 1969, consolidated to June 2025 (section 19C)</a></li>
+</ul>
+""",
+[
+ ("Can Temu deliver in Pakistan?",
+  "Yes. At the time of writing (October 2026), Temu runs a Pakistan site and app with prices in rupees and delivers to most addresses in Pakistan. Some individual listings may not ship to Pakistan."),
+ ("Is Temu delivery to Pakistan free?",
+  "Temu's Pakistan shipping page lists free standard shipping on all orders, with delivery in 5 to 13 business days after 1 to 3 days of processing. Customs duty is a separate matter."),
+ ("Do Temu deliver in Pakistan with cash on delivery?",
+  "Cash on delivery was not among the payment logos on Temu's Pakistan site when we checked. The site showed JazzCash, Easypaisa, major cards, Apple Pay and Google Pay."),
+ ("Will I pay customs duty on a Temu order in Pakistan?",
+  "Parcels worth up to Rs 1,000 sent by post or courier should not attract duty under section 19C of the Customs Act. Above that, duty can apply, and Temu's terms say you pay any amount customs assesses beyond what was collected at checkout."),
+ ("Does Shein deliver to Pakistan too?",
+  "Yes. When we checked from Pakistan in October 2026, Shein's shipping page listed standard shipping of 7 to 11 business days and had Pakistan-specific delivery terms. Confirm the estimate at checkout for your own address."),
+ ("Is a WhatsApp seller called Temu Pakistan official?",
+  "Treat it as a reseller, not Temu. Buy through the Temu app or temu.com with the region set to Pakistan, and never pay a personal wallet or bank account for a Temu order."),
+],
+"Platforms", "📲")
+
+SEO_EXTRA = {
+ "does-temu-deliver-to-pakistan": ("Does Temu Deliver to Pakistan? Yes, Here Is How (2026)", "Yes, Temu delivers to Pakistan. Shipping times, JazzCash and Easypaisa payment, customs rules under Rs 1,000, and red flags for fake Temu sellers."),
+}
