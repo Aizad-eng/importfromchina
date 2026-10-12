@@ -71,6 +71,7 @@ const css = `
 .paste input:focus{border-color:#0f6b3a;background:#fff}
 .paste .hint{font-size:12.5px;margin-top:8px;line-height:1.4;display:none}
 .paste .hint.on{display:block}
+.paste .cheap{font-size:12px;line-height:1.4;color:#5c4400;background:#fdf3d6;border-radius:10px;padding:8px 10px;margin:10px 0 2px}
 .paste .hint.err{color:#c8102e}
 .paste .hint.info{color:#3d4047;background:#fdf3d6;border-radius:10px;padding:8px 10px}
 .paste .alt{display:block;text-align:center;margin-top:10px;font-size:13px;color:#0f6b3a;font-weight:600;text-decoration:underline;text-underline-offset:3px}
@@ -99,6 +100,7 @@ function openPaste() {
       <button class="x" aria-label="Close">×</button>
       <div class="t">Get a price for one item</div>
       <div class="s">Paste the product link. You'll get one delivered price in rupees within 24 hours.</div>
+      <div class="cheap">Shipping alone is usually Rs 5,000 to 20,000, so cheap items you can buy in Pakistan aren't worth it.</div>
       <input type="url" inputmode="url" placeholder="https://… Alibaba, 1688, Taobao, AliExpress" aria-label="Product link">
       <div class="hint"></div>
       <button class="go" type="button">${WA_SVG}Send on WhatsApp</button>
