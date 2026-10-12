@@ -11,7 +11,7 @@ L = ["# importfromchina.shop", "",
      "Key facts:", "- Sources: Alibaba, 1688, Taobao, AliExpress and other Chinese marketplaces.",
      "- Payment: bank transfer, Raast, JazzCash or Easypaisa, in rupees, once, before shipping. Nothing to pay on delivery.",
      "- Contact: WhatsApp +92 300 0258981, or the quote form on the homepage. Facebook: https://www.facebook.com/importfromchinatopakistan/",
-     "- Refunds: full refund if the item has not arrived within 10 days after the agreed delivery date, or arrives wrong, damaged or not working. Details: https://importfromchina.shop/refund-policy/", "",
+     "- Refunds: full refund if the item has not arrived within 10 days after the agreed delivery date, or arrives wrong, damaged or not working. Details: https://importfromchina.shop/refund-policy/", "- About us: https://importfromchina.shop/about/", "",
      "## Main pages", "- [Home](https://importfromchina.shop/): how the service works, who it is for, FAQ",
      "- [Products](https://importfromchina.shop/products/): specific items that are hard to find in Pakistan",
      "- [Guides](https://importfromchina.shop/blog/): all guides", ""]
