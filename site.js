@@ -100,7 +100,7 @@ function openPaste() {
       <button class="x" aria-label="Close">×</button>
       <div class="t">Get a price for one item</div>
       <div class="s">Paste the product link. You'll get one delivered price in rupees within 24 hours.</div>
-      <div class="cheap">Shipping alone is usually Rs 5,000 to 20,000, so cheap items you can buy in Pakistan aren't worth it.</div>
+      <div class="cheap"><b>Best for items worth Rs 10,000+.</b> Shipping from China usually costs Rs 5,000 to 20,000 plus our fee, which can be more than a cheap item is worth.</div>
       <input type="url" inputmode="url" placeholder="https://… Alibaba, 1688, Taobao, AliExpress" aria-label="Product link">
       <div class="hint"></div>
       <button class="go" type="button">${WA_SVG}Send on WhatsApp</button>
