@@ -75,6 +75,22 @@ const css = `
 .paste .hint.err{color:#c8102e}
 .paste .hint.info{color:#3d4047;background:#fdf3d6;border-radius:10px;padding:8px 10px}
 .paste .alt{display:block;text-align:center;margin-top:10px;font-size:13px;color:#0f6b3a;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+/* price check before WhatsApp */
+.gate{position:fixed;inset:0;z-index:80;background:rgba(23,24,28,.55);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;transition:opacity .25s ease}
+.gate.show{opacity:1}
+.gate .box{position:relative;background:#fff;border-radius:22px;max-width:420px;width:100%;padding:26px 22px 20px;font-family:Inter,system-ui,sans-serif;color:#17181c;box-shadow:0 30px 60px -20px rgba(0,0,0,.45);text-align:center}
+.gate .x{position:absolute;top:10px;right:10px;width:32px;height:32px;border:0;background:#f1eee6;border-radius:50%;color:#6d707a;font-size:18px;cursor:pointer}
+.gate .ic{width:52px;height:52px;border-radius:50%;background:#fdf3d6;color:#b08000;display:grid;place-items:center;margin:0 auto 12px;font:800 26px Sora,Inter,sans-serif}
+.gate h3{font:800 21px/1.25 Sora,Inter,sans-serif;letter-spacing:-.02em;margin:0 0 10px}
+.gate p{font-size:15px;line-height:1.55;color:#3d4047;margin:0 0 8px}
+.gate p b{color:#17181c}
+.gate .ur{font-family:"Noto Nastaliq Urdu",serif;font-size:16px;line-height:2.1;color:#5c4400;direction:rtl}
+.gate .q{font:700 16px/1.35 Sora,Inter,sans-serif;margin:14px 0 12px}
+.gate button.b{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border-radius:999px;padding:13px 16px;font:600 15px Inter,system-ui,sans-serif;cursor:pointer;border:0}
+.gate .yes{background:#0f6b3a;color:#fff}.gate .yes:hover{background:#0a4d2a}.gate .yes svg{width:18px;height:18px}
+.gate .no{background:#fff;color:#17181c;border:1.5px solid #e3dfd5 !important;margin-top:8px}.gate .no:hover{background:#faf8f3}
+.gate .anyway{display:inline-block;margin-top:12px;font-size:13px;color:#6d707a;text-decoration:underline;text-underline-offset:3px;cursor:pointer;background:none;border:0}
+@media (max-width:600px){.gate{align-items:flex-end;padding:0}.gate .box{max-width:none;border-radius:22px 22px 0 0;padding-bottom:24px}}
 ${reduceMotion ? ".ifc-card{transition:none}" : ""}`;
 const style = document.createElement("style"); style.textContent = css; document.head.appendChild(style);
 
@@ -90,6 +106,55 @@ function hide(el, rememberKey) {
   el.classList.remove("show");
   if (rememberKey) store.set(rememberKey, String(Date.now()));
 }
+
+/* ---------- price check: every WhatsApp contact goes through this once per visit ---------- */
+let gateEl = null, gateUrl = "", gateLast = null;
+const GATE_ASK = `
+    <div class="ic">!</div>
+    <h3 id="gate-t">Quick check before you message us</h3>
+    <p>Shipping one item from China usually costs <b>Rs 5,000 to 20,000</b>, plus our fee. So we're best for items worth <b>Rs 10,000 or more</b>.</p>
+    <p class="ur" lang="ur">دس ہزار روپے سے کم کی چیز منگوانا مہنگا پڑے گا</p>
+    <div class="q">Is your item worth Rs 10,000 or more?</div>
+    <button class="b yes" type="button">${WA_SVG}Yes, continue to WhatsApp</button>
+    <button class="b no" type="button">No, it's cheaper</button>`;
+const GATE_NO = `
+    <div class="ic">i</div>
+    <h3 id="gate-t">Then it's better to buy it in Pakistan</h3>
+    <p>For an item under Rs 10,000, shipping from China alone would likely cost more than the item itself. Check Daraz or a local market first. You'll almost always pay less.</p>
+    <button class="b yes ok" type="button">OK, got it</button>
+    <button class="anyway" type="button">Message us anyway</button>`;
+function closeGate() { if (!gateEl) return; gateEl.classList.remove("show"); const g = gateEl; setTimeout(() => g.remove(), 250); gateEl = null; if (gateLast) gateLast.focus(); }
+function passGate() { store.set("ifc_gate_ok", "1", true); const u = gateUrl; closeGate(); window.open(u, "_blank", "noopener"); }
+function fillGate(html) {
+  const box = gateEl.querySelector(".box");
+  box.innerHTML = '<button class="x" type="button" aria-label="Close">×</button>' + html;
+  box.querySelector(".x").addEventListener("click", closeGate);
+  const yes = box.querySelector(".yes:not(.ok)"), no = box.querySelector(".no"), ok = box.querySelector(".ok"), anyway = box.querySelector(".anyway");
+  if (yes) yes.addEventListener("click", passGate);
+  if (no) no.addEventListener("click", () => fillGate(GATE_NO));
+  if (ok) ok.addEventListener("click", closeGate);
+  if (anyway) anyway.addEventListener("click", passGate);
+  (yes || ok).focus();
+}
+function gate(url) {
+  if (store.get("ifc_gate_ok", true) === "1") { window.open(url, "_blank", "noopener"); return; }
+  gateUrl = url; gateLast = document.activeElement;
+  cards.forEach((c) => hide(c));
+  gateEl = document.createElement("div");
+  gateEl.className = "gate"; gateEl.setAttribute("role", "dialog"); gateEl.setAttribute("aria-modal", "true"); gateEl.setAttribute("aria-labelledby", "gate-t");
+  gateEl.innerHTML = '<div class="box"></div>';
+  gateEl.addEventListener("click", (e) => { if (e.target === gateEl) closeGate(); });
+  document.body.appendChild(gateEl); fillGate(GATE_ASK);
+  requestAnimationFrame(() => gateEl && gateEl.classList.add("show"));
+}
+document.addEventListener("keydown", (e) => { if (e.key === "Escape" && gateEl) closeGate(); });
+// Catch every WhatsApp link on the page (except the bubble, which opens the paste helper).
+document.addEventListener("click", (e) => {
+  const a = e.target.closest && e.target.closest('a[href*="wa.me/"]');
+  if (!a || a.classList.contains("fab") || store.get("ifc_gate_ok", true) === "1") return;
+  e.preventDefault(); gate(a.href);
+}, true);
+
 const fab = document.querySelector(".fab");
 
 /* ---------- 1. paste-a-link helper, opened by the WhatsApp button ---------- */
@@ -117,7 +182,7 @@ function openPaste() {
       const v = input.value.trim();
       const m = v.match(/https?:\/\/\S+/i) || (/^[\w-]+(\.[\w-]+)+\/\S*/.test(v) ? [v] : null);
       if (!m) { showHint("Please paste the product link. It's the one thing we need to price it.", "err"); input.focus(); return; }
-      window.open(waLink("Hi! I'd like a price for this one item, delivered to Pakistan:\n" + m[0]), "_blank", "noopener");
+      gate(waLink("Hi! I'd like a price for this one item, delivered to Pakistan:\n" + m[0]));
       hide(paste);
     });
     input.addEventListener("keydown", (e) => { if (e.key === "Enter") go.click(); if (e.key === "Escape") hide(paste); });
