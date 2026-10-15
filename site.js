@@ -1,8 +1,7 @@
 (function () {
-// Every contact goes through the quote form: the homepage embeds it at #quote, other pages link to /quote/.
+// Every contact goes through the quote form on the homepage (#quote).
 const ON_HOME = location.pathname === "/" || location.pathname === "/index.html";
-const ON_QUOTE = /^\/quote/.test(location.pathname);
-const QUOTE = ON_HOME ? "#quote" : "/quote/";
+const QUOTE = ON_HOME ? "#quote" : "/#quote";
 const yearEl = document.getElementById("year"); if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 /* ---------- storage helpers (every access guarded: private mode can throw) ---------- */
@@ -15,7 +14,7 @@ const dismissedRecently = (key) => { const t = +store.get(key); return t && Date
 
 /* ---------- prompt coordinator: at most one prompt per visit, none on policy pages ---------- */
 const path = location.pathname;
-const QUIET_PAGE = /^\/(refund-policy|quote)/.test(path);
+const QUIET_PAGE = /^\/refund-policy/.test(path);
 const isGuide = /^\/blog\/[^/]+/.test(path) && !!document.querySelector("article .answer");
 let prompted = store.get("ifc_prompted", true) === "1";
 function claimPrompt() { if (prompted || QUIET_PAGE) return false; prompted = true; store.set("ifc_prompted", "1", true); return true; }
@@ -34,6 +33,8 @@ function whenEngaged(fn, { scroll = 0.4, seconds = 20 } = {}) {
 }
 
 const css = `
+.fab{width:auto!important;height:auto!important;border-radius:999px!important;padding:14px 22px!important;display:flex!important;align-items:center;gap:8px;color:#fff!important;font:600 15px/1 Inter,system-ui,sans-serif;text-decoration:none;letter-spacing:-.01em}
+.fab::after{border-radius:999px!important}
 .fab .badge{position:absolute;top:-3px;right:-3px;min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:#c8102e;color:#fff;font:700 11px/20px Inter,system-ui,sans-serif;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.25)}
 .ifc-card{position:fixed;z-index:59;background:#fff;border:1px solid #e3dfd5;border-radius:18px;box-shadow:0 2px 4px rgba(18,20,24,.06),0 24px 48px -16px rgba(18,20,24,.35);font-family:Inter,system-ui,sans-serif;color:#17181c;opacity:0;transform:translateY(12px);transition:opacity .35s ease,transform .35s ease;pointer-events:none}
 .ifc-card.show{opacity:1;transform:none;pointer-events:auto}
@@ -139,8 +140,8 @@ function gate(url) {
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && gateEl) closeGate(); });
 // Catch every link to the quote form.
 document.addEventListener("click", (e) => {
-  const a = e.target.closest && e.target.closest('a.quote-link, a[href="/quote/"], a[href="#quote"]');
-  if (!a || ON_QUOTE) return;
+  const a = e.target.closest && e.target.closest('a.quote-link, a[href="/#quote"], a[href="#quote"]');
+  if (!a) return;
   prompted = true; store.set("ifc_prompted", "1", true);   // they're heading to the form; no more prompts this visit
   document.querySelectorAll(".fab .badge").forEach((b) => b.remove());
   if (store.get("ifc_gate_ok", true) === "1") return;
