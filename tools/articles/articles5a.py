@@ -86,7 +86,7 @@ article(
   <li>Because 1688 and Taobao only deliver inside China and take Chinese payment, use a single-item service to buy, ship and clear customs for you.</li>
   <li>Get one delivered price in rupees before paying, so customs and shipping are already inside the number.</li>
 </ol>
-<p>This is what we do. Send us the product link on WhatsApp and within 24 hours we send one price in rupees, with our fee included and stated upfront. You pay once, before it ships, by bank transfer, Raast, JazzCash or Easypaisa. It typically reaches any address in Pakistan 7 to 15 days after the seller dispatches, with nothing to pay on delivery. We handle single items only, not bulk or resale stock. If Temu itself ships your item to Pakistan, ordering directly from Temu is usually the simpler choice.</p>
+<p>This is what we do. Send us the product link through our quote form and within 24 hours we send one price in rupees, with our fee included and stated upfront. You pay once, before it ships, by bank transfer, Raast, JazzCash or Easypaisa. It typically reaches any address in Pakistan 7 to 15 days after the seller dispatches, with nothing to pay on delivery. We handle single items only, not bulk or resale stock. If Temu itself ships your item to Pakistan, ordering directly from Temu is usually the simpler choice.</p>
 
 <h2>Is a "Temu Pakistan" WhatsApp seller or Facebook page really Temu?</h2>
 <p>Treat it as a reseller, not Temu. The official way to buy is the Temu app or temu.com with the region set to Pakistan. Temu's own home page carries a security reminder that it will not ask for extra fees by SMS or email, and its Pakistan footer has a "Report suspicious activity" page.</p>

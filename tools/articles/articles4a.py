@@ -76,7 +76,7 @@ article(
 <h2>How does importing one Aria 2 with us work?</h2>
 <ol>
   <li>Find the Aria 2 on AliExpress, Taobao, 1688 or Alibaba and copy the link. A link is required. A screenshot or a model name alone is not enough.</li>
-  <li>Send the link on WhatsApp. Mention if you want a specific seller or bundle.</li>
+  <li>Send the link through our quote form. Mention if you want a specific seller or bundle.</li>
   <li>Within 24 hours we send one price in rupees. It covers the item, shipping, Pakistan customs and our fee, and the fee is stated upfront.</li>
   <li>You pay once, before it ships, by bank transfer, Raast, JazzCash or Easypaisa.</li>
   <li>We buy from a rated seller, ship by air and clear customs.</li>
@@ -216,7 +216,7 @@ article(
 <h2>How do you import one Truthear Hexa with us?</h2>
 <ol>
   <li>Copy the Hexa link from AliExpress (Truthear's own site links there), Taobao, 1688 or Alibaba. A link is required.</li>
-  <li>Send it on WhatsApp.</li>
+  <li>Send it through our quote form.</li>
   <li>Within 24 hours you get one price in rupees covering the item, shipping, customs and our fee, with the fee stated upfront.</li>
   <li>Pay once, before it ships, by bank transfer, Raast, JazzCash or Easypaisa.</li>
   <li>We buy from a rated seller, ship by air and clear customs.</li>
@@ -370,7 +370,7 @@ article(
 <h2>How do you import one KA17 with us?</h2>
 <ol>
   <li>Copy a KA17 link from AliExpress, Taobao, 1688 or Alibaba. A link is required.</li>
-  <li>Send it on WhatsApp with the colour you want.</li>
+  <li>Send it through our quote form with the colour you want.</li>
   <li>Within 24 hours you get one price in rupees. It includes the item, shipping, customs and our fee, and the fee is stated upfront.</li>
   <li>Pay once, before it ships, by bank transfer, Raast, JazzCash or Easypaisa.</li>
   <li>We buy from a rated seller, ship by air and clear customs.</li>
@@ -515,7 +515,7 @@ article(
 <h2>How do you import one Dawn Pro with us?</h2>
 <ol>
   <li>Copy a Dawn Pro listing link from AliExpress, Taobao, 1688 or Alibaba. A link is required.</li>
-  <li>Send it on WhatsApp and say clearly whether you want the Dawn Pro or the Dawn Pro 2.</li>
+  <li>Send it through our quote form and say clearly whether you want the Dawn Pro or the Dawn Pro 2.</li>
   <li>Within 24 hours we reply with one price in rupees covering the item, shipping, customs and our fee, with the fee stated upfront.</li>
   <li>Pay once, before it ships: bank transfer, Raast, JazzCash or Easypaisa.</li>
   <li>We buy from a rated seller, ship by air and clear customs.</li>
@@ -657,7 +657,7 @@ article(
 <h2>How do you import one RG 477M with us?</h2>
 <ol>
   <li>Copy the RG 477M link from Anbernic's store, AliExpress or another Chinese marketplace. A link is required.</li>
-  <li>Send it on WhatsApp with your choice: memory size, colour, and the no SD card option.</li>
+  <li>Send it through our quote form with your choice: memory size, colour, and the no SD card option.</li>
   <li>Within 24 hours you get one price in rupees covering the item, shipping, customs and our fee, with the fee stated upfront.</li>
   <li>Pay once, before it ships, by bank transfer, Raast, JazzCash or Easypaisa.</li>
   <li>We buy it, ship by air and clear customs. Anbernic's page says it ships from China.</li>
@@ -809,7 +809,7 @@ article(
 <h2>How do you import one AYN Thor with us?</h2>
 <ol>
   <li>Copy the Thor link from AYN's store or its AliExpress storefront. A link is required.</li>
-  <li>Send it on WhatsApp with the version and colour you want.</li>
+  <li>Send it through our quote form with the version and colour you want.</li>
   <li>Within 24 hours we send one price in rupees covering the item, shipping, customs and our fee, with the fee stated upfront.</li>
   <li>You pay once, before anything ships, by bank transfer, Raast, JazzCash or Easypaisa.</li>
   <li>We place the pre-order in the batch that is open at that time.</li>

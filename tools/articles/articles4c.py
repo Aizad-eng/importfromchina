@@ -75,7 +75,7 @@ article(
 
 <h2>When is it easier to send the link to someone in Pakistan?</h2>
 <p>Choice is a good deal when the item is cheap, you are not in a hurry and you are happy to take the loss if it goes wrong. It is a worse deal for anything you need within a month, anything above the point where customs will assess it, or anything you cannot pay for with a working international card.</p>
-<p>For those, send us the AliExpress link on WhatsApp. Within 24 hours we reply with one price in rupees that covers the item, shipping, customs and our fee, with the fee stated upfront. You pay once before it ships and nothing on delivery, and it reaches any address in Pakistan in 7 to 15 days after the seller dispatches. We handle one item per order only, never bulk or resale stock. If you are comparing routes, our <a href="/blog/how-to-buy-from-aliexpress-in-pakistan">guide to buying from AliExpress in Pakistan</a> covers the direct route in full.</p>
+<p>For those, send us the AliExpress link through our quote form. Within 24 hours we reply with one price in rupees that covers the item, shipping, customs and our fee, with the fee stated upfront. You pay once before it ships and nothing on delivery, and it reaches any address in Pakistan in 7 to 15 days after the seller dispatches. We handle one item per order only, never bulk or resale stock. If you are comparing routes, our <a href="/blog/how-to-buy-from-aliexpress-in-pakistan">guide to buying from AliExpress in Pakistan</a> covers the direct route in full.</p>
 
 <h2>Sources</h2>
 <ul>
@@ -188,7 +188,7 @@ article(
   <li><strong>Ignoring the plug and voltage.</strong> China uses 220V at 50Hz, close to Pakistan, but plug shapes differ, so check what the listing ships with.</li>
   <li><strong>Downloading a lookalike "1688 English" app</strong> and paying it without knowing who runs it.</li>
 </ul>
-<p>If you only want one piece, send us the 1688 link on WhatsApp with the variant you want. We reply within 24 hours with one rupee price covering the item, shipping, customs and our stated fee, and you pay once before it ships. We do not take bulk or wholesale orders, only single items.</p>
+<p>If you only want one piece, send us the 1688 link through our quote form with the variant you want. We reply within 24 hours with one rupee price covering the item, shipping, customs and our stated fee, and you pay once before it ships. We do not take bulk or wholesale orders, only single items.</p>
 
 <h2>Sources</h2>
 <ul>
@@ -332,7 +332,7 @@ article(
   <li><strong>Treating 正品 as proof.</strong> Anyone can type "genuine". Only an official flagship store or the brand's own channel backs it.</li>
   <li><strong>Assuming 7-day returns work from Pakistan.</strong> 7天无理由退货 is a Taobao return option that works inside China. Once the item has left China, it is not a practical route.</li>
 </ul>
-<p>Once you have the right variant, send us the link and tell us the variant on WhatsApp. We reply within 24 hours with one rupee price for that single item, delivered to your door. See <a href="/blog/how-to-buy-from-taobao-in-pakistan">how to buy from Taobao in Pakistan</a> for the full route.</p>
+<p>Once you have the right variant, send us the link and tell us the variant through our quote form. We reply within 24 hours with one rupee price for that single item, delivered to your door. See <a href="/blog/how-to-buy-from-taobao-in-pakistan">how to buy from Taobao in Pakistan</a> for the full route.</p>
 
 <h2>Sources</h2>
 <ul>
@@ -732,7 +732,7 @@ article(
 
 <h2>Which should you choose for one item?</h2>
 <p>Post makes sense for cheap, light items you are not in a hurry for. Courier makes sense when time matters, when the item is valuable enough that losing track of it would hurt, or when you want customs dealt with for you. The catch is cost: courier rates for one small parcel can be more than the item.</p>
-<p>A middle route is to have one service buy the item in China, fly it in and clear it. That is what we do. Send the product link on WhatsApp and we reply within 24 hours with one price in rupees that already covers shipping, customs and our stated fee. You pay once before it ships, nothing on delivery, and it reaches any address in Pakistan in 7 to 15 days after the seller dispatches. Single items only, never bulk.</p>
+<p>A middle route is to have one service buy the item in China, fly it in and clear it. That is what we do. Send the product link through our quote form and we reply within 24 hours with one price in rupees that already covers shipping, customs and our stated fee. You pay once before it ships, nothing on delivery, and it reaches any address in Pakistan in 7 to 15 days after the seller dispatches. Single items only, never bulk.</p>
 
 <h2>Sources</h2>
 <ul>

@@ -74,7 +74,7 @@ article(
 
 <h2>Where can I read about specific products?</h2>
 <p>We have category guides for the electronics people ask about most: <a href="/blog/import-earbuds-smartwatch-wearables-from-china">earbuds, smartwatches and wearables</a>, <a href="/blog/import-camera-and-photography-gear-from-china">camera and photography gear</a>, laptops, phones and home appliances (linked above). The products we have written up individually, from in-ear monitors and retro handhelds to soldering irons and car scanners, are listed on our <a href="/products/">products page</a>.</p>
-<p>If you want one item without handling all of this yourself, send us the product link on WhatsApp. Within 24 hours we reply with one price in rupees that covers the item, shipping, Pakistan customs and our fee, which is stated upfront. You pay once before it ships, and it reaches your address in Pakistan in 7 to 15 days after the seller dispatches. We handle one item per order only, never bulk or resale stock.</p>
+<p>If you want one item without handling all of this yourself, send us the product link through our quote form. Within 24 hours we reply with one price in rupees that covers the item, shipping, Pakistan customs and our fee, which is stated upfront. You pay once before it ships, and it reaches your address in Pakistan in 7 to 15 days after the seller dispatches. We handle one item per order only, never bulk or resale stock.</p>
 
 <h2>Sources</h2>
 <ul>
@@ -172,7 +172,7 @@ article(
 <p>Yes. Sea freight is commonly used for large batteries and battery-heavy products, but it is still regulated, and it takes far longer: sea LCL from China to Pakistan typically runs 25 to 45 days, against 7 to 15 days for air freight door to door. For a single small item, sea freight rarely makes sense on cost or time. Our guide on <a href="/blog/shipping-from-china-to-pakistan-cost-time">shipping costs and times from China to Pakistan</a> compares the options.</p>
 
 <h2>How do we handle items with batteries?</h2>
-<p>If you send us a product link on WhatsApp, we check how the item ships before quoting. For devices with built-in batteries that is usually straightforward. For power banks, loose batteries and large battery packs, we tell you plainly if air shipping is not possible rather than quoting a price we cannot deliver. When we can ship it, you get one price in rupees, you pay once before it ships, and we handle one item per order only. The <a href="/blog/importing-electronics-from-china-to-pakistan-complete-guide">complete guide to importing electronics</a> covers the other checks for gadgets.</p>
+<p>If you send us a product link through our quote form, we check how the item ships before quoting. For devices with built-in batteries that is usually straightforward. For power banks, loose batteries and large battery packs, we tell you plainly if air shipping is not possible rather than quoting a price we cannot deliver. When we can ship it, you get one price in rupees, you pay once before it ships, and we handle one item per order only. The <a href="/blog/importing-electronics-from-china-to-pakistan-complete-guide">complete guide to importing electronics</a> covers the other checks for gadgets.</p>
 
 <h2>Sources</h2>
 <ul>
@@ -282,7 +282,7 @@ article(
 </ul>
 
 <h2>How do we handle customs value on your item?</h2>
-<p>When you send us a product link on WhatsApp, the price we quote within 24 hours already includes Pakistan customs along with the item, shipping and our fee, which is stated upfront. It is one number in rupees, you pay it once before the item ships, and there is nothing to pay on delivery. We import one item per order only. For how clearance works after the parcel lands, see <a href="/blog/customs-clearance-process-pakistan-air-cargo">the customs clearance process for air cargo</a>.</p>
+<p>When you send us a product link through our quote form, the price we quote within 24 hours already includes Pakistan customs along with the item, shipping and our fee, which is stated upfront. It is one number in rupees, you pay it once before the item ships, and there is nothing to pay on delivery. We import one item per order only. For how clearance works after the parcel lands, see <a href="/blog/customs-clearance-process-pakistan-air-cargo">the customs clearance process for air cargo</a>.</p>
 
 <h2>Sources</h2>
 <ul>
@@ -408,7 +408,7 @@ article(
 </ul>
 
 <h2>How do we choose sellers for your order?</h2>
-<p>We buy from rated sellers on Alibaba, 1688, Taobao and AliExpress. For example, for a recent order we sourced one TDH39/DD45-type audiometric headset from a verified Alibaba supplier and delivered it in Pakistan. You send us the product link on WhatsApp, we reply within 24 hours with one price in rupees with our fee stated upfront, and you pay once before it ships. We handle one item per order, never bulk or wholesale.</p>
+<p>We buy from rated sellers on Alibaba, 1688, Taobao and AliExpress. For example, for a recent order we sourced one TDH39/DD45-type audiometric headset from a verified Alibaba supplier and delivered it in Pakistan. You send us the product link through our quote form, we reply within 24 hours with one price in rupees with our fee stated upfront, and you pay once before it ships. We handle one item per order, never bulk or wholesale.</p>
 
 <h2>Sources</h2>
 <ul>
@@ -508,7 +508,7 @@ article(
 </ul>
 
 <h2>How do we handle version questions?</h2>
-<p>When you send us a product link on WhatsApp, include which version you want. We buy the listing you choose from the seller, so the version is what the seller lists. Within 24 hours you get one price in rupees, you pay once before it ships, and delivery to your address in Pakistan takes 7 to 15 days after the seller dispatches. We handle one item per order only. The <a href="/blog/importing-electronics-from-china-to-pakistan-complete-guide">complete electronics import guide</a> brings all these checks together.</p>
+<p>When you send us a product link through our quote form, include which version you want. We buy the listing you choose from the seller, so the version is what the seller lists. Within 24 hours you get one price in rupees, you pay once before it ships, and delivery to your address in Pakistan takes 7 to 15 days after the seller dispatches. We handle one item per order only. The <a href="/blog/importing-electronics-from-china-to-pakistan-complete-guide">complete electronics import guide</a> brings all these checks together.</p>
 
 <h2>Sources</h2>
 <ul>
