@@ -2,6 +2,13 @@
 // Every contact goes through the quote form on the homepage (#quote).
 const ON_HOME = location.pathname === "/" || location.pathname === "/index.html";
 const QUOTE = ON_HOME ? "#quote" : "/#quote";
+// Visit log for the /admin panel. Skipped for the owner's browser (cookie set by /admin).
+const track = (e) => {
+  if (/(^|; )ifc_admin=1/.test(document.cookie)) return;
+  const data = JSON.stringify({ e: e || "view", p: location.pathname, r: e ? "" : document.referrer, q: location.search });
+  try { navigator.sendBeacon ? navigator.sendBeacon("/api/hit", data) : fetch("/api/hit", { method: "POST", body: data, keepalive: true }); } catch (err) {}
+};
+track();
 const yearEl = document.getElementById("year"); if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 /* ---------- storage helpers (every access guarded: private mode can throw) ---------- */
@@ -114,7 +121,7 @@ function goTo(u) {
   if (u.charAt(0) === "#") { const t = document.querySelector(u); if (t) { if (window.__lenis) window.__lenis.scrollTo(t, { offset: -80 }); else t.scrollIntoView({ behavior: "smooth" }); } history.replaceState(null, "", u); }
   else location.href = u;
 }
-function passGate() { store.set("ifc_gate_ok", "1", true); const u = gateUrl; closeGate(); goTo(u); }
+function passGate() { store.set("ifc_gate_ok", "1", true); track("quote"); const u = gateUrl; closeGate(); goTo(u); }
 function fillGate(html) {
   const box = gateEl.querySelector(".box");
   box.innerHTML = '<button class="x" type="button" aria-label="Close">×</button>' + html;
@@ -144,7 +151,7 @@ document.addEventListener("click", (e) => {
   if (!a) return;
   prompted = true; store.set("ifc_prompted", "1", true);   // they're heading to the form; no more prompts this visit
   document.querySelectorAll(".fab .badge").forEach((b) => b.remove());
-  if (store.get("ifc_gate_ok", true) === "1") return;
+  if (store.get("ifc_gate_ok", true) === "1") { track("quote"); return; }
   e.preventDefault(); gate(a.getAttribute("href"));
 }, true);
 

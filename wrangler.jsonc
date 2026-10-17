@@ -9,5 +9,9 @@
     "run_worker_first": true,
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash"
-  }
+  },
+  // Visitor log for the /admin panel (schema in src/schema.sql)
+  "d1_databases": [
+    { "binding": "DB", "database_name": "importfromchina-analytics", "database_id": "660693f9-a57e-40b3-97f6-37b0a3919eff" }
+  ]
 }
