@@ -42,6 +42,7 @@ function whenEngaged(fn, { scroll = 0.4, seconds = 20 } = {}) {
 const css = `
 .fab{width:auto!important;height:auto!important;border-radius:999px!important;padding:14px 22px!important;display:flex!important;align-items:center;gap:8px;color:#fff!important;font:600 15px/1 Inter,system-ui,sans-serif;text-decoration:none;letter-spacing:-.01em}
 .fab::after{border-radius:999px!important}
+@media (max-width:600px){.fab{padding:10px 16px!important;font-size:14px;right:12px!important;bottom:12px!important;box-shadow:0 6px 18px -6px rgba(15,107,58,.6)!important}.fab::after{display:none}}
 .fab .badge{position:absolute;top:-3px;right:-3px;min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:#c8102e;color:#fff;font:700 11px/20px Inter,system-ui,sans-serif;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.25)}
 .ifc-card{position:fixed;z-index:59;background:#fff;border:1px solid #e3dfd5;border-radius:18px;box-shadow:0 2px 4px rgba(18,20,24,.06),0 24px 48px -16px rgba(18,20,24,.35);font-family:Inter,system-ui,sans-serif;color:#17181c;opacity:0;transform:translateY(12px);transition:opacity .35s ease,transform .35s ease;pointer-events:none}
 .ifc-card.show{opacity:1;transform:none;pointer-events:auto}

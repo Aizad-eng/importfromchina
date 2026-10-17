@@ -33,7 +33,7 @@ const SOURCES = [
 ];
 function classify(refHost, utm) {
   const s = (utm || "").toLowerCase();
-  if (s) { for (const [re, name] of SOURCES) if (re.test(s)) return name; return s.slice(0, 40); }
+  if (s) { for (const [re, name] of SOURCES) if (re.test(s) || s === name.toLowerCase() || s === "ig" && name === "Instagram" || s === "fb" && name === "Facebook") return name; return s.slice(0, 40); }
   if (!refHost) return "Direct";
   if (refHost.endsWith("importfromchina.shop")) return "Internal";
   for (const [re, name] of SOURCES) if (re.test(refHost)) return name;
@@ -90,6 +90,12 @@ async function admin(request, env, url) {
     JOIN hits s ON s.visitor=f.visitor AND s.ts=f.t
     WHERE h.event='quote' GROUP BY s.source`);
   const qmap = Object.fromEntries(quoteBySource.map((r) => [r.source, r.n]));
+  const campaigns = await q(`SELECT s.utm_campaign c, s.source, COUNT(DISTINCT s.visitor) v,
+      COUNT(DISTINCT CASE WHEN h.event='quote' THEN h.visitor END) qc
+    FROM (SELECT visitor, day, MIN(ts) t FROM hits WHERE day >= ? AND event='view' AND utm_campaign IS NOT NULL GROUP BY visitor, day) f
+    JOIN hits s ON s.visitor=f.visitor AND s.ts=f.t
+    LEFT JOIN hits h ON h.visitor=f.visitor AND h.day=f.day AND h.event='quote'
+    GROUP BY s.utm_campaign, s.source ORDER BY v DESC LIMIT 30`);
   const pages = await q("SELECT path, COUNT(*) n, COUNT(DISTINCT visitor) v FROM hits WHERE day >= ? AND event='view' GROUP BY path ORDER BY n DESC LIMIT 20");
   const landings = await q("SELECT path, source, COUNT(*) n FROM hits WHERE day >= ? AND event='view' AND source <> 'Internal' GROUP BY path, source ORDER BY n DESC LIMIT 15");
   const countries = await q("SELECT country, COUNT(DISTINCT visitor) v FROM hits WHERE day >= ? GROUP BY country ORDER BY v DESC LIMIT 10");
@@ -140,6 +146,9 @@ tr:last-child td{border-bottom:0}.muted{color:var(--ink3)}
   <div class="card full"><h2>Visitors per day</h2><div class="bars-wrap"><div class="bars">${daily.map((d) => `<div style="height:${Math.round((d.v / maxDay) * 100)}%" title="${d.day}: ${d.v} visitors, ${d.qc} quote clicks"><i>${d.day.slice(8)}</i></div>`).join("") || '<span class="muted">No data yet</span>'}</div></div></div>
   <div class="card"><h2>Where visitors came from</h2>${table(["Source", '<span class="num">Visitors</span>', '<span class="num">Got a price</span>'],
     sources.map((r) => `<tr><td><span class="src ${esc(r.source)}">${esc(r.source)}</span></td><td class="num">${r.v}</td><td class="num">${qmap[r.source] || 0}</td></tr>`))}</div>
+  <div class="card full"><h2>Influencers and campaigns</h2>${table(["Link name", "Source", '<span class="num">Visitors</span>', '<span class="num">Got a price</span>'],
+    campaigns.map((r) => `<tr><td><b>${esc(r.c)}</b></td><td>${esc(r.source)}</td><td class="num">${r.v}</td><td class="num">${r.qc}</td></tr>`))}
+    <p class="muted" style="font-size:13px;margin:12px 0 0">Give each influencer their own link: <code>https://importfromchina.shop/?utm_source=instagram&amp;utm_campaign=NAME</code> (replace NAME with theirs, no spaces). Their visitors show up here.</p></div>
   <div class="card"><h2>Landing pages by source</h2>${table(["Page", "Source", '<span class="num">Visits</span>'],
     landings.map((r) => `<tr><td><span class="path">${esc(r.path)}</span></td><td>${esc(r.source)}</td><td class="num">${r.n}</td></tr>`))}</div>
   <div class="card"><h2>Top pages</h2>${table(["Page", '<span class="num">Views</span>', '<span class="num">Visitors</span>'],
