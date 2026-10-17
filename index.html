@@ -305,6 +305,17 @@
   @media (max-width:900px){.guides .glist{grid-template-columns:1fr 1fr}}
   @media (max-width:560px){.guides .glist{grid-template-columns:1fr}}
 
+  /* COMPARE */
+  .compare{padding:clamp(60px,9vw,110px) 0}
+  .compare .tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:34px;border:1px solid var(--line);border-radius:20px;background:#fff}
+  .compare table{width:100%;min-width:760px;border-collapse:collapse;font-size:15px;line-height:1.45}
+  .compare th,.compare td{padding:16px 18px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+  .compare thead th{font-family:var(--display);font-size:15px;letter-spacing:-.01em;background:var(--bg)}
+  .compare tbody th{font-weight:600;color:var(--ink-2);width:150px}
+  .compare tr:last-child th,.compare tr:last-child td{border-bottom:0}
+  .compare .us{background:#e7f2ec}
+  .compare thead .us{color:var(--green)}
+  .compare .note{margin-top:16px;font-size:14px;color:var(--ink-3)}
   /* FAQ */
   .faq .list{max-width:800px;margin:48px auto 0;border-top:1px solid var(--line)}
   .faq details{border-bottom:1px solid var(--line);background:transparent}
@@ -610,6 +621,29 @@
     </div>
   </section>
 
+  <!-- COMPARE -->
+  <section id="compare" class="compare">
+    <div class="wrap">
+      <div class="head reveal">
+        <h2>Temu, AliExpress, Taobao or us: which should you use?</h2>
+        <p class="sub">An honest answer: if Temu or AliExpress has your item and ships it to Pakistan, order from them. We're for the things they don't have.</p>
+      </div>
+      <div class="tw reveal">
+        <table>
+          <thead><tr><th></th><th>Temu</th><th>AliExpress</th><th>Alibaba, 1688, Taobao yourself</th><th class="us">importfromchina.shop</th></tr></thead>
+          <tbody>
+            <tr><th>Ships to Pakistan</th><td>Yes, through its Pakistan site</td><td>Most listings</td><td>Some Alibaba sellers. 1688 and Taobao sellers mostly ship only inside China</td><td class="us">Yes, from any Chinese site</td></tr>
+            <tr><th>How you pay</th><td>JazzCash, Easypaisa or card</td><td>Card with international payments turned on</td><td>Card on Alibaba. 1688 and Taobao need Chinese payment methods</td><td class="us">Bank transfer, Raast, JazzCash or Easypaisa, in rupees</td></tr>
+            <tr><th>Customs</th><td>You pay it, if charged</td><td>You pay it, if charged</td><td>You pay it, and handle clearance</td><td class="us">Already included in our price</td></tr>
+            <tr><th>Delivery</th><td>Usually 5 to 13 business days after 1 to 3 days of processing</td><td>Standard post is slow, commonly several weeks</td><td>Depends on the seller and courier you arrange</td><td class="us">7 to 15 days after the seller dispatches</td></tr>
+            <tr><th>Best for</th><td>Low-cost everyday items Temu stocks</td><td>Items that are on AliExpress and ship here</td><td>Bulk buyers, or people with someone in China</td><td class="us">One item worth Rs 10,000 or more that isn't sold in Pakistan</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note reveal">Temu delivery times are from its Pakistan shipping page when we checked in October 2026. See our guides on <a href="/blog/does-temu-deliver-to-pakistan">Temu</a>, <a href="/blog/how-to-buy-from-aliexpress-in-pakistan">AliExpress</a> and <a href="/blog/how-to-buy-from-taobao-in-pakistan">Taobao</a>.</p>
+    </div>
+  </section>
+
   <!-- GUIDES -->
   <section id="guides" class="guides">
     <div class="wrap">
@@ -618,7 +652,7 @@
         <p class="sub">Plain answers to what people ask us most, checked against official sources.</p>
       </div>
       <div class="glist reveal"><a href="/blog/does-temu-deliver-to-pakistan"><h3>Does Temu deliver to Pakistan?</h3><p>Yes, it does. How Temu works in Pakistan: payment, delivery times, customs and returns.</p></a><a href="/blog/how-to-import-from-china-to-pakistan"><h3>How to import from China to Pakistan</h3><p>Both routes explained: importing in your own name, or getting one item delivered.</p></a><a href="/blog/pakistan-single-window-psw-explained"><h3>Pakistan Single Window (PSW) explained</h3><p>What PSW is, who has to register, and why you don&#x27;t need it for a single parcel.</p></a><a href="/blog/customs-duty-china-to-pakistan"><h3>Customs duty on goods from China</h3><p>How duty, sales tax and income tax stack up, with a worked example.</p></a><a href="/blog/importing-electronics-from-china-to-pakistan-complete-guide"><h3>Importing electronics from China</h3><p>Batteries, voltage, PTA, warranty and picking the right seller.</p></a><a href="/blog/what-you-cannot-import-from-china-to-pakistan"><h3>What you can&#x27;t import</h3><p>Drones, phones, power banks, medicines and fakes: check before you pay.</p></a></div>
-      <a class="more" href="/blog/">All 80 guides →</a>
+      <a class="more" href="/blog/">All 100 guides →</a>
     </div>
   </section>
 
