@@ -49,7 +49,7 @@ def jsonld(a, url, seo_title, seo_desc):
     data = [
         {"@context": "https://schema.org", "@type": "Article", "headline": a["title"], "description": seo_desc,
          "datePublished": TODAY.isoformat(), "dateModified": TODAY.isoformat(), "inLanguage": "en", "mainEntityOfPage": url,
-         "author": {"@type": "Organization", "name": "importfromchina.shop", "url": SITE},
+         "author": {"@type": "Person", "name": "Muhammad Shamshad Aslam", "url": SITE + "/about/", "worksFor": {"@type": "Organization", "name": "importfromchina.shop", "url": SITE}},
          "publisher": {"@type": "Organization", "name": "importfromchina.shop", "url": SITE, "logo": logo},
          "image": SITE + "/assets/og-image.png", "about": ["Importing from China to Pakistan", a["category"]]},
         {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [

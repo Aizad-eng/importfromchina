@@ -75,3 +75,4 @@ footer .row{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify
 .filters input:focus{border-color:var(--ink-3)}
 .post[hidden]{display:none}
 .empty{color:var(--ink-3);padding:40px 0;display:none}
+.meta a{color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}

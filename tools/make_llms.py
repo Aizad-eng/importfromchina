@@ -14,7 +14,10 @@ L = ["# importfromchina.shop", "",
      "- Refunds: full refund if the item has not arrived within 10 days after the agreed delivery date, or arrives wrong, damaged or not working. Details: https://importfromchina.shop/refund-policy/", "- About us: https://importfromchina.shop/about/", "",
      "## Main pages", "- [Home](https://importfromchina.shop/): how the service works, who it is for, FAQ",
      "- [Products](https://importfromchina.shop/products/): specific items that are hard to find in Pakistan",
-     "- [Guides](https://importfromchina.shop/blog/): all guides", ""]
+     "- [Guides](https://importfromchina.shop/blog/): all guides",
+     "- [Landed cost calculator](https://importfromchina.shop/calculators/landed-cost/): estimate duty and taxes on one item",
+     "- [Volumetric weight calculator](https://importfromchina.shop/calculators/volumetric-weight/): chargeable weight for a parcel",
+     "- [Full guide answers](https://importfromchina.shop/llms-full.txt): quick answer and FAQs of every guide in one file", ""]
 seen = set()
 for cat in order:
     if cat in seen: continue
@@ -26,3 +29,21 @@ for cat in order:
     L.append("")
 open(os.path.join(ROOT, "llms.txt"), "w").write("\n".join(L))
 print("llms.txt guides:", len(posts))
+
+# llms-full.txt: every guide's quick answer and FAQs, so answer engines can quote them directly
+F = ["# importfromchina.shop: full guide answers", "", L[2], "",
+     "Author of all guides: Muhammad Shamshad Aslam (https://importfromchina.shop/about/). Each guide shows its last-updated date and lists its sources.", ""]
+for sl, cat, t, d in posts:
+    s = open(os.path.join(ROOT, "blog", sl + ".html")).read()
+    qa = re.search(r'<div class="answer"><b>Quick answer</b><p>(.*?)</p></div>', s, re.S)
+    upd = re.search(r"Updated <b>(.*?)</b>", s)
+    F += [f"## {html.unescape(t)}", f"URL: https://importfromchina.shop/blog/{sl}", f"Category: {html.unescape(cat)}"]
+    if upd: F.append(f"Updated: {upd.group(1)}")
+    if qa: F += ["", html.unescape(re.sub('<[^>]+>', '', qa.group(1)))]
+    faqs = re.findall(r"<details><summary>(.*?)</summary><p>(.*?)</p></details>", s, re.S)
+    if faqs:
+        F.append("")
+        F += [f"Q: {html.unescape(q)}\nA: {html.unescape(re.sub('<[^>]+>', '', a))}" for q, a in faqs]
+    F.append("")
+open(os.path.join(ROOT, "llms-full.txt"), "w").write("\n".join(F))
+print("llms-full.txt guides:", len(posts))

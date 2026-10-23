@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Volumetric Weight Calculator (cm, kg) for Couriers</title>
+<meta name="description" content="Work out volumetric and chargeable weight for a parcel from China: divide by 5,000 for DHL, FedEx and UPS, or by 6,000 for air cargo.">
+<link rel="canonical" href="https://importfromchina.shop/calculators/volumetric-weight/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Volumetric Weight Calculator (cm, kg) for Couriers">
+<meta property="og:description" content="Work out volumetric and chargeable weight for a parcel from China: divide by 5,000 for DHL, FedEx and UPS, or by 6,000 for air cargo.">
+<meta property="og:url" content="https://importfromchina.shop/calculators/volumetric-weight/">
+<meta property="og:site_name" content="Import From China">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.svg?v=2" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png?v=2" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<meta property="og:image" content="https://importfromchina.shop/assets/og-image.png?v=3">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/blog.css">
+
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Volumetric Weight Calculator", "url": "https://importfromchina.shop/calculators/volumetric-weight/", "description": "Calculates volumetric and chargeable weight for courier and air cargo shipments.", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "inLanguage": "en", "author": {"@type": "Person", "name": "Muhammad Shamshad Aslam", "url": "https://importfromchina.shop/about/"}, "publisher": {"@type": "Organization", "name": "importfromchina.shop", "url": "https://importfromchina.shop"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the divisor for DHL volumetric weight?", "acceptedAnswer": {"@type": "Answer", "text": "DHL Express divides length × width × height in centimetres by 5,000. FedEx and UPS use 5,000 for international shipments too."}}, {"@type": "Question", "name": "Why is air cargo divided by 6,000?", "acceptedAnswer": {"@type": "Answer", "text": "6,000 cubic centimetres per kilogram is the IATA standard used by airlines and freight forwarders. It gives a lower volumetric weight than the 5,000 couriers use."}}, {"@type": "Question", "name": "Do I pay for actual weight or volumetric weight?", "acceptedAnswer": {"@type": "Answer", "text": "You pay for the chargeable weight, which is the higher of the two."}}, {"@type": "Question", "name": "Should I measure the product or the box?", "acceptedAnswer": {"@type": "Answer", "text": "The box. Carriers measure the outer packaging, including any padding."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://importfromchina.shop/"}, {"@type": "ListItem", "position": 2, "name": "Volumetric Weight Calculator", "item": "https://importfromchina.shop/calculators/volumetric-weight/"}]}]}</script>
+<style>
+.calc{background:var(--bg-2);border:1px solid var(--line);border-radius:22px;padding:24px;margin:8px 0 34px}
+.calc .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.calc label{display:block;font-size:14px;font-weight:600;color:var(--ink-2);margin-bottom:6px}
+.calc label small{font-weight:500;color:var(--ink-3)}
+.calc input,.calc select{width:100%;font:500 16px Inter,system-ui,sans-serif;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
+.calc input:focus,.calc select:focus{outline:2px solid var(--green);outline-offset:1px}
+.calc .row2{display:grid;grid-template-columns:minmax(0,1fr) 120px;gap:8px}
+.calc .full{grid-column:1/-1}
+.res{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.res table{width:100%;border-collapse:collapse;font-size:15px;margin:0;display:table}
+.res td{padding:11px 16px;border-top:1px solid var(--line)}
+.res tr:first-child td{border-top:0}
+.res td:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+.res tr.total td{background:var(--green-soft);font-weight:700;color:var(--green-dark)}
+.res tr.big td{font-size:17px}
+.note{font-size:13.5px;color:var(--ink-3);margin-top:12px}
+.flag{margin-top:14px;padding:12px 16px;border-radius:12px;background:var(--gold-soft);border:1px solid var(--line);font-size:14.5px}
+@media(max-width:620px){.calc{padding:18px}.calc .grid{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="/" class="brand" aria-label="importfromchina home"><img class="mark" src="/assets/logo-mark.svg?v=2" alt="" width="34" height="34"><span>import<em>from</em>china</span></a>
+    <nav class="links" aria-label="Primary">
+      <a href="/#how">How It Works</a>
+      <a href="/products/">Products</a>
+      <a href="/blog/">Blog</a>
+      <a href="/#why">Why Us</a>
+    </nav>
+    <a class="btn btn-wa quote-link" href="/#quote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6a1 1 0 0 1 1 1v1H8V4a1 1 0 0 1 1-1z"/><path d="M8 4H6a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-2"/><path d="M9 11h6M9 15h4"/></svg>Get a Quote</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/blog/">Guides</a> › Volumetric Weight Calculator</nav>
+  <div class="hero">
+    <span class="cat">Calculator</span>
+    <h1>Volumetric weight calculator</h1>
+    <div class="meta"><span>By <b><a href="/about/" rel="author">Muhammad Shamshad Aslam</a></b></span><span>Rates checked <b>October 23, 2026</b></span></div>
+  </div>
+  <div class="layout" style="grid-template-columns:minmax(0,1fr)">
+    <article>
+      <div class="answer"><b>Quick answer</b><p>Volumetric weight is length × width × height in cm divided by 5,000 for express couriers such as DHL, FedEx and UPS, or 6,000 for air cargo. You are charged for whichever is higher, the volumetric weight or the actual weight. Enter your box size and weight below.</p></div>
+      <form class="calc" id="vw" onsubmit="return false">
+        <div class="grid">
+          <div><label for="L">Length (cm)</label><input id="L" type="number" min="0" step="any" value="40" inputmode="decimal"></div>
+          <div><label for="W">Width (cm)</label><input id="W" type="number" min="0" step="any" value="30" inputmode="decimal"></div>
+          <div><label for="H">Height (cm)</label><input id="H" type="number" min="0" step="any" value="20" inputmode="decimal"></div>
+          <div><label for="kg">Actual weight (kg)</label><input id="kg" type="number" min="0" step="any" value="3" inputmode="decimal"></div>
+          <div class="full"><label for="div">Shipping type</label>
+            <select id="div"><option value="5000" selected>Express courier, e.g. DHL, FedEx, UPS (divide by 5,000)</option><option value="6000">Air cargo or freight forwarder (divide by 6,000)</option></select></div>
+        </div>
+        <div class="res" aria-live="polite"><table id="vout"></table></div>
+        <p class="note">Chargeable weight is whichever is higher: the actual weight or the volumetric weight. Measure the outer box, not the product.</p>
+      </form>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  function calc(){
+    var L=+$("L").value||0,W=+$("W").value||0,H=+$("H").value||0,kg=+$("kg").value||0,d=+$("div").value;
+    var v=L*W*H/d, c=Math.max(v,kg);
+    $("vout").innerHTML='<tr><td>Volumetric weight ('+L+' × '+W+' × '+H+' ÷ '+d.toLocaleString("en")+')</td><td>'+v.toFixed(2)+' kg</td></tr>'+
+      '<tr><td>Actual weight</td><td>'+kg.toFixed(2)+' kg</td></tr>'+
+      '<tr class="total big"><td>Chargeable weight</td><td>'+c.toFixed(2)+' kg</td></tr>'+
+      '<tr><td>You are charged for</td><td>'+(v>kg?'size (volumetric)':'actual weight')+'</td></tr>';
+  }
+  ["L","W","H","kg","div"].forEach(function(i){$(i).addEventListener("input",calc);$(i).addEventListener("change",calc)});
+  calc();
+})();
+</script>
+      <h2 id="formula">What is the volumetric weight formula?</h2>
+      <p>Volumetric weight in kg = length × width × height in centimetres ÷ a divisor. DHL Express, FedEx and UPS use 5,000 for international shipments. Air cargo and freight forwarders commonly use 6,000, the IATA standard. The carrier charges whichever is higher, the actual weight or the volumetric weight.</p>
+
+      <h2 id="examples">Worked examples</h2>
+      <table><thead><tr><th>Box (cm)</th><th>Actual weight</th><th>Volumetric (÷ 5,000)</th><th>Volumetric (÷ 6,000)</th><th>Charged as (courier)</th></tr></thead><tbody>
+      <tr><td>20 × 15 × 10</td><td>1.2 kg</td><td>0.6 kg</td><td>0.5 kg</td><td>1.2 kg (actual)</td></tr>
+      <tr><td>40 × 30 × 20</td><td>3 kg</td><td>4.8 kg</td><td>4.0 kg</td><td>4.8 kg (size)</td></tr>
+      <tr><td>60 × 50 × 40</td><td>6 kg</td><td>24 kg</td><td>20 kg</td><td>24 kg (size)</td></tr>
+      </tbody></table>
+      <p>The last row is why a light but bulky item, like a chair or a large lamp, can cost more to ship than it is worth.</p>
+
+      <h2 id="lower">How can you keep the chargeable weight down?</h2>
+      <ul>
+        <li>Ask the seller to ship in the smallest box that protects the item, without the retail box if the product allows it.</li>
+        <li>Choose items that pack small. Parts, tools, gadgets and accessories usually ship on actual weight.</li>
+        <li>For one item, a courier price is per parcel, so combining several small items in one box can be cheaper than sending them separately.</li>
+      </ul>
+      <p>See <a href="/blog/cost-to-ship-one-item-from-china-to-pakistan">how much it costs to ship one item from China</a> and <a href="/blog/what-is-volumetric-weight">what volumetric weight means</a>.</p>
+
+      <h2 id="sources">Sources</h2>
+      <ul>
+        <li><a href="https://www.dhl.com/discover/en-sg/ship-with-dhl/start-shipping/how-to-calculate-dhl-volumetric-weight" target="_blank" rel="noopener">DHL: how to calculate volumetric weight</a></li>
+        <li><a href="https://www.fedex.com/en-ca/resources-tools/dimensional-weight.html" target="_blank" rel="noopener">FedEx: dimensional weight</a></li>
+        <li><a href="https://www.ups.com/ca/en/support/shipping-support/shipping-dimensions-weight" target="_blank" rel="noopener">UPS: shipping dimensions and weight</a></li>
+        <li><a href="https://www.dhl.com/gb-en/home/global-forwarding/freight-forwarding-education-center/calculating-chargeable-weights.html" target="_blank" rel="noopener">DHL Global Forwarding: chargeable weight</a></li>
+      </ul>
+      <section class="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>What is the divisor for DHL volumetric weight?</summary><p>DHL Express divides length × width × height in centimetres by 5,000. FedEx and UPS use 5,000 for international shipments too.</p></details><details><summary>Why is air cargo divided by 6,000?</summary><p>6,000 cubic centimetres per kilogram is the IATA standard used by airlines and freight forwarders. It gives a lower volumetric weight than the 5,000 couriers use.</p></details><details><summary>Do I pay for actual weight or volumetric weight?</summary><p>You pay for the chargeable weight, which is the higher of the two.</p></details><details><summary>Should I measure the product or the box?</summary><p>The box. Carriers measure the outer packaging, including any padding.</p></details></section>
+      <div class="cta">
+        <h2>Rather have one fixed price?</h2>
+        <p>Send the product link through our quote form. We reply on WhatsApp within 24 hours with one price in rupees that already includes shipping, customs and our fee, stated upfront. You pay once, before it ships. Single items only.</p>
+        <a class="btn btn-wa quote-link" href="/#quote">Get a price</a>
+      </div>
+    </article>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <a href="/" class="brand"><img class="mark" src="/assets/logo-mark.svg?v=2" alt="" width="34" height="34"><span>import<em>from</em>china</span></a>
+      <nav class="links" aria-label="Footer">
+        <a href="/#how">How It Works</a>
+        <a href="/products/">Products</a>
+        <a href="/blog/">Blog</a>
+        <a href="/#contact">Contact</a>
+        <a href="/about/">About Us</a>
+        <a href="/refund-policy/">Refund Policy</a>
+        <a href="https://www.facebook.com/importfromchinatopakistan/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" style="flex:none"><circle cx="12" cy="12" r="12" fill="#1877F2"/><path d="M13.4 19.5v-6h2l.3-2.4h-2.3V9.6c0-.7.2-1.2 1.2-1.2h1.2V6.3c-.2 0-.9-.1-1.8-.1-1.8 0-3 1.1-3 3.1v1.8H9v2.4h2v6z" fill="#fff"/></svg>Facebook</a>
+      </nav>
+    </div>
+    <p class="copy">© <span id="year">2026</span> importfromchina.shop — Sourcing &amp; shipping from China to Pakistan.</p>
+  </div>
+</footer>
+<a class="fab quote-link" href="/#quote">Get a price</a>
+<script src="/site.js?v=11"></script>
+</body>
+</html>
