@@ -16,7 +16,7 @@ Everything in ARTICLE_BRIEF.md and ARTICLE_BRIEF_V2.md still applies (call forma
 - Payment: bank transfer, Raast, JazzCash or Easypaisa, once, before shipping. Nothing to pay on delivery. We give an expected delivery date in writing.
 - Delivery: usually 7 to 15 days after the seller dispatches, anywhere in Pakistan.
 - Refunds: full refund if the item has not arrived within 10 days after the agreed delivery date, or arrives wrong, damaged or not working. Policy page: /refund-policy/
-- Sources: Alibaba, 1688, Taobao, AliExpress and other Chinese sites (Temu/Shein items can usually be found from the same suppliers).
+- Sources: Alibaba, 1688, Taobao, AliExpress, JD.com, Xianyu (second-hand) and other Chinese sites (Temu/Shein items can usually be found from the same suppliers). Owner confirmed Xianyu and JD.com on 23 Oct 2026.
 - About page: /about/ . Author of all guides: Muhammad Shamshad Aslam (do not invent credentials or a job history for him; do not write an author bio inside the article).
 
 ## AEO format
