@@ -67,19 +67,29 @@ async function sha(text) {
 }
 
 /* ---------- admin panel ---------- */
-function authorised(request, env) {
-  const h = request.headers.get("authorization") || "";
-  if (!env.ADMIN_PASSWORD || !h.startsWith("Basic ")) return false;
-  const [, pass] = atob(h.slice(6)).split(":");
-  return pass === env.ADMIN_PASSWORD;
+// Login: open /admin?key=YOUR_KEY once. That sets a year-long cookie on this browser,
+// so after that plain /admin just works. No key and no cookie = page looks like it doesn't exist.
+async function adminToken(env) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(`${env.ADMIN_KEY}|ifc-admin`));
+  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+async function authorised(request, env) {
+  if (!env.ADMIN_KEY) return false;
+  const m = (request.headers.get("cookie") || "").match(/(?:^|;\s*)ifc_admin_auth=([a-f0-9]{64})/);
+  return !!m && m[1] === (await adminToken(env));
 }
 const esc = (t) => String(t ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const COUNTRY = (c) => { try { return new Intl.DisplayNames(["en"], { type: "region" }).of(c); } catch (e) { return c; } };
 
 async function admin(request, env, url) {
-  if (!authorised(request, env)) {
-    return new Response("Password required", { status: 401, headers: { "WWW-Authenticate": 'Basic realm="importfromchina admin"' } });
+  const key = url.searchParams.get("key");
+  if (key && env.ADMIN_KEY && key === env.ADMIN_KEY) {
+    return new Response(null, { status: 302, headers: {
+      location: "/admin",
+      "set-cookie": `ifc_admin_auth=${await adminToken(env)}; Path=/admin; Max-Age=31536000; HttpOnly; Secure; SameSite=Lax`,
+      "cache-control": "no-store" } });
   }
+  if (!(await authorised(request, env))) return new Response("Not found", { status: 404, headers: { "cache-control": "no-store" } });
   const days = Math.min(Math.max(parseInt(url.searchParams.get("days") || "7", 10) || 7, 1), 90);
   const from = pkDay(Date.now() - (days - 1) * 864e5);
   const q = (sql, ...b) => env.DB.prepare(sql).bind(from, ...b).all().then((r) => r.results);
