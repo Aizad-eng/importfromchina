@@ -316,6 +316,27 @@
   .compare .us{background:#e7f2ec}
   .compare thead .us{color:var(--green)}
   .compare .note{margin-top:16px;font-size:14px;color:var(--ink-3)}
+  /* phones: button first, short notices */
+  @media (max-width:600px){
+    .hero{padding-top:104px}
+    .hero .wrap>div:first-child{display:flex;flex-direction:column}
+    .hero .cta{order:1;margin-top:20px}
+    .hero .nobulk,.hero .notcheap{order:2;margin-top:8px;padding:9px 12px;gap:10px;border-radius:12px;max-width:none}
+    .hero .nobulk p,.hero .notcheap p{display:none}
+    .hero .nobulk b,.hero .notcheap b{font-size:14px}
+    .hero .nobulk .x,.hero .notcheap .x{width:22px;height:22px;font-size:12px}
+    .hero .stats{order:3}
+  }
+  /* LEGIT */
+  .legit{padding:clamp(60px,9vw,110px) 0 0}
+  .legit .items{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:30px}
+  .legit .it{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 20px 18px;display:flex;gap:14px}
+  .legit .it .ok{flex:none;width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px}
+  .legit .it h3{font-size:17px;letter-spacing:-.01em;margin:2px 0 6px}
+  .legit .it p{font-size:15px;line-height:1.55;color:var(--ink-2);margin:0}
+  .legit .more{margin-top:18px;font-size:15px;color:var(--ink-2)}
+  .legit .more a{color:var(--green);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+  @media (max-width:760px){.legit .items{grid-template-columns:1fr}}
   /* FAQ */
   .faq .list{max-width:800px;margin:48px auto 0;border-top:1px solid var(--line)}
   .faq details{border-bottom:1px solid var(--line);background:transparent}
@@ -494,6 +515,23 @@
         <div class="step tilt" data-step="03"><span class="n">3</span><div class="ic"><svg aria-hidden="true"><use href="#i-cart"/></svg></div><h3>Pay once, we buy and ship</h3><p>You pay that one amount before it ships. We pay the seller, book air freight to Pakistan and keep you posted on WhatsApp. No second payment, ever.</p></div>
         <div class="step tilt" data-step="04"><span class="n">4</span><div class="ic"><svg aria-hidden="true"><use href="#i-home"/></svg></div><h3>It lands at your door</h3><p>Air freight, customs cleared, delivered to any address in Pakistan in 7–15 days. Nothing more to pay.</p></div>
       </div>
+    </div>
+  </section>
+
+  <!-- LEGIT -->
+  <section id="legit" class="legit">
+    <div class="wrap">
+      <div class="head reveal">
+        <h2>Is this legit? Fair question.</h2>
+        <p class="sub">You'd be paying someone online for something coming from China. Here is exactly how you're protected.</p>
+      </div>
+      <div class="items reveal">
+        <div class="it"><span class="ok" aria-hidden="true">✓</span><div><h3>You see the full price before paying anything</h3><p>One price in rupees: the item, shipping, Pakistan customs and our fee. Getting a price is free. If you say no, you owe nothing.</p></div></div>
+        <div class="it"><span class="ok" aria-hidden="true">✓</span><div><h3>You pay once, and nothing at your door</h3><p>Pay by bank transfer, Raast, JazzCash or Easypaisa before it ships. No extra charges later. If customs charges more than we expected, we pay the difference.</p></div></div>
+        <div class="it"><span class="ok" aria-hidden="true">✓</span><div><h3>Didn't arrive? Full refund</h3><p>We give you a delivery date in writing before you pay. If your parcel hasn't reached you 10 days after that date, you get all your money back.</p></div></div>
+        <div class="it"><span class="ok" aria-hidden="true">✓</span><div><h3>Wrong, damaged or not working? Full refund</h3><p>Tell us within 48 hours of delivery with an unboxing video and photos. Refunds are paid the same way you paid, within 7 working days of approval.</p></div></div>
+      </div>
+      <p class="more reveal">Changed your mind before we've bought it? Cancelling is free. Read the full <a href="/refund-policy/">refund policy</a>, or see <a href="#projects">a real order we delivered</a>.</p>
     </div>
   </section>
 
