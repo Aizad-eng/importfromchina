@@ -85,6 +85,19 @@ const css = `
 .gate .no{background:#fff;color:#17181c;border:1.5px solid #e3dfd5 !important;margin-top:8px}.gate .no:hover{background:#faf8f3}
 .gate .anyway{display:inline-block;margin-top:12px;font-size:13px;color:#6d707a;text-decoration:underline;text-underline-offset:3px;cursor:pointer;background:none;border:0}
 @media (max-width:600px){.gate{align-items:flex-end;padding:0}.gate .box{max-width:none;border-radius:22px 22px 0 0;padding-bottom:24px}}
+/* newsletter sign-up */
+.nl{left:18px;bottom:18px;width:min(360px,calc(100vw - 36px));padding:18px 18px 14px}
+.nl .t{font:700 17px/1.3 Sora,Inter,sans-serif;padding-right:28px;letter-spacing:-.01em}
+.nl .s{font-size:13.5px;color:#3d4047;margin-top:6px;line-height:1.45}
+.nl form{display:flex;gap:8px;margin-top:12px}
+.nl input[type=email]{flex:1;min-width:0;border:1.5px solid #e3dfd5;border-radius:999px;padding:10px 14px;font:500 15px Inter,system-ui,sans-serif;color:#17181c;background:#fff}
+.nl input[type=email]:focus{outline:none;border-color:#0f6b3a}
+.nl .go{width:auto;margin-top:0;padding:10px 16px;flex:none}
+.nl .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.nl .fine{font-size:11.5px;color:#6d707a;margin-top:8px}
+.nl .err{font-size:12.5px;color:#c8102e;margin-top:6px;min-height:0}
+.nl .ok{font-size:14px;color:#0a4d2a;background:#e7f2ec;border-radius:12px;padding:12px 14px;margin-top:12px;line-height:1.45}
+@media (max-width:600px){.nl{left:12px;right:12px;width:auto;bottom:70px;padding:16px 14px 12px}.nl .t{font-size:16px}}
 ${reduceMotion ? ".ifc-card{transition:none}" : ""}`;
 const style = document.createElement("style"); style.textContent = css; document.head.appendChild(style);
 
@@ -159,6 +172,47 @@ document.addEventListener("click", (e) => {
 const fab = document.querySelector(".fab");
 
 
+
+/* ---------- 1. newsletter sign-up: a few seconds after landing, until they join or close it ---------- */
+const NL_DONE = store.get("ifc_nl_done") === "1";
+if (!NL_DONE && !QUIET_PAGE && !dismissedRecently("ifc_nl_closed")) {
+  const showNl = () => {
+    if (gateEl) return;                                                   // price check is open
+    const ae = document.activeElement;
+    if (ae && (ae.tagName === "IFRAME" || ae.tagName === "INPUT" || ae.tagName === "TEXTAREA")) { setTimeout(showNl, 5000); return; }   // busy typing
+    if (!claimPrompt()) return;
+    const el = makeCard("nl", `
+      <button class="x" type="button" aria-label="Close">×</button>
+      <div class="t">One thing from China, every week</div>
+      <div class="s">Hard-to-find products, how-to tips and scam warnings for buyers in Pakistan. One short email a week.</div>
+      <form novalidate>
+        <input type="email" name="email" placeholder="Your email" autocomplete="email" inputmode="email" required aria-label="Your email">
+        <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="go" type="submit">Join</button>
+      </form>
+      <div class="err" role="alert"></div>
+      <div class="fine">No spam. Unsubscribe anytime.</div>`, "Join the weekly email");
+    const form = el.querySelector("form"), err = el.querySelector(".err"), btn = el.querySelector(".go");
+    el.querySelector(".x").addEventListener("click", () => hide(el, "ifc_nl_closed"));
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = form.email.value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { err.textContent = "Please enter a valid email address."; form.email.focus(); return; }
+      err.textContent = ""; btn.disabled = true; btn.textContent = "...";
+      try {
+        const r = await fetch("/api/subscribe", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ email, p: location.pathname, hp: form.company.value }) });
+        const j = await r.json().catch(() => ({}));
+        if (!r.ok || !j.ok) throw new Error(j.error || "Something went wrong. Please try again.");
+        store.set("ifc_nl_done", "1");
+        form.remove(); el.querySelector(".fine").remove();
+        el.querySelector(".s").insertAdjacentHTML("afterend", '<div class="ok">You\u2019re in. The first email arrives next week.</div>');
+        setTimeout(() => hide(el), 6000);
+      } catch (x) { err.textContent = x.message || "Something went wrong. Please try again."; btn.disabled = false; btn.textContent = "Join"; }
+    });
+    requestAnimationFrame(() => el.classList.add("show"));
+  };
+  setTimeout(showNl, 4000);
+}
 
 /* ---------- 2. guide nudge: appears 60% through a guide, about the guide's product ---------- */
 if (isGuide && !dismissedRecently("ifc_nudge_closed")) {

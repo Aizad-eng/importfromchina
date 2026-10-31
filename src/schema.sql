@@ -14,3 +14,12 @@ CREATE TABLE IF NOT EXISTS hits (
 );
 CREATE INDEX IF NOT EXISTS hits_day ON hits(day);
 CREATE INDEX IF NOT EXISTS hits_ts ON hits(ts);
+
+-- Newsletter sign-ups from the site pop-up. The worker also creates this table on first use.
+CREATE TABLE IF NOT EXISTS subscribers (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  ts INTEGER NOT NULL,            -- unix ms
+  email TEXT NOT NULL UNIQUE,
+  path TEXT,                      -- page they signed up on
+  country TEXT, city TEXT, device TEXT
+);

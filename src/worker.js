@@ -16,6 +16,7 @@ export default {
       ctx.waitUntil(recordHit(request, env, text).catch((e) => console.log("hit failed", e && e.message)));
       return new Response(null, { status: 204 });
     }
+    if (url.pathname === "/api/subscribe" && request.method === "POST") return subscribe(request, env);
     if (url.pathname === "/admin" || url.pathname === "/admin/") return admin(request, env, url);
     return env.ASSETS.fetch(request);
   },
@@ -66,6 +67,27 @@ async function sha(text) {
   return [...new Uint8Array(buf)].slice(0, 8).map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
+/* ---------- newsletter sign-ups (from the site.js pop-up) ---------- */
+const SUBS_TABLE = `CREATE TABLE IF NOT EXISTS subscribers (
+  id INTEGER PRIMARY KEY AUTOINCREMENT, ts INTEGER NOT NULL, email TEXT NOT NULL UNIQUE,
+  path TEXT, country TEXT, city TEXT, device TEXT)`;
+const EMAIL_RE = /^[^\s@<>()"',;:]{1,64}@[^\s@<>()"',;:]+\.[a-z]{2,24}$/i;
+async function subscribe(request, env) {
+  const json = (o, status = 200) => new Response(JSON.stringify(o), { status, headers: { "content-type": "application/json", "cache-control": "no-store" } });
+  let body = null;
+  try { body = JSON.parse(await request.text()); } catch (e) {}
+  if (!body) return json({ ok: false, error: "bad request" }, 400);
+  if (body.hp) return json({ ok: true });   // honeypot filled in: a bot, pretend it worked
+  const email = String(body.email || "").trim().toLowerCase().slice(0, 254);
+  if (!EMAIL_RE.test(email)) return json({ ok: false, error: "Please enter a valid email address." }, 400);
+  const ua = request.headers.get("user-agent") || "", cf = request.cf || {};
+  const device = /iPad|Tablet/i.test(ua) ? "Tablet" : /Mobi|Android|iPhone/i.test(ua) ? "Mobile" : "Desktop";
+  await env.DB.prepare(SUBS_TABLE).run();
+  await env.DB.prepare("INSERT OR IGNORE INTO subscribers (ts, email, path, country, city, device) VALUES (?,?,?,?,?,?)")
+    .bind(Date.now(), email, String(body.p || "").slice(0, 200) || null, cf.country || null, cf.city || null, device).run();
+  return json({ ok: true });
+}
+
 /* ---------- admin panel ---------- */
 // Login: open /admin?key=YOUR_KEY once. That sets a year-long cookie on this browser,
 // so after that plain /admin just works. No key and no cookie = page looks like it doesn't exist.
@@ -90,6 +112,16 @@ async function admin(request, env, url) {
       "cache-control": "no-store" } });
   }
   if (!(await authorised(request, env))) return new Response("Not found", { status: 404, headers: { "cache-control": "no-store" } });
+  await env.DB.prepare(SUBS_TABLE).run();
+  if (url.searchParams.get("export") === "subscribers") {
+    const rows = await env.DB.prepare("SELECT ts, email, path, country, city, device FROM subscribers ORDER BY ts").all().then((r) => r.results);
+    const cell = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
+    const csv = ["signed_up_pkt,email,page,country,city,device"].concat(rows.map((r) =>
+      [new Date(r.ts + 5 * 3600e3).toISOString().slice(0, 16).replace("T", " "), r.email, r.path, r.country, r.city, r.device].map(cell).join(","))).join("\n");
+    return new Response(csv, { headers: { "content-type": "text/csv; charset=utf-8", "content-disposition": 'attachment; filename="newsletter-subscribers.csv"', "cache-control": "no-store" } });
+  }
+  const subsTotal = (await env.DB.prepare("SELECT COUNT(*) n FROM subscribers").first())?.n || 0;
+  const subs = await env.DB.prepare("SELECT ts, email, path, country, city FROM subscribers ORDER BY ts DESC LIMIT 50").all().then((r) => r.results);
   const days = Math.min(Math.max(parseInt(url.searchParams.get("days") || "7", 10) || 7, 1), 90);
   const from = pkDay(Date.now() - (days - 1) * 864e5);
   const q = (sql, ...b) => env.DB.prepare(sql).bind(from, ...b).all().then((r) => r.results);
@@ -166,6 +198,9 @@ tr:last-child td{border-bottom:0}.muted{color:var(--ink3)}
   <div class="card"><h2>Countries and devices</h2>${table(["Country", '<span class="num">Visitors</span>'],
     countries.map((r) => `<tr><td>${esc(r.country ? COUNTRY(r.country) : "Unknown")}</td><td class="num">${r.v}</td></tr>`))}
     <div style="height:14px"></div>${table(["Device", '<span class="num">Visitors</span>'], devices.map((r) => `<tr><td>${esc(r.device)}</td><td class="num">${r.v}</td></tr>`))}</div>
+  <div class="card full"><h2>Newsletter sign-ups <span class="muted" style="font-weight:500">(${subsTotal} total)</span></h2>${table(["Signed up (PKT)", "Email", "Page", "Where"],
+    subs.map((r) => `<tr><td>${time(r.ts)}</td><td><b>${esc(r.email)}</b></td><td><span class="path">${esc(r.path || "")}</span></td><td>${esc([r.city, r.country].filter(Boolean).join(", "))}</td></tr>`))}
+    <p style="margin:12px 0 0"><a href="?export=subscribers" style="color:var(--green);font-weight:600">Download all as CSV</a></p></div>
   <div class="card full"><h2>Latest activity</h2>${table(["Time (PKT)", "What", "Page", "Source", "Where", "Device"],
     recent.map((r) => `<tr><td>${time(r.ts)}</td><td>${r.event === "quote" ? '<b style="color:var(--green)">Get a price</b>' : "Viewed"}</td><td><span class="path">${esc(r.path)}</span></td><td>${esc(r.source)}</td><td>${esc([r.city, r.country].filter(Boolean).join(", "))}</td><td>${esc(r.device)}</td></tr>`))}</div>
 </div>
