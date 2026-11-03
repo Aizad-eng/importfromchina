@@ -18,9 +18,36 @@ export default {
     }
     if (url.pathname === "/api/subscribe" && request.method === "POST") return subscribe(request, env);
     if (url.pathname === "/admin" || url.pathname === "/admin/") return admin(request, env, url);
-    return env.ASSETS.fetch(request);
+    const res = await env.ASSETS.fetch(request);
+    if (!(res.headers.get("content-type") || "").includes("text/html")) return res;
+    // We have closed: every page gets a notice that covers the whole screen.
+    return new HTMLRewriter().on("body", { element(el) { el.append(CLOSED_NOTICE, { html: true }); } }).transform(res);
   },
 };
+
+const CLOSED_NOTICE = `<style>html,body{overflow:hidden!important}
+#ifc-closed{position:fixed;inset:0;z-index:2147483647;background:#faf8f3;overflow-y:auto;display:flex;align-items:center;justify-content:center;padding:32px 16px;font-family:Inter,system-ui,sans-serif;color:#17181c}
+#ifc-closed .box{max-width:520px;width:100%}
+#ifc-closed h1{font-family:Sora,system-ui,sans-serif;font-weight:800;font-size:clamp(28px,6vw,40px);line-height:1.15;margin:0 0 16px;letter-spacing:-.01em}
+#ifc-closed p{font-size:17px;line-height:1.6;color:#3d4047;margin:0 0 12px}
+#ifc-closed .next{margin-top:32px;padding:24px;background:#fff;border:1px solid #e3dfd5;border-radius:16px}
+#ifc-closed h2{font-family:Sora,system-ui,sans-serif;font-weight:700;font-size:20px;margin:0 0 8px}
+#ifc-closed .next p{font-size:16px;margin:0 0 18px}
+#ifc-closed a.btn{display:inline-block;background:#0f6b3a;color:#fff;text-decoration:none;font-weight:600;padding:13px 22px;border-radius:999px;font-size:16px}
+#ifc-closed a.btn:hover{background:#0a4d2a}
+</style>
+<div id="ifc-closed" role="dialog" aria-modal="true" aria-labelledby="ifc-closed-h">
+  <div class="box">
+    <h1 id="ifc-closed-h">We have closed our operations</h1>
+    <p>importfromchina.shop is no longer taking orders or price requests.</p>
+    <p>Thank you to everyone who trusted us with an order.</p>
+    <div class="next">
+      <h2>What we're working on now</h2>
+      <p><strong>DidThePriceDrop</strong> tracks prices across Pakistani clothing brands and shows you when an item really drops in price.</p>
+      <a class="btn" href="https://didthepricedrop.xyz/?utm_source=importfromchina&amp;utm_medium=closed_notice">Visit DidThePriceDrop</a>
+    </div>
+  </div>
+</div>`;
 
 /* ---------- recording ---------- */
 const BOT = /bot|crawl|spider|slurp|preview|headless|lighthouse|facebookexternalhit|whatsapp|monitor|curl|python|wget/i;
