@@ -13,7 +13,7 @@ Key facts:
 - [Home](https://importfromchina.shop/): how the service works, who it is for, FAQ
 - [Products](https://importfromchina.shop/products/): specific items that are hard to find in Pakistan
 - [Guides](https://importfromchina.shop/blog/): all guides
-- [Landed cost calculator](https://importfromchina.shop/calculators/landed-cost/): estimate duty and taxes on one item
+- [Rough duty estimator](https://importfromchina.shop/calculators/landed-cost/): a rough guess of duty and taxes on one item; customs in Pakistan decides the final amount
 - [Volumetric weight calculator](https://importfromchina.shop/calculators/volumetric-weight/): chargeable weight for a parcel
 - [Full guide answers](https://importfromchina.shop/llms-full.txt): quick answer and FAQs of every guide in one file
 

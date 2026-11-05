@@ -47,8 +47,8 @@ Q: Who pays the customs duty, the buyer or the supplier?
 A: The buyer in Pakistan, unless the shipment is sold on DDP (Delivered Duty Paid) terms. Door-to-door sourcing services typically quote DDP so duty is included in the price you pay.
 Q: What is WeBOC?
 A: WeBOC (Web Based One Customs) is Pakistan Customs' online clearance system. Goods Declarations, assessments and duty payments are filed through it, usually by a licensed clearing agent. It is being integrated into the Pakistan Single Window.
-Q: Is there a customs duty calculator for Pakistan?
-A: Yes. Our free landed cost calculator at importfromchina.shop/calculators/landed-cost/ applies customs duty, additional customs duty, 18% sales tax and advance income tax with 2026-27 FBR rates. Treat the result as an estimate, because customs may use a valuation ruling instead of your invoice price.
+Q: Can I calculate the exact customs duty before I order?
+A: No. In Pakistan the duty on a parcel is unpredictable: customs decides the item's HS code and the value it taxes, and it can use a valuation ruling instead of your invoice price. You can only make a rough guess. When you order through us, the one price we quote already includes customs, so what you pay does not change.
 Q: Do I pay customs duty on a Rs 10,000 item from China?
 A: Yes. Only post or courier parcels worth Rs 1,000 or less are exempt under section 19C. Above that the whole value is taxed, and the rate depends on the item's HS code.
 
@@ -181,9 +181,9 @@ A: The seller usually ships to the agent within 1 to 3 days. From there, 7 to 15
 ## Does Temu Deliver to Pakistan? What Works in 2026
 URL: https://importfromchina.shop/blog/does-temu-deliver-to-pakistan
 Category: Platforms
-Updated: October 26, 2026
+Updated: November 5, 2026
 
-Yes. At the time of writing (October 2026), Temu delivers to Pakistan through its own Pakistan site and app, with prices in rupees. Temu's Pakistan shipping page lists free standard shipping on all orders, typically 5 to 13 business days after a 1 to 3 day processing time. The site shows JazzCash, Easypaisa and card logos for payment. If the app shows another country, change the region in settings rather than using a VPN, and buy only through the official app or temu.com.
+Yes. Temu delivers to Pakistan through its own Pakistan site and app, with prices in rupees. Temu's Pakistan shipping page, checked on 5 November 2026, lists free standard shipping on all orders, 5 to 13 business days after a 1 to 3 day processing time. In October 2026 the site showed JazzCash, Easypaisa and card logos for payment. If the app shows another country, change the region in settings rather than using a VPN, and buy only through the official app or temu.com.
 
 Q: Can Temu deliver in Pakistan?
 A: Yes. At the time of writing (October 2026), Temu runs a Pakistan site and app with prices in rupees and delivers to most addresses in Pakistan. Some individual listings may not ship to Pakistan.
@@ -291,7 +291,7 @@ A: That is a bulk business and needs commercial import. We only handle single it
 ## How to Buy From 1688 in Pakistan (One Item, Without a Chinese Account)
 URL: https://importfromchina.shop/blog/how-to-buy-from-1688-in-pakistan
 Category: Platforms
-Updated: October 3, 2026
+Updated: November 5, 2026
 
 1688.com is Alibaba's wholesale site for the Chinese domestic market. It is in Chinese, takes only Chinese payment methods, and sellers ship only within China, so you cannot order from Pakistan directly. Pakistani buyers use an agent who has a Chinese account and address, buys the item, receives it in China and forwards it by air. Many 1688 listings sell single pieces, and prices are typically 20 to 40 percent below Alibaba.com.
 
@@ -305,6 +305,8 @@ Q: Can I pay 1688 with a Pakistani card?
 A: No. 1688 accepts Alipay and Chinese bank cards only. An agent pays with Alipay and you pay the agent in rupees.
 Q: How long does a 1688 order take to reach Pakistan?
 A: The seller usually ships to the agent within 1 to 3 days. Air freight to your door, including customs, then takes about 7 to 15 days. Allow 2 to 3 weeks in total.
+Q: Can you buy one item from 1688 for me?
+A: Yes. Send the 1688 link or a screenshot through our quote form. We reply within 24 hours with one price in rupees that includes shipping, customs and our fee, and you pay before it ships. Single items only, no bulk.
 
 ## Alibaba vs AliExpress for Pakistani Buyers: Which for One Item?
 URL: https://importfromchina.shop/blog/alibaba-vs-aliexpress-for-pakistani-buyers

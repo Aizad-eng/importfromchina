@@ -42,7 +42,7 @@ def main():
                 'then use the guides below for the detail.</p>\n')
         if slug in ("pakistan-customs-guides", "shipping-and-payment-guides"):
             body += ('<h2>Is there a calculator?</h2>\n<ul>\n'
-                     '<li><a href="/calculators/landed-cost/">Duty and landed cost calculator</a>: estimate customs duty, sales tax and income tax on one item with 2026-27 FBR rates.</li>\n'
+                     '<li><a href="/calculators/landed-cost/">Rough duty estimator</a>: a rough guess of customs duty, sales tax and income tax on one item with 2026-27 FBR rates. Customs in Pakistan decides the final amount.</li>\n'
                      '<li><a href="/calculators/volumetric-weight/">Volumetric weight calculator</a>: work out the chargeable weight of a parcel for couriers and air cargo.</li>\n</ul>\n')
         for c in cats:
             items = [p for p in ps if p[1] == c and p[0] not in hub_slugs]

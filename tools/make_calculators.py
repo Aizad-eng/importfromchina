@@ -131,9 +131,10 @@ LC_FORM = """      <form class="calc" id="lc" onsubmit="return false">
       (rd?'<tr><td>Regulatory duty '+rd+'%</td><td>'+f(RD)+'</td></tr>':'')+
       '<tr><td>Sales tax 18%</td><td>'+f(ST)+'</td></tr>'+
       '<tr><td>Income tax '+it+'%</td><td>'+f(IT)+'</td></tr>'+
-      '<tr class="total"><td>Total duties and taxes</td><td>'+f(tax)+'</td></tr>'+
-      '<tr class="total big"><td>Item + shipping + taxes</td><td>'+f(value+tax)+'</td></tr>'+
-      '<tr><td>Taxes as a share of customs value</td><td>'+(tax/value*100).toFixed(1)+'%</td></tr>';
+      '<tr class="total"><td>Rough duties and taxes</td><td>'+f(tax)+'</td></tr>'+
+      '<tr class="total big"><td>Rough total: item + shipping + taxes</td><td>'+f(value+tax)+'</td></tr>'+
+      '<tr><td>Taxes as a share of customs value</td><td>'+(tax/value*100).toFixed(1)+'%</td></tr>'+
+      '<tr><td colspan="2" style="font-size:13.5px;color:var(--ink-3)">A rough guess only. Customs in Pakistan decides the final amount.</td></tr>';
   }
   ["price","cur","rate","ship","cd","rd","part","atl"].forEach(function(i){$(i).addEventListener("input",calc);$(i).addEventListener("change",calc)});
   calc();
@@ -184,7 +185,7 @@ LC_FAQS = [
     ("Is shipping included in the customs value?", "Yes. Customs value is the CIF value: the item price plus shipping and insurance to Pakistan, converted to rupees."),
     ("Why does being a filer matter?", "Income tax at import under section 148 is doubled for people who are not on FBR's Active Taxpayer List. The other taxes are the same."),
     ("Is the Rs 1,000 limit applied to the part above Rs 1,000?", "No. If the parcel is worth more than Rs 1,000, duties and taxes apply to its whole value."),
-    ("Is this calculator's result what customs will charge?", "It is an estimate. Customs decides the HS code and can use a valuation ruling instead of your invoice price, so the actual amount can differ."),
+    ("Is this result what customs will charge?", "No, it is a rough guess. In Pakistan the duty on a parcel is unpredictable: customs decides the HS code and the value it taxes, and can use a valuation ruling instead of your invoice price, so the actual amount can be quite different. If you want a price that will not change, send us the item and we quote one price that already includes customs."),
 ]
 
 # ---------------- Volumetric weight ----------------
@@ -250,11 +251,11 @@ VW_FAQS = [
     ("Should I measure the product or the box?", "The box. Carriers measure the outer packaging, including any padding."),
 ]
 
-u1 = page("landed-cost", "Landed Cost and Duty Calculator", "China to Pakistan Duty Calculator (2026 Rates)",
-          "Estimate customs duty, sales tax and income tax on one item from China to Pakistan, with FY 2026-27 FBR rates and the Rs 1,000 courier limit.",
-          "China to Pakistan duty and landed cost calculator",
-          "Enter the item price, shipping and duty slab to estimate Pakistan customs duty, additional customs duty, regulatory duty, 18% sales tax and section 148 income tax. Parcels by post or courier worth Rs 1,000 or less pay nothing. Rates are from FBR's 2026-27 budget documents, checked " + RATES_CHECKED + ".",
-          LC_FORM, LC_BODY, LC_FAQS, "Estimates Pakistan customs duty and taxes on a single item imported from China.")
+u1 = page("landed-cost", "Rough Duty Estimator", "Rough Duty Estimate, China to Pakistan (2026 Rates)",
+          "A rough guess of customs duty, sales tax and income tax on one item from China. Customs in Pakistan decides the final amount, so use it as a guide only.",
+          "Rough duty estimate for one item from China to Pakistan",
+          "This is a rough guess, not the bill. In Pakistan the duty on a parcel is unpredictable: customs decides the item's HS code and the value it taxes, and can use a valuation ruling instead of your invoice price. Enter the item price, shipping and duty slab to see roughly how Pakistan customs duty, additional customs duty, regulatory duty, 18% sales tax and section 148 income tax. Parcels by post or courier worth Rs 1,000 or less pay nothing. Rates are from FBR's 2026-27 budget documents, checked " + RATES_CHECKED + ".",
+          LC_FORM, LC_BODY, LC_FAQS, "Gives a rough guess of Pakistan customs duty and taxes on a single item imported from China; customs decides the final amount.")
 u2 = page("volumetric-weight", "Volumetric Weight Calculator", "Volumetric Weight Calculator (cm, kg) for Couriers",
           "Work out volumetric and chargeable weight for a parcel from China: divide by 5,000 for DHL, FedEx and UPS, or by 6,000 for air cargo.",
           "Volumetric weight calculator",
