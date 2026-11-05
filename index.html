@@ -250,6 +250,20 @@
 
   /* Real order */
   .real{background:var(--bg-2)}
+  /* more orders */
+  .more-orders{margin-top:34px}
+  .more-orders h3.mo-h{font-size:18px;margin:0 0 14px;color:var(--ink)}
+  .mo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+  .mo{display:grid;grid-template-columns:150px 1fr;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden}
+  .mo .im{background:var(--bg-2);overflow:hidden}
+  .mo .im img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+  .mo:hover .im img{transform:scale(1.04)}
+  .mo .tx{padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+  .mo .tx .t{font-family:var(--display);font-size:11.5px;font-weight:700;color:var(--green);letter-spacing:.02em}
+  .mo .tx h4{margin:0;font-family:var(--display);font-size:16px;line-height:1.2;letter-spacing:-.02em}
+  .mo .tx p{font-size:13.5px;color:var(--ink-2);line-height:1.45}
+  .mo .tx .q{margin-top:auto;font-size:13px;font-weight:600;color:var(--green)}
+  @media (max-width:520px){.mo-grid{grid-template-columns:1fr}.mo{grid-template-columns:120px 1fr}}
   .realgrid{display:grid;grid-template-columns:repeat(3,1fr) 1.15fr;gap:14px;margin-top:52px;align-items:stretch}
   .shot{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;display:flex;flex-direction:column}
   .shot a{display:block;aspect-ratio:3/4;overflow:hidden;background:var(--bg-2)}
@@ -661,6 +675,15 @@
             <li><span>Bulk?</span><b class="no">No. One item.</b></li>
           </ul>
           <a class="btn btn-wa quote-link" href="#quote">Get yours priced</a>
+        </div>
+      </div>
+      <div class="more-orders reveal">
+        <h3 class="mo-h">More orders we sourced</h3>
+        <div class="mo-grid">
+          <article class="mo">
+            <div class="im"><img src="/assets/orders/xiehe-hand-cream-640.jpg" alt="Xiehe Vitamin E hand cream in a red tube and Vitamin C hand cream in a white tube" loading="lazy" width="640" height="480"></div>
+            <div class="tx"><span class="t">Beauty</span><h4>Xiehe (协和) Vitamin E and Vitamin C hand cream</h4><p>Chinese hand cream, Vitamin E in the red tube and Vitamin C in the white tube. Sourced for a customer in Lahore.</p><a class="q quote-link" href="#quote">Get this priced →</a></div>
+          </article>
         </div>
       </div>
     </div>
