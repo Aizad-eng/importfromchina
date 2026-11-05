@@ -37,7 +37,9 @@ def main():
     hub_slugs = {h[0] for h in HUBS}
     out = []
     for slug, title, cats, cat_label, emoji, desc, answer in HUBS:
-        body = ""
+        body = ('<p>New to importing? Start with our step-by-step guide on '
+                '<a href="/blog/how-to-import-from-china-to-pakistan">how to import from China to Pakistan</a>, '
+                'then use the guides below for the detail.</p>\n')
         if slug in ("pakistan-customs-guides", "shipping-and-payment-guides"):
             body += ('<h2>Is there a calculator?</h2>\n<ul>\n'
                      '<li><a href="/calculators/landed-cost/">Duty and landed cost calculator</a>: estimate customs duty, sales tax and income tax on one item with 2026-27 FBR rates.</li>\n'
@@ -75,7 +77,27 @@ def main():
         new = re.sub(r'(<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/blog/">Blog</a> › )(?:<a href="/blog/[a-z0-9-]+">)?([^<]*)(?:</a>)?(</nav>)',
                      lambda m: f'{m.group(1)}<a href="/blog/{cat_hub[cat]}">{m.group(2)}</a>{m.group(3)}', s, count=1)
         if new != s: open(f, "w").write(new); n += 1
-    print("hubs:", len(out), "crumbs linked:", n)
+    # "start here" links: every guide points at the main guide, plus its cluster's main page
+    PILLAR = "how-to-import-from-china-to-pakistan"
+    skip = {PILLAR} | hub_slugs | {"china-se-saman-kaise-mangwayen-urdu", "china-se-customs-duty-urdu",
+                                   "china-se-shipping-cost-urdu", "china-se-online-shopping-kaise-karein"}
+    CLUSTERS = [  # (test on slug, target slug, anchor text)
+        (lambda sl: "temu" in sl, "does-temu-deliver-to-pakistan", "Does Temu deliver to Pakistan?"),
+        (lambda sl: "aliexpress" in sl, "how-to-buy-from-aliexpress-in-pakistan", "How to buy from AliExpress in Pakistan"),
+        (lambda sl: any(k in sl for k in ("taobao", "1688", "xianyu", "pinduoduo", "jd-com")), "taobao-buying-service-pakistan", "Taobao buying service in Pakistan"),
+        (lambda sl: any(k in sl for k in ("customs", "duty", "hs-code", "valuation", "personal-use")), "customs-duty-china-to-pakistan", "Customs duty from China to Pakistan"),
+    ]
+    m = 0
+    for sl, cat, _, _ in posts():
+        if sl in skip: continue
+        f = os.path.join(BLOG, sl + ".html"); s = open(f).read()
+        extra = next((f' Also see: <a href="/blog/{t}">{a}</a>' for test, t, a in CLUSTERS if test(sl) and t != sl), "")
+        box = ('<p class="start-here" style="font-size:15px;color:var(--ink-2);margin:-14px 0 28px">New to importing? Read our step-by-step guide on '
+               f'<a href="/blog/{PILLAR}">how to import from China to Pakistan</a>.{extra}</p>')
+        new = re.sub(r'\n?\s*<p class="start-here".*?</p>', "", s, count=1, flags=re.S)
+        new = re.sub(r'(<div class="answer"><b>[^<]*</b><p>.*?</p></div>)', lambda mm: mm.group(1) + "\n      " + box, new, count=1, flags=re.S)
+        if new != s: open(f, "w").write(new); m += 1
+    print("hubs:", len(out), "crumbs linked:", n, "start-here links:", m)
 
 if __name__ == "__main__":
     main()

@@ -7,7 +7,7 @@ Author of all guides: Muhammad Shamshad Aslam (https://importfromchina.shop/abou
 ## How to Import From China to Pakistan: Two Routes, Step by Step
 URL: https://importfromchina.shop/blog/how-to-import-from-china-to-pakistan
 Category: Guide
-Updated: October 23, 2026
+Updated: November 5, 2026
 
 There are two ways to import from China to Pakistan. For commercial quantities in your own name you need an NTN, usually sales tax registration and a Pakistan Single Window subscription, then you pay the supplier through your bank, ship by air or sea and file a goods declaration. For a single item, a courier, a marketplace that ships here, or a single-item service clears it for you on your CNIC. Either way most goods attract duty and taxes, so work out the landed cost before you pay.
 
@@ -23,11 +23,17 @@ Q: What is the minimum order to import from China?
 A: There is no legal minimum. Suppliers set their own minimum order quantities, and some list single pieces. Our service handles exactly one item per order and no bulk.
 Q: Can I pay a Chinese seller with JazzCash or Easypaisa?
 A: Not directly. Chinese platforms do not accept JazzCash, Easypaisa or Raast. You can use them to pay a local agent or service, which then pays the seller.
+Q: Can I order from Taobao or 1688 to Pakistan?
+A: Not directly. Taobao and 1688 sellers ship within China only and take Chinese payment methods. You need an agent or a single-item service to buy and ship it for you, as we did for a customer in Lahore with 2 tubes of hand cream from Taobao.
+Q: How much does it cost to ship one item from China to Pakistan?
+A: Shipping one item usually costs Rs 5,000 to 20,000, depending on its size and type, before duty and taxes. That is why importing a single item makes most sense for things worth around Rs 10,000 or more.
+Q: What is the easiest way to import from China to Pakistan?
+A: For one item, buy from a marketplace that ships to Pakistan, such as Temu, AliExpress or Shein, if it sells what you want. If it only sells on Taobao, 1688 or a factory site, use a single-item service. For stock to sell, use the commercial route with a licensed customs agent.
 
 ## Customs Duty on Imports from China to Pakistan: How It Is Calculated
 URL: https://importfromchina.shop/blog/customs-duty-china-to-pakistan
 Category: Customs
-Updated: October 23, 2026
+Updated: November 5, 2026
 
 Pakistan charges four main taxes on imports from China: customs duty (0%, 5%, 10%, 15% or 20% depending on the HS code, higher on a few goods), additional customs duty (0% on most lower-duty goods, up to 6% on a few), sales tax (18%), and advance income tax (5.5% on most finished goods for filers, double for non-filers), plus regulatory duty on some goods. They are calculated in sequence on the customs value, so the combined bill is commonly 25–60% of the declared value. The exact rate depends on the product's HS code in the Pakistan Customs Tariff.
 
@@ -41,6 +47,10 @@ Q: Who pays the customs duty, the buyer or the supplier?
 A: The buyer in Pakistan, unless the shipment is sold on DDP (Delivered Duty Paid) terms. Door-to-door sourcing services typically quote DDP so duty is included in the price you pay.
 Q: What is WeBOC?
 A: WeBOC (Web Based One Customs) is Pakistan Customs' online clearance system. Goods Declarations, assessments and duty payments are filed through it, usually by a licensed clearing agent. It is being integrated into the Pakistan Single Window.
+Q: Is there a customs duty calculator for Pakistan?
+A: Yes. Our free landed cost calculator at importfromchina.shop/calculators/landed-cost/ applies customs duty, additional customs duty, 18% sales tax and advance income tax with 2026-27 FBR rates. Treat the result as an estimate, because customs may use a valuation ruling instead of your invoice price.
+Q: Do I pay customs duty on a Rs 10,000 item from China?
+A: Yes. Only post or courier parcels worth Rs 1,000 or less are exempt under section 19C. Above that the whole value is taxed, and the rate depends on the item's HS code.
 
 ## Shipping from China to Pakistan: Air vs Sea, Cost and Delivery Time
 URL: https://importfromchina.shop/blog/shipping-from-china-to-pakistan-cost-time
@@ -135,7 +145,7 @@ A: It is safer than paying unknown Chinese suppliers directly, provided the agen
 ## How to Buy From AliExpress in Pakistan (And Why Orders Fail)
 URL: https://importfromchina.shop/blog/how-to-buy-from-aliexpress-in-pakistan
 Category: Platforms
-Updated: October 23, 2026
+Updated: November 5, 2026
 
 AliExpress does deliver to Pakistan for most listings, but buyers hit four problems: Pakistani cards get declined at checkout, delivery takes 25 to 45 days, parcels get held at customs for duty, and there are no local returns. If you only want one item, a Pakistan-based sourcing service that buys it for you and delivers duty-paid in 7 to 15 days is usually faster and less stressful.
 
@@ -1741,7 +1751,7 @@ A: With consolidated air freight, commonly 7 to 15 days after the supplier dispa
 ## Who Can Buy From Taobao for Me in Pakistan?
 URL: https://importfromchina.shop/blog/taobao-buying-service-pakistan
 Category: Sourcing
-Updated: October 17, 2026
+Updated: November 5, 2026
 
 Three kinds of people can buy from Taobao for you. A Taobao shopping agent buys the item, receives it at its warehouse in China, then bills you again for international shipping. A single-item import service buys it and delivers it in Pakistan for one rupee price. Or a friend or relative in China can buy it and post it. Taobao's own overseas shipping lists a few countries, and Pakistan was not among them. For one item worth around Rs 10,000 or more, a one-price service is usually simplest.
 
@@ -1757,6 +1767,8 @@ Q: Is it worth buying one cheap item from Taobao and shipping it to Pakistan?
 A: Usually not. Shipping one item from China commonly costs Rs 5,000 to 20,000, so it makes sense for items worth around Rs 10,000 or more.
 Q: Will I pay customs on a Taobao parcel in Pakistan?
 A: Yes, unless the goods are worth Rs 1,000 or less, which are duty-free by post or courier under section 19C. A one-price service includes customs in its quote.
+Q: Can you buy from Taobao for me?
+A: Yes. Send the Taobao link or a screenshot through our quote form. We reply within 24 hours with one price in rupees that includes shipping, customs and our fee, and you pay before it ships. Single items only, no bulk.
 
 ## Can I Order From 1688 From Pakistan? Agents and Options Explained
 URL: https://importfromchina.shop/blog/1688-buying-agent-pakistan
@@ -2705,7 +2717,7 @@ A: Aam taur par nahi. WorldFirst ki guide ke mutabiq AliExpress ke cross border 
 ## Pakistan Customs Guides for Parcels From China
 URL: https://importfromchina.shop/blog/pakistan-customs-guides
 Category: Customs
-Updated: October 26, 2026
+Updated: November 5, 2026
 
 Pakistan customs for a parcel from China comes down to four things: the item's HS code, its customs value, the duty and taxes for that code, and whether it is a personal or commercial import. Parcels worth Rs 1,000 or less by post or courier are not charged under section 19C. These guides cover each step.
 
@@ -2719,7 +2731,7 @@ A: No. We bring single items for personal or professional use. For bulk or stock
 ## Chinese Shopping Sites From Pakistan: All Marketplace Guides
 URL: https://importfromchina.shop/blog/chinese-marketplaces-guides
 Category: Platforms
-Updated: October 26, 2026
+Updated: November 5, 2026
 
 Temu, Shein, AliExpress and Alibaba.com deliver to Pakistan directly. Taobao, 1688, Pinduoduo, Xianyu and most of JD.com sell inside China only, so you need someone in China to buy for you. These guides cover each site: delivery times, payment from Pakistan, returns and what to watch for.
 
@@ -2733,7 +2745,7 @@ A: No. We bring single items for personal or professional use. For bulk or stock
 ## Importing From China by Product: Category and Buying Guides
 URL: https://importfromchina.shop/blog/import-by-product-category
 Category: Products
-Updated: October 26, 2026
+Updated: November 5, 2026
 
 What you can bring from China, and how, depends on the product. Phones need PTA registration, drones need permission, medical devices may need DRAP approval and loose batteries cannot fly. These guides cover each category, plus buying guides for specific models that are hard to find in Pakistan.
 
@@ -2747,7 +2759,7 @@ A: No. We bring single items for personal or professional use. For bulk or stock
 ## Shipping, Cost and Payment Guides: China to Pakistan
 URL: https://importfromchina.shop/blog/shipping-and-payment-guides
 Category: Shipping
-Updated: October 26, 2026
+Updated: November 5, 2026
 
 Shipping one item from China to Pakistan usually takes 7 to 15 days by air and costs Rs 5,000 to 20,000 depending on size and type. Paying Chinese sites from Pakistan works with some cards and wallets but not others. These guides cover timing, cost, tracking and payment.
 
@@ -2761,7 +2773,7 @@ A: No. We bring single items for personal or professional use. For bulk or stock
 ## Import From China to Your City in Pakistan
 URL: https://importfromchina.shop/blog/import-from-china-by-city
 Category: Cities
-Updated: October 26, 2026
+Updated: November 5, 2026
 
 We deliver single items from China anywhere in Pakistan, usually 7 to 15 days after the seller dispatches. These city guides cover the nearest cargo airports, courier delivery and address tips for each city.
 
