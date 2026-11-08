@@ -111,6 +111,7 @@ async function toBrevo(email, isNew, request, env) {
   if (!isNew || !env.WELCOME_TEMPLATE_ID) return;
   const unsub = `https://importfromchina.shop/api/unsubscribe?e=${encodeURIComponent(email)}&t=${await unsubToken(email, env)}`;
   await brevo(env, "POST", "/smtp/email", { templateId: Number(env.WELCOME_TEMPLATE_ID), to: [{ email }], params: { unsub },
+    sender: { name: "Shamshad", email: "hello@importfromchina.shop" },
     headers: { "List-Unsubscribe": `<${unsub}>` } });
 }
 async function unsubscribe(url, env) {
