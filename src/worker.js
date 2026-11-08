@@ -94,12 +94,17 @@ async function subscribe(request, env, ctx) {
 /* ---------- Brevo: add each sign-up to the newsletter list, send the welcome email ---------- */
 // Secrets/vars: BREVO_API_KEY (secret), BREVO_LIST_ID (default 6), WELCOME_TEMPLATE_ID (unset = no welcome email).
 async function brevo(env, method, path, body) {
-  const r = await fetch("https://api.brevo.com/v3" + path, {
-    method, headers: { "api-key": env.BREVO_API_KEY, "content-type": "application/json", accept: "application/json" },
-    body: body ? JSON.stringify(body) : undefined,
-  });
-  if (!r.ok && r.status !== 204) throw new Error(`${method} ${path} ${r.status} ${(await r.text()).slice(0, 200)}`);
-  return r.status === 204 ? null : r.json().catch(() => null);
+  // Brevo sometimes answers 401/403/429/5xx for a few seconds after account changes: retry a few times.
+  for (let attempt = 1; ; attempt++) {
+    const r = await fetch("https://api.brevo.com/v3" + path, {
+      method, headers: { "api-key": env.BREVO_API_KEY, "content-type": "application/json", accept: "application/json" },
+      body: body ? JSON.stringify(body) : undefined,
+    });
+    if (r.ok || r.status === 204) return r.status === 204 ? null : r.json().catch(() => null);
+    const retry = [401, 403, 429].includes(r.status) || r.status >= 500;
+    if (!retry || attempt >= 4) throw new Error(`${method} ${path} ${r.status} ${(await r.text()).slice(0, 200)}`);
+    await new Promise((res) => setTimeout(res, 1500 * attempt));
+  }
 }
 async function unsubToken(email, env) {
   const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(`${env.ADMIN_KEY}|unsub|${email}`));
