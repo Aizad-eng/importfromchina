@@ -11,6 +11,8 @@
     "html_handling": "auto-trailing-slash"
   },
   // Visitor log for the /admin panel (schema in src/schema.sql)
+  // Newsletter: Brevo list for sign-ups and the welcome email template (BREVO_API_KEY is a secret)
+  "vars": { "BREVO_LIST_ID": "6", "WELCOME_TEMPLATE_ID": "7" },
   "d1_databases": [
     { "binding": "DB", "database_name": "importfromchina-analytics", "database_id": "660693f9-a57e-40b3-97f6-37b0a3919eff" }
   ]
