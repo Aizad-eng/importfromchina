@@ -16,7 +16,8 @@ export default {
       ctx.waitUntil(recordHit(request, env, text).catch((e) => console.log("hit failed", e && e.message)));
       return new Response(null, { status: 204 });
     }
-    if (url.pathname === "/api/subscribe" && request.method === "POST") return subscribe(request, env);
+    if (url.pathname === "/api/subscribe" && request.method === "POST") return subscribe(request, env, ctx);
+    if (url.pathname === "/api/unsubscribe") return unsubscribe(url, env);
     if (url.pathname === "/admin" || url.pathname === "/admin/") return admin(request, env, url);
     return env.ASSETS.fetch(request);
   },
@@ -72,7 +73,7 @@ const SUBS_TABLE = `CREATE TABLE IF NOT EXISTS subscribers (
   id INTEGER PRIMARY KEY AUTOINCREMENT, ts INTEGER NOT NULL, email TEXT NOT NULL UNIQUE,
   path TEXT, country TEXT, city TEXT, device TEXT)`;
 const EMAIL_RE = /^[^\s@<>()"',;:]{1,64}@[^\s@<>()"',;:]+\.[a-z]{2,24}$/i;
-async function subscribe(request, env) {
+async function subscribe(request, env, ctx) {
   const json = (o, status = 200) => new Response(JSON.stringify(o), { status, headers: { "content-type": "application/json", "cache-control": "no-store" } });
   let body = null;
   try { body = JSON.parse(await request.text()); } catch (e) {}
@@ -83,9 +84,42 @@ async function subscribe(request, env) {
   const ua = request.headers.get("user-agent") || "", cf = request.cf || {};
   const device = /iPad|Tablet/i.test(ua) ? "Tablet" : /Mobi|Android|iPhone/i.test(ua) ? "Mobile" : "Desktop";
   await env.DB.prepare(SUBS_TABLE).run();
-  await env.DB.prepare("INSERT OR IGNORE INTO subscribers (ts, email, path, country, city, device) VALUES (?,?,?,?,?,?)")
+  const res = await env.DB.prepare("INSERT OR IGNORE INTO subscribers (ts, email, path, country, city, device) VALUES (?,?,?,?,?,?)")
     .bind(Date.now(), email, String(body.p || "").slice(0, 200) || null, cf.country || null, cf.city || null, device).run();
+  const isNew = !!(res && res.meta && res.meta.changes);
+  if (env.BREVO_API_KEY) ctx.waitUntil(toBrevo(email, isNew, request, env).catch((e) => console.log("brevo failed", e && e.message)));
   return json({ ok: true });
+}
+
+/* ---------- Brevo: add each sign-up to the newsletter list, send the welcome email ---------- */
+// Secrets/vars: BREVO_API_KEY (secret), BREVO_LIST_ID (default 6), WELCOME_TEMPLATE_ID (unset = no welcome email).
+async function brevo(env, method, path, body) {
+  const r = await fetch("https://api.brevo.com/v3" + path, {
+    method, headers: { "api-key": env.BREVO_API_KEY, "content-type": "application/json", accept: "application/json" },
+    body: body ? JSON.stringify(body) : undefined,
+  });
+  if (!r.ok && r.status !== 204) throw new Error(`${method} ${path} ${r.status} ${(await r.text()).slice(0, 200)}`);
+  return r.status === 204 ? null : r.json().catch(() => null);
+}
+async function unsubToken(email, env) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(`${env.ADMIN_KEY}|unsub|${email}`));
+  return [...new Uint8Array(buf)].slice(0, 12).map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+async function toBrevo(email, isNew, request, env) {
+  const list = Number(env.BREVO_LIST_ID || 6);
+  await brevo(env, "POST", "/contacts", { email, listIds: [list], updateEnabled: true });
+  if (!isNew || !env.WELCOME_TEMPLATE_ID) return;
+  const unsub = `https://importfromchina.shop/api/unsubscribe?e=${encodeURIComponent(email)}&t=${await unsubToken(email, env)}`;
+  await brevo(env, "POST", "/smtp/email", { templateId: Number(env.WELCOME_TEMPLATE_ID), to: [{ email }], params: { unsub },
+    headers: { "List-Unsubscribe": `<${unsub}>` } });
+}
+async function unsubscribe(url, env) {
+  const page = (msg) => new Response(`<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Unsubscribe</title><body style="font-family:system-ui,sans-serif;max-width:520px;margin:15vh auto;padding:0 20px;color:#17181c;line-height:1.5"><h1 style="font-size:22px">${msg}</h1><p><a href="/" style="color:#0f6b3a">Back to importfromchina.shop</a></p></body>`, { headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-store" } });
+  const email = String(url.searchParams.get("e") || "").trim().toLowerCase();
+  if (!EMAIL_RE.test(email) || url.searchParams.get("t") !== (await unsubToken(email, env))) return page("This unsubscribe link is not valid.");
+  if (env.BREVO_API_KEY) await brevo(env, "PUT", "/contacts/" + encodeURIComponent(email), { emailBlacklisted: true }).catch((e) => console.log("unsub failed", e && e.message));
+  await env.DB.prepare("DELETE FROM subscribers WHERE email = ?").bind(email).run().catch(() => {});
+  return page("You are unsubscribed. You won't get the weekly email any more.");
 }
 
 /* ---------- admin panel ---------- */
