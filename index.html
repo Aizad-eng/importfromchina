@@ -264,29 +264,6 @@
   @media (max-width:560px){.grid3{grid-template-columns:1fr}.cat{border-right:0!important;border-bottom:1px solid var(--line)!important}.cat:last-child{border-bottom:0!important}}
 
 
-  /* In stock now: items already in Pakistan */
-  .stocknow{padding:56px 0 8px}
-  .stockband{position:relative;display:grid;grid-template-columns:1fr 1.15fr;gap:0;background:var(--gold-soft);border:2px solid var(--gold);border-radius:28px;overflow:hidden;box-shadow:var(--shadow-lg)}
-  .stockband .txt{padding:40px 38px;display:flex;flex-direction:column;gap:14px;justify-content:center}
-  .stockband .live{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:1px solid rgba(15,107,58,.3);color:var(--green);font-weight:700;font-size:13px;border-radius:999px;padding:6px 12px}
-  .stockband .live i{width:8px;height:8px;border-radius:50%;background:var(--green-bright);box-shadow:0 0 0 4px rgba(34,163,95,.18)}
-  .stockband h2{margin:0;font-size:clamp(30px,3.8vw,48px);line-height:1.02}
-  .stockband h2 span{color:var(--red)}
-  .stockband .sub{font-size:16.5px;color:var(--ink-2);max-width:440px}
-  .sitem{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:10px 14px 10px 10px;margin-top:4px;transition:transform .15s,box-shadow .15s}
-  .sitem:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
-  .sitem img{width:96px;height:96px;border-radius:12px;object-fit:cover}
-  .sitem b{display:block;font-family:var(--display);font-size:16.5px;line-height:1.2;letter-spacing:-.02em}
-  .sitem .pr{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin-top:6px}
-  .sitem .pr strong{font-family:var(--display);font-size:21px;letter-spacing:-.02em}
-  .sitem .pr small{font-size:12.5px;color:var(--green);font-weight:600}
-  .sitem .left{display:inline-block;margin-top:6px;font-size:12px;font-weight:700;color:var(--red-dark);background:var(--red-soft);border-radius:999px;padding:2px 9px}
-  .stockband .btn{align-self:flex-start;margin-top:4px}
-  .stockband .pic{position:relative;min-height:380px;background:var(--ink)}
-  .stockband .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .stockband .ptag{position:absolute;left:18px;bottom:18px;background:rgba(255,255,255,.94);border-radius:14px;padding:10px 14px;font-size:13px;color:var(--ink-2);box-shadow:var(--shadow)}
-  .stockband .ptag b{display:block;font-family:var(--display);font-size:18px;color:var(--ink)}
-  @media (max-width:860px){.stockband{grid-template-columns:1fr}.stockband .pic{min-height:300px;order:-1}.stockband .txt{padding:26px 20px 24px}}
   /* Real order */
   .real{background:var(--bg-2)}
   /* more orders */
@@ -582,28 +559,6 @@
             </div>
   </section>
 
-
-  <!-- IN STOCK NOW -->
-  <section id="in-stock" class="stocknow" aria-label="Products we have readily available">
-    <div class="wrap">
-      <div class="stockband">
-        <div class="txt">
-          <span class="live"><i></i>In stock in Pakistan</span>
-          <h2>Products we have <span>readily available</span></h2>
-          <p class="sub">No waiting for China. These are already here: order today and we deliver to your home.</p>
-          <a class="sitem" href="/in-stock/">
-            <img src="/assets/orders/press-on-nails-flowers-640.jpg" alt="Press-on nails, black with flower print, in the box" width="96" height="96" loading="lazy">
-            <span><b>Press-on nails, black with flower print</b><span class="pr"><strong>Rs 2,000</strong><small>per set, delivered to your home</small></span><span class="left">Only 4 sets left</span></span>
-          </a>
-          <a class="btn btn-wa" href="/in-stock/">See what's in stock →</a>
-        </div>
-        <div class="pic">
-          <img src="/assets/in-stock/nails-flowers-on-hand-900.jpg" alt="Black press-on nails with multicolour flowers worn on a hand" width="894" height="900" loading="lazy">
-          <div class="ptag"><b>Rs 2,000 per set</b>Pay by NayaPay, delivered home</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- HOW IT WORKS -->
   <section id="how" class="how">
