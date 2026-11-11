@@ -81,6 +81,21 @@
   .mobile a:last-child{border:0}
   body.menu-open .mobile{display:block}
   @media (max-width:900px){.links,.nav .btn-wa{display:none}.burger{display:block}}
+  /* "In Stock" menu pill: gold, pulsing dot, small bounce every few seconds */
+  .links{align-items:center}
+  .stocklink{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--ink)!important;font-weight:700;padding:7px 13px;border-radius:999px;white-space:nowrap;box-shadow:0 8px 18px -8px rgba(245,197,66,.95);animation:stockbump 2.6s cubic-bezier(.3,.7,.3,1) infinite}
+  .stocklink:hover{background:#ffd75e}
+  .stocklink i{position:relative;flex:none;width:8px;height:8px;border-radius:50%;background:var(--red)}
+  .stocklink i::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--red);opacity:0;animation:stockping 1.6s ease-out infinite}
+  @keyframes stockbump{0%,62%,100%{transform:translateY(0) scale(1)}70%{transform:translateY(-5px) scale(1.07)}78%{transform:translateY(0) scale(1)}85%{transform:translateY(-2px)}92%{transform:translateY(0)}}
+  @keyframes stockping{0%{transform:scale(.5);opacity:.9}100%{transform:scale(1.6);opacity:0}}
+  .stocklink.mob{display:none}
+  @media (prefers-reduced-motion:reduce){.stocklink,.stocklink i::after{animation:none}}
+  @media (max-width:900px){.stocklink.mob{display:inline-flex;margin-left:auto;font-size:13px;padding:7px 11px}.nav{gap:10px}}
+  @media (max-width:430px){.nav{gap:6px;padding:0 6px 0 12px}.brand{font-size:14.5px;gap:7px}.brand .mark{width:30px;height:30px}.stocklink.mob{font-size:12.5px;padding:6px 9px;gap:6px}}
+  .mobile a.mstock{display:flex;align-items:center;gap:9px;font-weight:700}.mobile a.mstock i{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(200,16,46,.18)}
+  .mobile a.mstock b{margin-left:auto;font-size:12px;font-weight:700;background:var(--gold);border-radius:999px;padding:3px 9px}
+
 
   /* Hero: dark, editorial */
   .hero{position:relative;overflow:hidden;background:var(--bg);color:var(--ink);padding:150px 0 90px;min-height:92vh;display:flex;align-items:center}
@@ -475,18 +490,19 @@
       <a href="#how">How It Works</a>
       <a href="#fit">Who It's For</a>
       <a href="/products/">Products</a>
-      <a href="/in-stock/">In Stock</a>
+      <a href="/in-stock/" class="stocklink"><i></i>In Stock</a>
       <a href="#faq">FAQ</a>
       <a href="/blog/">Blog</a>
     </nav>
     <a class="btn btn-wa" href="#quote">Get a Quote</a>
+    <a href="/in-stock/" class="stocklink mob"><i></i>In Stock</a>
     <button class="burger" aria-label="Menu" aria-expanded="false" onclick="document.body.classList.toggle('menu-open');this.setAttribute('aria-expanded',document.body.classList.contains('menu-open'))"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile wrap">
     <a href="#how" onclick="document.body.classList.remove('menu-open')">How It Works</a>
     <a href="#fit" onclick="document.body.classList.remove('menu-open')">Who It's For</a>
     <a href="/products/">Products</a>
-    <a href="/in-stock/">In Stock</a>
+    <a href="/in-stock/" class="mstock"><i></i>In Stock <b>Rs 2,000 nails</b></a>
     <a href="#faq" onclick="document.body.classList.remove('menu-open')">FAQ</a>
     <a href="/blog/">Blog</a>
     <a href="#quote" onclick="document.body.classList.remove('menu-open')" style="color:var(--green);font-weight:700">Get a Quote →</a>

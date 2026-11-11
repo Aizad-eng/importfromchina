@@ -34,6 +34,17 @@ header{position:sticky;top:12px;z-index:50;padding:0}
 .links{display:flex;gap:24px;font-weight:500;font-size:14px;color:var(--ink-2)}.links a:hover,.links a.on{color:var(--ink)}
 .nav .btn{padding:10px 16px;font-size:14px}
 @media (max-width:820px){.links{display:none}}
+  /* "In Stock" menu pill: gold, pulsing dot, small bounce every few seconds */
+  .links{align-items:center}
+  .stocklink{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--ink)!important;font-weight:700;padding:7px 13px;border-radius:999px;white-space:nowrap;box-shadow:0 8px 18px -8px rgba(245,197,66,.95);animation:stockbump 2.6s cubic-bezier(.3,.7,.3,1) infinite}
+  .stocklink:hover{background:#ffd75e}
+  .stocklink i{position:relative;flex:none;width:8px;height:8px;border-radius:50%;background:var(--red)}
+  .stocklink i::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--red);opacity:0;animation:stockping 1.6s ease-out infinite}
+  @keyframes stockbump{0%,62%,100%{transform:translateY(0) scale(1)}70%{transform:translateY(-5px) scale(1.07)}78%{transform:translateY(0) scale(1)}85%{transform:translateY(-2px)}92%{transform:translateY(0)}}
+  @keyframes stockping{0%{transform:scale(.5);opacity:.9}100%{transform:scale(1.6);opacity:0}}
+  .stocklink.mob{display:none}
+  @media (prefers-reduced-motion:reduce){.stocklink,.stocklink i::after{animation:none}}
+
 .hero{padding:72px 0 28px}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
 .eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
@@ -114,7 +125,7 @@ form.order button[disabled]{opacity:.6;cursor:default}
 <body>
 <header><div class="wrap nav">
   <a href="/" class="brand"><img class="mark" src="/assets/logo-mark.svg?v=2" alt="" width="34" height="34"><span>import<em>from</em>china</span></a>
-  <nav class="links" aria-label="Primary"><a href="/#how">How It Works</a><a href="/products/">Products</a><a href="/in-stock/" class="on">In Stock</a><a href="/#faq">FAQ</a><a href="/blog/">Blog</a></nav>
+  <nav class="links" aria-label="Primary"><a href="/#how">How It Works</a><a href="/products/">Products</a><a href="/in-stock/" class="stocklink"><i></i>In Stock</a><a href="/#faq">FAQ</a><a href="/blog/">Blog</a></nav>
   <a class="btn btn-wa quote-link" href="/#quote">Get a Quote</a>
 </div></header>
 <main class="wrap">
