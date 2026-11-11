@@ -15,7 +15,7 @@ article(
 <thead><tr><th>Site</th><th>Ships to Pakistan?</th><th>Paying from Pakistan</th><th>Typical delivery</th><th>Returns from Pakistan</th><th>Best for</th></tr></thead>
 <tbody>
 <tr><td>Temu</td><td>Yes, Pakistan site with prices in Rs</td><td>JazzCash, Easypaisa, Visa, Mastercard and other cards, Apple Pay, Google Pay. No cash on delivery shown</td><td>Free standard shipping, 5 to 13 business days after 1 to 3 days of processing</td><td>Within 90 days of purchase, first return of an order free with door pickup</td><td>Cheap home, kitchen, gadget and lifestyle items</td></tr>
-<tr><td>Shein</td><td>Yes, through its global site</td><td>Payment page describes JazzCash and Easypaisa, plus cards</td><td>Standard shipping 7 to 12 business days. Small fee below a minimum order, free above it</td><td>Within 30 days of receipt on the policy we were shown, return postage at your cost</td><td>Clothing, shoes and fashion accessories</td></tr>
+<tr><td>Shein</td><td>Yes, through its global site</td><td>Payment page describes JazzCash and Easypaisa, plus cards</td><td>Standard shipping 7 to 11 business days. Small fee below a minimum order, free above it</td><td>Within 30 days of receipt on the policy we were shown, return postage at your cost</td><td>Clothing, shoes and fashion accessories</td></tr>
 <tr><td>AliExpress</td><td>Yes, for most listings</td><td>International Visa or Mastercard. JazzCash and Easypaisa not supported at checkout, per a July 2026 guide</td><td>Depends on the shipping method, commonly a few weeks</td><td>Buyer protection disputes. Sending an item back to China is rarely worth it</td><td>Widest catalogue, specific models, branded official stores, spare parts</td></tr>
 <tr><td>Alibaba.com</td><td>Yes, arranged by each supplier, usually by express courier for one piece</td><td>Cards, digital wallets and bank transfers through Trade Assurance</td><td>Fast by courier, but courier cost for one piece is high</td><td>Trade Assurance refund claims. Physical returns are impractical</td><td>Ready to Ship single pieces, samples, equipment</td></tr>
 <tr><td>Taobao</td><td>No direct delivery to Pakistan that we could find</td><td>Chinese methods such as Alipay</td><td>Through an agent only</td><td>Through the agent and seller</td><td>Huge variety, small brands, hobby items</td></tr>
@@ -31,7 +31,7 @@ article(
 <p>There is one thing to understand before you order something expensive. Temu's Pakistan terms say that, where applicable, you act as the importer, and any duties collected at checkout are estimates. If customs assesses more, the difference is yours. Our guide on <a href="/blog/does-temu-deliver-to-pakistan">whether Temu delivers to Pakistan</a> covers this in detail.</p>
 
 <h2>Does Shein deliver to Pakistan, and how do you pay?</h2>
-<p>Yes. Shein has no separate Pakistan site, but its global site lists Pakistan as a shipping country. When we checked its shipping page with Pakistan selected, standard shipping showed an estimated window of 7 to 12 business days. The page charged a small fee on orders below about US$14, roughly Rs 4,000 at the rate Shein listed, and showed free standard shipping above that. Shein also notes that processing can take 2 to 4 extra days at times.</p>
+<p>Yes. Shein has no separate Pakistan site, but its global site lists Pakistan as a shipping country. When we checked its shipping page with Pakistan selected, standard shipping showed an estimated window of 7 to 11 business days. The page charged a small fee on orders below about US$14, roughly Rs 4,000 at the rate Shein listed, and showed free standard shipping above that. Shein also notes that processing can take 2 to 4 extra days at times.</p>
 <p>Shein's How to Pay page has sections for JazzCash and Easypaisa, with steps to approve the payment request inside your wallet app, alongside credit and debit cards. That makes it one of only two big Chinese sites, with Temu, where a Pakistani wallet works directly.</p>
 <p>Returns are tighter than Temu's. The return policy we were served allows returns within 30 days of receipt for most items in new condition, but the only return method listed was a self-return, where you pay the return postage and Shein does not reimburse it. Swimwear, underwear, jewellery and beauty items are among the non-returnable categories. For faulty or damaged items, Shein asks you to contact customer service within 180 days of the order date.</p>
 
@@ -396,7 +396,7 @@ article(
 "Shein vs Temu in Pakistan: Which One Delivers, and How?",
 "Shein vs Temu for Pakistan: both deliver. Compare shipping time and cost, JazzCash and Easypaisa payment, returns, customs duty and which suits what.",
 8,
-"Both deliver to Pakistan. Temu runs a Pakistan site with rupee prices, free standard shipping in 5 to 13 business days after 1 to 3 days of processing, and 90-day returns with a free first return picked up from your door. Shein ships to Pakistan through its global site, with standard shipping of 7 to 12 business days, a small fee below a minimum order and free shipping above it. Both accept JazzCash and Easypaisa. We could not find cash on delivery for Pakistan on either.",
+"Both deliver to Pakistan. Temu runs a Pakistan site with rupee prices, free standard shipping in 5 to 13 business days after 1 to 3 days of processing, and 90-day returns with a free first return picked up from your door. Shein ships to Pakistan through its global site, with standard shipping of 7 to 11 business days, a small fee below a minimum order and free shipping above it. Both accept JazzCash and Easypaisa. We could not find cash on delivery for Pakistan on either.",
 """
 <h2>Do Shein and Temu both deliver to Pakistan?</h2>
 <p>Yes, when we checked in October 2026. Temu has a dedicated Pakistan site at temu.com/pk-en with prices in rupees, its own Pakistan shipping page, return policy and terms. Shein does not have a separate Pakistan site, but its global site lists Pakistan as a shipping country, offers rupees as a display currency and has Pakistan-specific terms for its on-time delivery service.</p>
@@ -408,7 +408,7 @@ article(
 <tbody>
 <tr><td>Pakistan site</td><td>No, global site with Pakistan as a shipping country</td><td>Yes, temu.com/pk-en</td></tr>
 <tr><td>Main range</td><td>Women's, men's and kids' clothing, shoes, accessories, plus home items</td><td>Everything: home, kitchen, gadgets, tools, clothing, beauty</td></tr>
-<tr><td>Standard shipping time</td><td>7 to 12 business days</td><td>5 to 13 business days after 1 to 3 days processing</td></tr>
+<tr><td>Standard shipping time</td><td>7 to 11 business days</td><td>5 to 13 business days after 1 to 3 days processing</td></tr>
 <tr><td>Shipping cost</td><td>Small fee below about US$14, free above it, when we checked</td><td>Free standard shipping on all orders</td></tr>
 <tr><td>JazzCash and Easypaisa</td><td>Yes, on Shein's How to Pay page</td><td>Yes, on the Pakistan site</td></tr>
 <tr><td>Cards</td><td>Credit and debit cards</td><td>Visa, Mastercard and others, plus Apple Pay and Google Pay</td></tr>
@@ -419,7 +419,7 @@ article(
 </table>
 
 <h2>How long does delivery take from Shein and Temu?</h2>
-<p>Close, on paper. Shein's shipping page, with Pakistan selected, showed standard shipping with an estimated window of 7 to 12 business days. Shein also says processing can be delayed by 2 to 4 days at times, and that pre-order or customised items take longer.</p>
+<p>Close, on paper. Shein's shipping page, with Pakistan selected, showed standard shipping with an estimated window of 7 to 11 business days. Shein also says processing can be delayed by 2 to 4 days at times, and that pre-order or customised items take longer.</p>
 <p>Temu's Pakistan shipping page lists 5 to 13 business days for standard shipping, after 1 to 3 days of processing. The final leg goes to a local carrier, so tracking may not update at every step.</p>
 <p>Both count business days, which skip weekends. In calendar terms, plan for roughly two to three weeks from either. Shein also runs a free On-Time Delivery Service that gives Shein points if your order misses its expected date, with separate terms for Pakistan. On both sites, if the parcel never arrives, contact customer service within 90 days: of the order date for Temu, and of the payment date for Shein.</p>
 
@@ -482,7 +482,7 @@ article(
 </ul>
 """,
 [
- ("Does Shein deliver to Pakistan in 2026?", "Yes. When we checked in October 2026, Shein's global site listed Pakistan as a shipping country with standard shipping of 7 to 12 business days."),
+ ("Does Shein deliver to Pakistan in 2026?", "Yes. When we checked in October 2026, Shein's global site listed Pakistan as a shipping country with standard shipping of 7 to 11 business days."),
  ("Is Shein or Temu cheaper to ship to Pakistan?", "Temu, for small orders, because its standard shipping to Pakistan is free on all orders. Shein charged a small fee below about US$14 and shipped free above that when we checked."),
  ("Can I pay Shein with JazzCash or Easypaisa?", "Yes. Shein's How to Pay page has sections for both. You select the wallet at checkout and approve the payment request in your wallet app."),
  ("Do Shein or Temu offer cash on delivery in Pakistan?", "We could not find cash on delivery for Pakistan on either when we checked. Both list JazzCash, Easypaisa and cards instead."),
