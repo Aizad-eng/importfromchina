@@ -18,6 +18,7 @@ export default {
     }
     if (url.pathname === "/api/subscribe" && request.method === "POST") return subscribe(request, env, ctx);
     if (url.pathname === "/api/unsubscribe") return unsubscribe(url, env);
+    if (url.pathname === "/api/order" && request.method === "POST") return order(request, env, ctx);
     if (url.pathname === "/admin" || url.pathname === "/admin/") return admin(request, env, url);
     return env.ASSETS.fetch(request);
   },
@@ -128,6 +129,46 @@ async function unsubscribe(url, env) {
   return page("You are unsubscribed. You won't get the weekly email any more.");
 }
 
+/* ---------- in-stock orders (from the /in-stock/ page) ---------- */
+// Items we already hold in Pakistan. The page posts the item id and the buyer's details; we save the order,
+// email the owner (secret ORDER_NOTIFY_EMAIL, via Brevo) and confirm with the buyer on WhatsApp by hand.
+const IN_STOCK = { "press-on-nails-black-flowers": { name: "Press-on nails, black with flower print", price: 2000 } };
+const ORDERS_TABLE = `CREATE TABLE IF NOT EXISTS orders (
+  id INTEGER PRIMARY KEY AUTOINCREMENT, ts INTEGER NOT NULL, item TEXT NOT NULL, price INTEGER NOT NULL,
+  name TEXT NOT NULL, phone TEXT NOT NULL, city TEXT NOT NULL, address TEXT NOT NULL, note TEXT,
+  country TEXT, device TEXT)`;
+async function order(request, env, ctx) {
+  const json = (o, status = 200) => new Response(JSON.stringify(o), { status, headers: { "content-type": "application/json", "cache-control": "no-store" } });
+  let b = null;
+  try { b = JSON.parse(await request.text()); } catch (e) {}
+  if (!b) return json({ ok: false, error: "Something went wrong. Please try again." }, 400);
+  if (b.hp) return json({ ok: true });   // honeypot filled in: a bot
+  const item = IN_STOCK[String(b.item || "")];
+  if (!item) return json({ ok: false, error: "This item is no longer listed." }, 400);
+  const clean = (v, n) => String(v || "").replace(/\s+/g, " ").trim().slice(0, n);
+  const name = clean(b.name, 80), city = clean(b.city, 60), address = clean(b.address, 300), note = clean(b.note, 300);
+  const phone = String(b.phone || "").replace(/[^\d+]/g, "").replace(/^(\+92|0092|92)/, "0");
+  if (!name) return json({ ok: false, error: "Please enter your name." }, 400);
+  if (!/^03\d{9}$/.test(phone)) return json({ ok: false, error: "Please enter a WhatsApp number like 03xx xxxxxxx." }, 400);
+  if (!city) return json({ ok: false, error: "Please enter your city." }, 400);
+  if (address.length < 8) return json({ ok: false, error: "Please enter your full delivery address." }, 400);
+  const ua = request.headers.get("user-agent") || "", cf = request.cf || {};
+  const device = /iPad|Tablet/i.test(ua) ? "Tablet" : /Mobi|Android|iPhone/i.test(ua) ? "Mobile" : "Desktop";
+  await env.DB.prepare(ORDERS_TABLE).run();
+  await env.DB.prepare("INSERT INTO orders (ts, item, price, name, phone, city, address, note, country, device) VALUES (?,?,?,?,?,?,?,?,?,?)")
+    .bind(Date.now(), item.name, item.price, name, phone, city, address, note || null, cf.country || null, device).run();
+  if (env.BREVO_API_KEY && env.ORDER_NOTIFY_EMAIL) {
+    const rows = [["Item", item.name], ["Price", "Rs " + item.price.toLocaleString("en-US") + " delivered"], ["Name", name], ["WhatsApp", phone], ["City", city], ["Address", address], ["Note", note || "-"]];
+    ctx.waitUntil(brevo(env, "POST", "/smtp/email", {
+      sender: { name: "importfromchina.shop orders", email: "hello@importfromchina.shop" },
+      to: [{ email: env.ORDER_NOTIFY_EMAIL }],
+      subject: `New order: ${item.name} (${city})`,
+      htmlContent: `<p>New in-stock order on importfromchina.shop:</p><table>${rows.map(([k, v]) => `<tr><td style="padding:4px 12px 4px 0;color:#6d707a">${k}</td><td style="padding:4px 0"><b>${esc(v)}</b></td></tr>`).join("")}</table><p>WhatsApp them to confirm: <a href="https://wa.me/92${phone.slice(1)}">wa.me/92${phone.slice(1)}</a></p>`,
+    }).catch((e) => console.log("order email failed", e && e.message)));
+  }
+  return json({ ok: true });
+}
+
 /* ---------- admin panel ---------- */
 // Login: open /admin?key=YOUR_KEY once. That sets a year-long cookie on this browser,
 // so after that plain /admin just works. No key and no cookie = page looks like it doesn't exist.
@@ -160,6 +201,8 @@ async function admin(request, env, url) {
       [new Date(r.ts + 5 * 3600e3).toISOString().slice(0, 16).replace("T", " "), r.email, r.path, r.country, r.city, r.device].map(cell).join(","))).join("\n");
     return new Response(csv, { headers: { "content-type": "text/csv; charset=utf-8", "content-disposition": 'attachment; filename="newsletter-subscribers.csv"', "cache-control": "no-store" } });
   }
+  await env.DB.prepare(ORDERS_TABLE).run();
+  const orders = await env.DB.prepare("SELECT ts, item, price, name, phone, city, address, note FROM orders ORDER BY ts DESC LIMIT 50").all().then((r) => r.results);
   const subsTotal = (await env.DB.prepare("SELECT COUNT(*) n FROM subscribers").first())?.n || 0;
   const subs = await env.DB.prepare("SELECT ts, email, path, country, city FROM subscribers ORDER BY ts DESC LIMIT 50").all().then((r) => r.results);
   const days = Math.min(Math.max(parseInt(url.searchParams.get("days") || "7", 10) || 7, 1), 90);
@@ -225,6 +268,8 @@ tr:last-child td{border-bottom:0}.muted{color:var(--ink3)}
   <div class="kpi"><b>${tot?.qc || 0}</b><span>Clicked "Get a price"</span></div>
 </div>
 <div class="grid">
+  <div class="card full"><h2>In-stock orders <span class="muted" style="font-weight:500">(${orders.length})</span></h2>${table(["Ordered (PKT)", "Item", "Name", "WhatsApp", "City", "Address", "Note"],
+    orders.map((r) => `<tr><td>${time(r.ts)}</td><td>${esc(r.item)}</td><td><b>${esc(r.name)}</b></td><td><a href="https://wa.me/92${esc(r.phone.slice(1))}" style="color:var(--green);font-weight:600">${esc(r.phone)}</a></td><td>${esc(r.city)}</td><td style="white-space:normal;min-width:220px">${esc(r.address)}</td><td style="white-space:normal">${esc(r.note || "")}</td></tr>`))}</div>
   <div class="card full"><h2>Visitors per day</h2><div class="bars-wrap"><div class="bars">${daily.map((d) => `<div style="height:${Math.round((d.v / maxDay) * 100)}%" title="${d.day}: ${d.v} visitors, ${d.qc} quote clicks"><i>${d.day.slice(8)}</i></div>`).join("") || '<span class="muted">No data yet</span>'}</div></div></div>
   <div class="card"><h2>Where visitors came from</h2>${table(["Source", '<span class="num">Visitors</span>', '<span class="num">Got a price</span>'],
     sources.map((r) => `<tr><td><span class="src ${esc(r.source)}">${esc(r.source)}</span></td><td class="num">${r.v}</td><td class="num">${qmap[r.source] || 0}</td></tr>`))}</div>
