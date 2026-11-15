@@ -12,7 +12,7 @@ Key facts:
 ## Main pages
 - [Home](https://importfromchina.shop/): how the service works, who it is for, FAQ
 - [Products](https://importfromchina.shop/products/): specific items that are hard to find in Pakistan
-- [Product ideas](https://importfromchina.shop/product-ideas/): fun keychains and vintage toy cars you can ask us to import, with approximate product prices in rupees (shipping extra)
+- [Product ideas](https://importfromchina.shop/product-ideas/): keychains, vintage toy cars, desk gadgets, kitchen mugs, phone gimmicks and cute stationery you can ask us to import, with approximate product prices in rupees (shipping extra)
 - [Guides](https://importfromchina.shop/blog/): all guides
 - [Rough duty estimator](https://importfromchina.shop/calculators/landed-cost/): a rough guess of duty and taxes on one item; customs in Pakistan decides the final amount
 - [Volumetric weight calculator](https://importfromchina.shop/calculators/volumetric-weight/): chargeable weight for a parcel
