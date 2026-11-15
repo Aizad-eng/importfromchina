@@ -71,7 +71,7 @@
   .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:-.02em}
   .brand .mark{width:34px;height:34px;flex:none;display:block}
   .brand span em{font-style:normal;color:var(--green)}
-  .links{display:flex;gap:26px;font-weight:500;font-size:14px;color:var(--ink-2)}
+  .links{display:flex;gap:18px;font-weight:500;font-size:14px;color:var(--ink-2)}
   .links a:hover{color:var(--ink)}
   .nav .btn{padding:11px 18px;font-size:14px}
   .burger{display:none;background:none;border:0;padding:8px;cursor:pointer}
@@ -80,7 +80,7 @@
   .mobile a{display:block;padding:14px 0;border-bottom:1px solid var(--line);font-weight:500}
   .mobile a:last-child{border:0}
   body.menu-open .mobile{display:block}
-  @media (max-width:900px){.links,.nav .btn-wa{display:none}.burger{display:block}}
+  @media (max-width:1100px){.links,.nav .btn-wa{display:none}.burger{display:block}}
   /* "In Stock" menu pill: gold, pulsing dot, small bounce every few seconds */
   .links{align-items:center}
   .stocklink{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--ink)!important;font-weight:700;padding:7px 13px;border-radius:999px;white-space:nowrap;box-shadow:0 8px 18px -8px rgba(245,197,66,.95);animation:stockbump 2.6s cubic-bezier(.3,.7,.3,1) infinite}
@@ -90,11 +90,15 @@
   @keyframes stockbump{0%,62%,100%{transform:translateY(0) scale(1)}70%{transform:translateY(-5px) scale(1.07)}78%{transform:translateY(0) scale(1)}85%{transform:translateY(-2px)}92%{transform:translateY(0)}}
   @keyframes stockping{0%{transform:scale(.5);opacity:.9}100%{transform:scale(1.6);opacity:0}}
   .stocklink.mob{display:none}
+  .idealink{display:inline-flex;align-items:center;background:var(--red-soft);color:var(--red)!important;font-weight:700;padding:7px 13px;border-radius:999px;white-space:nowrap}
+  .idealink:hover{background:#f6d5db}
   @media (prefers-reduced-motion:reduce){.stocklink,.stocklink i::after{animation:none}}
-  @media (max-width:900px){.stocklink.mob{display:inline-flex;margin-left:auto;font-size:13px;padding:7px 11px}.nav{gap:10px}}
+  @media (max-width:1100px){.stocklink.mob{display:inline-flex;margin-left:auto;font-size:13px;padding:7px 11px}.nav{gap:10px}}
   @media (max-width:430px){.nav{gap:6px;padding:0 6px 0 12px}.brand{font-size:14.5px;gap:7px}.brand .mark{width:30px;height:30px}.stocklink.mob{font-size:12.5px;padding:6px 9px;gap:6px}}
   .mobile a.mstock{display:flex;align-items:center;gap:9px;font-weight:700}.mobile a.mstock i{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(200,16,46,.18)}
   .mobile a.mstock b{margin-left:auto;font-size:12px;font-weight:700;background:var(--gold);border-radius:999px;padding:3px 9px}
+  .mobile a.midea{display:flex;align-items:center;gap:9px;font-weight:700;color:var(--red)}
+  .mobile a.midea b{margin-left:auto;font-size:12px;font-weight:700;background:var(--red-soft);color:var(--red);border-radius:999px;padding:3px 9px}
 
 
   /* Hero: dark, editorial */
@@ -231,7 +235,18 @@
   .formcard .nb{display:inline-flex;align-items:center;gap:8px;background:var(--red-soft);color:var(--red);font-weight:700;font-size:13px;border-radius:999px;padding:6px 12px 6px 8px;margin-bottom:12px}
   .formcard .nb i{font-style:normal;width:18px;height:18px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:11px}
   .formcard iframe{width:100%;border:0;min-height:900px;display:block}
-  @media (max-width:900px){.quote .grid{grid-template-columns:1fr;gap:28px}.quote .side{position:static}.formcard{padding:20px 14px 4px}}
+  .idea{background:var(--gold-soft);border:1px solid rgba(176,128,0,.35);border-radius:16px;padding:14px 14px 12px;margin:0 0 14px}
+  .idea[hidden]{display:none}
+  .idea-k{font:700 11px Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#8a6a00}
+  .idea-t{font:700 18px/1.25 Sora,Inter,sans-serif;margin-top:4px;letter-spacing:-.02em}
+  .idea-s{font-size:13.5px;color:var(--ink-2);margin-top:6px;line-height:1.45}
+  .idea-lab{display:block;margin-top:10px;font-size:13px;font-weight:600;color:var(--ink-2)}
+  .idea-row{display:flex;gap:8px;margin-top:6px}
+  .idea-row input{flex:1;min-width:0;border:1.5px solid var(--line);border-radius:999px;padding:10px 14px;font:500 13px Inter,system-ui,sans-serif;color:var(--ink);background:#fff}
+  .idea-row button{border:0;border-radius:999px;background:var(--ink);color:#fff;font:600 13px Inter,sans-serif;padding:10px 14px;cursor:pointer;flex:none}
+  .idea .btn{margin-top:10px;width:100%}
+  @media (max-width:900px){.quote .grid{grid-template-columns:1fr;gap:28px}.quote .side{position:static}.formcard{padding:20px 14px 4px}.quote.idea-open .formcard{order:-1}}
+  #idea{scroll-margin-top:96px}
 
   /* For / not for */
   .fit .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
@@ -467,6 +482,7 @@
       <a href="#how">How It Works</a>
       <a href="#fit">Who It's For</a>
       <a href="/products/">Products</a>
+      <a href="/product-ideas/" class="idealink">Product ideas</a>
       <a href="/in-stock/" class="stocklink"><i></i>In Stock</a>
       <a href="#faq">FAQ</a>
       <a href="/blog/">Blog</a>
@@ -479,6 +495,7 @@
     <a href="#how" onclick="document.body.classList.remove('menu-open')">How It Works</a>
     <a href="#fit" onclick="document.body.classList.remove('menu-open')">Who It's For</a>
     <a href="/products/">Products</a>
+    <a href="/product-ideas/" class="midea">Product ideas <b>Keychains &amp; toys</b></a>
     <a href="/in-stock/" class="mstock"><i></i>In Stock <b>Rs 2,000 nails</b></a>
     <a href="#faq" onclick="document.body.classList.remove('menu-open')">FAQ</a>
     <a href="/blog/">Blog</a>
@@ -613,6 +630,15 @@
                   </div>
         <div class="formcard reveal">
           <span class="nb"><i>✕</i>One item per request. No bulk.</span>
+          <div class="idea" id="idea" hidden>
+            <p class="idea-k">From product ideas</p>
+            <p class="idea-t" id="idea-name"></p>
+            <p class="idea-s" id="idea-s"></p>
+            <label class="idea-lab" for="idea-url">Product link. Paste this into the form.
+              <span class="idea-row"><input id="idea-url" readonly><button type="button" id="idea-copy">Copy</button></span>
+            </label>
+            <a class="btn btn-wa" id="idea-wa" target="_blank" rel="noopener" href="https://wa.me/923000258981">Send this link on WhatsApp</a>
+          </div>
           <iframe data-tally-src="https://tally.so/embed/Zjq7B5?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" title="Get a price for one item"></iframe>
         </div>
       </div>
@@ -659,7 +685,7 @@
       <div class="head reveal">
         <span class="eyebrow">04 · What We Get</span>
         <h2>If it's on a Chinese website, we can probably bring it</h2>
-        <p class="sub">These are the things people ask us for most. If yours isn't here, send the link anyway. Or browse <a href="/products/" style="color:var(--green);font-weight:600;text-decoration:underline;text-underline-offset:3px">specific hard-to-find products</a>.</p>
+        <p class="sub">These are the things people ask us for most. If yours isn't here, send the link anyway. Or browse <a href="/products/" style="color:var(--green);font-weight:600;text-decoration:underline;text-underline-offset:3px">specific hard-to-find products</a>, or <a href="/product-ideas/" style="color:var(--green);font-weight:600;text-decoration:underline;text-underline-offset:3px">product ideas you can import</a>.</p>
       </div>
       <div class="grid3">
         <div class="cat reveal tilt"><div class="ic"><svg aria-hidden="true"><use href="#i-shirt"/></svg></div><div><h3>Jewellery, bags &amp; watches</h3><p>Moissanite and freshwater pearl jewellery, mulberry silk, automatic watches, and handbags from original Chinese brands.</p></div></div>
@@ -835,6 +861,7 @@
         <a href="#how">How It Works</a>
         <a href="#fit">Who It's For</a>
         <a href="/products/">Products</a>
+        <a href="/product-ideas/">Product ideas</a>
         <a href="#faq">FAQ</a>
         <a href="/blog/">Blog</a>
         <a href="#contact">Contact</a>
@@ -930,6 +957,34 @@
       renderer.render(scene, cam);
     })(last);
   }
+</script>
+<script>
+(function () {
+  var IDEAS = {"plush-croissant-keychain":{"name":"Plush Croissant Keychain","url":"https://www.aliexpress.com/item/1005012792447476.html","price":"Rs 305"},"handmade-pudding-keychain":{"name":"Handmade Pudding Cup Keychain","url":"https://www.aliexpress.com/item/1005009353325842.html","price":"Rs 473"},"led-croaking-frog-keychain":{"name":"LED Croaking Frog Keychain","url":"https://www.aliexpress.com/item/1005010275722693.html","price":"Rs 1,173"},"retro-camera-keychain":{"name":"Retro Camera Light & Sound Keychain","url":"https://www.aliexpress.com/item/1005008124375960.html","price":"Rs 305"},"plush-dumpling-keychain":{"name":"Kawaii Plush Dumpling Keychain","url":"https://www.aliexpress.com/item/1005011991650632.html","price":"Rs 305"},"vw-beetle-pullback-1-32":{"name":"Classic VW Beetle Pull-Back (1:32)","url":"https://www.aliexpress.com/item/1005007537280005.html","price":"Rs 305"},"welly-mini-cooper-1300-1-24":{"name":"Welly Mini Cooper 1300 (1:24)","url":"https://www.aliexpress.com/item/1005009910553574.html","price":"Rs 4,718"},"mercedes-300sl-pullback-1-32":{"name":"Classic Mercedes 300SL Pull-Back (1:32)","url":"https://www.aliexpress.com/item/1005007622808162.html","price":"Rs 1,901"},"vw-t1-samba-bus-1-36":{"name":"VW T1 Samba Bus Pull-Back (1:36)","url":"https://www.aliexpress.com/item/1005003670403882.html","price":"Rs 865"},"shelby-cobra-427-1965-1-24":{"name":"1965 Shelby Cobra 427 (1:24)","url":"https://www.aliexpress.com/item/1005009769310627.html","price":"Rs 3,105"}};
+  var idea = IDEAS[new URLSearchParams(location.search).get("idea")];
+  var box = document.getElementById("idea");
+  if (!idea || !box) return;
+  document.getElementById("idea-name").textContent = idea.name;
+  document.getElementById("idea-s").textContent = "Approx. product price " + idea.price + ", shipping extra. Paste this product link into the form, or send it on WhatsApp.";
+  var input = document.getElementById("idea-url");
+  input.value = idea.url;
+  box.hidden = false;
+  var quote = document.getElementById("quote");
+  if (quote) quote.classList.add("idea-open");
+  var show = function () {
+    var y = box.getBoundingClientRect().top + window.scrollY - 96;
+    window.scrollTo(0, Math.max(0, y));
+  };
+  show();
+  setTimeout(show, 400);
+  document.getElementById("idea-wa").href = "https://wa.me/923000258981?text=" + encodeURIComponent("Hi, please price this product idea:\n\n" + idea.name + "\nApprox. product price: " + idea.price + " (shipping extra)\n" + idea.url);
+  document.getElementById("idea-copy").addEventListener("click", function () {
+    var btn = this;
+    var done = function () { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy"; }, 1600); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(idea.url).then(done, function () { input.focus(); input.select(); done(); });
+    else { input.focus(); input.select(); done(); }
+  });
+})();
 </script>
 <script>(function(){var doc=document,src="https://tally.so/widgets/embed.js",load=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():doc.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc})};if("undefined"!=typeof Tally)load();else if(doc.querySelector('script[src="'+src+'"]')==null){var sc=doc.createElement("script");sc.src=src;sc.onload=load;sc.onerror=load;doc.body.appendChild(sc)}})();</script>
 <script>
