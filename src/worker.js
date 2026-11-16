@@ -228,10 +228,45 @@ async function admin(request, env, url) {
   const daily = await q("SELECT day, COUNT(DISTINCT visitor) v, SUM(event='quote') qc FROM hits WHERE day >= ? GROUP BY day ORDER BY day");
   const recent = await env.DB.prepare("SELECT ts, event, path, source, country, city, device FROM hits ORDER BY ts DESC LIMIT 40").all().then((r) => r.results);
 
-  const maxDay = Math.max(1, ...daily.map((d) => d.v));
   const time = (ms) => new Date(ms + 5 * 3600e3).toISOString().slice(5, 16).replace("T", " ");
   const table = (head, rows) => `<table><thead><tr>${head.map((h) => h.includes('class="num"') ? `<th class="num">${h.replace(/<\/?span[^>]*>/g, "")}</th>` : `<th>${h}</th>`).join("")}</tr></thead><tbody>${rows.length ? rows.join("") : `<tr><td colspan="${head.length}" class="muted">No data yet</td></tr>`}</tbody></table>`;
   const tabs = [1, 7, 30, 90].map((d) => `<a href="?days=${d}" class="${d === days ? "on" : ""}">${d === 1 ? "Today" : d + " days"}</a>`).join("");
+
+  // Historical visitors graph: a continuous day-by-day series (zero days filled in) drawn as an SVG line/area chart.
+  const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const dmap = Object.fromEntries(daily.map((d) => [d.day, d]));
+  const series = [];
+  for (let i = days - 1; i >= 0; i--) {
+    const dy = pkDay(Date.now() - i * 864e5);
+    const r = dmap[dy];
+    series.push({ day: dy, v: r?.v || 0, qc: Number(r?.qc) || 0 });
+  }
+  const lbl = (dy) => `${+dy.slice(8)} ${MON[+dy.slice(5, 7) - 1]}`;
+  const niceMax = (m) => {
+    if (m <= 5) return Math.max(1, m);
+    const p = Math.pow(10, Math.floor(Math.log10(m)));
+    for (const s of [1, 2, 2.5, 5, 10]) if (s * p >= m) return s * p;
+    return 10 * p;
+  };
+  const yMax = niceMax(Math.max(1, ...series.map((d) => d.v)));
+  const W = 720, H = 220, L = 34, RP = 12, TP = 12, BP = 28, pw = W - L - RP, ph = H - TP - BP, n = series.length;
+  const X = (i) => (n === 1 ? L + pw / 2 : L + (i / (n - 1)) * pw);
+  const Y = (val) => TP + ph - (val / yMax) * ph;
+  const poly = (pts) => pts.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ");
+  const vPts = series.map((d, i) => [X(i), Y(d.v)]);
+  const qPts = series.map((d, i) => [X(i), Y(d.qc)]);
+  const hasQ = series.some((d) => d.qc > 0);
+  const yticks = [0, yMax / 2, yMax].map((t) => `<line class="g" x1="${L}" x2="${W - RP}" y1="${Y(t).toFixed(1)}" y2="${Y(t).toFixed(1)}"/><text class="yl" x="${L - 6}" y="${(Y(t) + 3).toFixed(1)}">${t % 1 ? t.toFixed(1) : t}</text>`).join("");
+  const step = Math.max(1, Math.ceil(n / 8));
+  const xlabs = series.map((d, i) => (i % step === 0 || i === n - 1) ? `<text class="xl" x="${X(i).toFixed(1)}" y="${H - 9}">${lbl(d.day)}</text>` : "").join("");
+  const marks = n <= 31 ? vPts.map((p) => `<circle class="dot" cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="2.6"/>`).join("") : "";
+  const colW = n > 1 ? pw / (n - 1) : pw;
+  const hovers = series.map((d, i) => {
+    const cx = X(i), x = Math.max(L, cx - colW / 2), w = Math.min(W - RP, cx + colW / 2) - x;
+    return `<rect class="hov" x="${x.toFixed(1)}" y="${TP}" width="${w.toFixed(1)}" height="${ph}" fill="transparent"><title>${lbl(d.day)}: ${d.v} visitor${d.v === 1 ? "" : "s"}${d.qc ? `, ${d.qc} price click${d.qc === 1 ? "" : "s"}` : ""}</title></rect>`;
+  }).join("");
+  const totalV = series.reduce((a, d) => a + d.v, 0);
+  const chart = `<svg viewBox="0 0 ${W} ${H}" class="chart" role="img" aria-label="Visitors per day over the last ${days} day${days === 1 ? "" : "s"}">${yticks}<path class="area" d="${poly(vPts)} L ${X(n - 1).toFixed(1)} ${Y(0).toFixed(1)} L ${X(0).toFixed(1)} ${Y(0).toFixed(1)} Z"/><path class="vl" d="${poly(vPts)}"/>${hasQ ? `<path class="ql" d="${poly(qPts)}"/>` : ""}${marks}${xlabs}${hovers}</svg>`;
 
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><title>Visitors | importfromchina admin</title>
@@ -254,10 +289,18 @@ th{color:var(--ink3);font-weight:600;font-size:12px}td.num,th.num{text-align:rig
 tr:last-child td{border-bottom:0}.muted{color:var(--ink3)}
 .src{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--greenSoft);color:var(--green);font-size:12px;font-weight:600}
 .src.Direct{background:#f1eee6;color:var(--ink2)}
-.bars{display:flex;align-items:flex-end;gap:4px;height:120px;padding-top:8px}
-.bars div{flex:1;background:var(--green);border-radius:4px 4px 0 0;min-height:2px;position:relative}
-.bars div i{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-style:normal;font-size:10px;color:var(--ink3)}
-.bars-wrap{padding-bottom:22px}
+.chart{width:100%;height:auto;display:block;margin-top:4px;overflow:visible}
+.chart .g{stroke:var(--line);stroke-width:1}
+.chart .yl{fill:var(--ink3);font-size:10px;text-anchor:end}
+.chart .xl{fill:var(--ink3);font-size:10px;text-anchor:middle}
+.chart .area{fill:var(--greenSoft);stroke:none}
+.chart .vl{fill:none;stroke:var(--green);stroke-width:1.75;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+.chart .ql{fill:none;stroke:var(--red);stroke-width:1.5;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-dasharray:3 3}
+.chart .dot{fill:#fff;stroke:var(--green);stroke-width:1.5;vector-effect:non-scaling-stroke}
+.chart rect.hov:hover{fill:rgba(15,107,58,.06)}
+.legend{display:flex;align-items:center;gap:16px;margin-top:10px;font-size:13px;color:var(--ink2);flex-wrap:wrap}
+.legend .sw{display:inline-block;width:14px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.legend .sw.v{background:var(--green)}.legend .sw.q{background:var(--red)}
 .path{max-width:340px;overflow:hidden;text-overflow:ellipsis;display:inline-block;vertical-align:bottom}
 @media(max-width:760px){.grid{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr 1fr}.kpi b{font-size:22px}.tabs a{margin:4px 4px 0 0}}
 </style></head><body><div class="wrap">
@@ -270,7 +313,8 @@ tr:last-child td{border-bottom:0}.muted{color:var(--ink3)}
 <div class="grid">
   <div class="card full"><h2>In-stock orders <span class="muted" style="font-weight:500">(${orders.length})</span></h2>${table(["Ordered (PKT)", "Item", "Name", "WhatsApp", "City", "Address", "Note"],
     orders.map((r) => `<tr><td>${time(r.ts)}</td><td>${esc(r.item)}</td><td><b>${esc(r.name)}</b></td><td><a href="https://wa.me/92${esc(r.phone.slice(1))}" style="color:var(--green);font-weight:600">${esc(r.phone)}</a></td><td>${esc(r.city)}</td><td style="white-space:normal;min-width:220px">${esc(r.address)}</td><td style="white-space:normal">${esc(r.note || "")}</td></tr>`))}</div>
-  <div class="card full"><h2>Visitors per day</h2><div class="bars-wrap"><div class="bars">${daily.map((d) => `<div style="height:${Math.round((d.v / maxDay) * 100)}%" title="${d.day}: ${d.v} visitors, ${d.qc} quote clicks"><i>${d.day.slice(8)}</i></div>`).join("") || '<span class="muted">No data yet</span>'}</div></div></div>
+  <div class="card full"><h2>Visitors per day</h2>${chart}
+    <div class="legend"><span class="lg"><i class="sw v"></i>Visitors</span>${hasQ ? '<span class="lg"><i class="sw q"></i>Clicked &quot;Get a price&quot;</span>' : ""}<span class="muted" style="margin-left:auto">${totalV ? `${totalV} visitor${totalV === 1 ? "" : "s"} in ${days === 1 ? "today" : "the last " + days + " days"}` : "No visitors recorded in this window yet"}</span></div></div>
   <div class="card"><h2>Where visitors came from</h2>${table(["Source", '<span class="num">Visitors</span>', '<span class="num">Got a price</span>'],
     sources.map((r) => `<tr><td><span class="src ${esc(r.source)}">${esc(r.source)}</span></td><td class="num">${r.v}</td><td class="num">${qmap[r.source] || 0}</td></tr>`))}</div>
   <div class="card full"><h2>Influencers and campaigns</h2>${table(["Link name", "Source", '<span class="num">Visitors</span>', '<span class="num">Got a price</span>'],
